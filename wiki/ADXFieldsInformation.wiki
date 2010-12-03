@@ -1,0 +1,72 @@
+#summary Accudemia Data Exchange fields information.
+#labels Phase-Design
+
+= Introduction =
+
+Accudemia Data Exchange (ADX) internal database uses the following columns. This information should not care users as the fields are long enough for most users, however if you are developing for ADX it might be helpful:
+
+
+*Center*
+ * Name - text (length: 255)
+*Subject Area*
+ * Name - text (length: 255)
+ * Code Prefix - text (length: 15)
+ * Code - text (length: 15)
+ * Description - text (length: 10000)
+*User Group*
+ * Name - text (length: 255)
+*Student*
+ * First Name - text (length: 255)
+ * Middle Name - text (length: 255)
+ * Last Name - text (length: 255)
+ * User ID - text (length: 30)
+ * Password - text (length: 512)
+ * Email - text (length: 255)
+ * Phone Number - text (length: 255)
+ * Address - text (length: 255)
+ * City - text (length: 255)
+ * State - text (length: 255)
+ * Zip Code - text (length: 255)
+ * Comments - text (length: 10000)
+ * Active - boolean
+*Tutor*
+ * First Name - text (length: 255)
+ * Middle Name - text (length: 255)
+ * Last Name - text (length: 255)
+ * User ID - text (length: 30)
+ * Password - text (length: 512)
+ * Email - text (length: 255)
+ * Phone Number - text (length: 255)
+ * Address - text (length: 255)
+ * City - text (length: 255)
+ * State - text (length: 255)
+ * Zip Code - text (length: 255)
+ * Comments - text (length: 255)
+ * Active - boolean
+*Term*
+ * Name - text (length: 50)
+ * Start Date - date/time
+ * End Date - date/time
+*Class*
+ * Reg. Number - text (length: 30)
+ * Short Name - text (length: 100)
+ * Postfix - text (length: 15)
+ * Other - text (length: 20)
+ * Comments - text (length: 200)
+ * Cut-off - number
+ * Tardy - number
+ * Active - boolean
+*Instructor*
+ * First Name - text (length: 255)
+ * Middle Name - text (length: 255)
+ * Last Name - text (length: 255)
+ * User ID - text (length: 30)
+ * Password - text (length: 512)
+ * Email - text (length: 255)
+ * Phone Number - text (length: 255)
+ * Address - text (length: 255)
+ * City - text (length: 255)
+ * State - text (length: 255)
+ * Zip Code - text (length: 255)
+ * Comments - text (length: 255)
+ * Active - boolean
