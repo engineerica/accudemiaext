@@ -9,33 +9,46 @@ namespace ExamplePlugin
 	[Serializable]
 	public class MockDataSource : IDataSource
 	{
-		private IConfigView configView = new SampleConfigView();
+		[NonSerialized] 
+		private IList<IConfigView> views;
+
+		private IList<IConfigView> Views
+		{
+			get
+			{
+				if (views == null || views.Count == 0)
+				{
+					views = new List<IConfigView>(1) { new SampleConfigView() };
+				}
+				return views;
+			}
+		}
 
 		public IEnumerable<IAccudemiaEntity> GetEntities()
 		{
 			// This example shows how to create a sample group and add 2 students to it.
 			// You can play with other entities located in the AccudemiaDataX.Core.Model namespace.
 
-			var group = new PersonsGroup() {Name = "At risk students"};
-			var s1 = new Student()
-			{
-				FirstName = "John",
-				MiddleName = "",
-				LastName = "Williams",
-				PersonNumber = "123-12-1233",
-				Active = true
-			};
-			var s2 = new Student()
-			{
-				FirstName = "John",
-				MiddleName = "",
-				LastName = "Williams",
-				PersonNumber = "123-12-1233",
-				Active = true
-			};
+			var group = new PersonsGroup {Name = "At risk students"};
+			var s1 = new Student
+			         	{
+			         		FirstName = "John",
+			         		MiddleName = "",
+			         		LastName = "Williams",
+			         		PersonNumber = "123123123",
+			         		Active = true
+			         	};
+			var s2 = new Student
+			         	{
+			         		FirstName = "Albert",
+			         		MiddleName = "",
+			         		LastName = "Johansen",
+			         		PersonNumber = "456456456",
+			         		Active = true
+			         	};
 
 			var member1 = new PersonsGroupMember(s1, group);
-			var member2 = new PersonsGroupMember(s1, group);
+			var member2 = new PersonsGroupMember(s2, group);
 
 			// Entities MUST be returned in a logical order to avoid foreign-key constrains errors.
 			// The same entity can be returned multiple times because the engine will remove duplicates.
@@ -48,7 +61,7 @@ namespace ExamplePlugin
 
 		public IList<IConfigView> GetConfigViews()
 		{
-			return new List<IConfigView> {configView};
+			return Views;
 		}
 
 		public bool IsConfigViewValid(IConfigView viewToValidate)
@@ -88,6 +101,11 @@ namespace ExamplePlugin
 		public string Description
 		{
 			get { return "Reads the information from..."; }
+		}
+
+		public override string ToString()
+		{
+			return Name;
 		}
 	}
 }
