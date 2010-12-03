@@ -8,8 +8,10 @@
 	{
 		public override void Load()
 		{
-			MessageBox.Show("Loading plugin...");
-			Bind<IDataSource>().To<XmlDataSource>();
+			MessageBox.Show("Hi, I'm loading the plugins...");
+
+			// Add here all the data sources you want.
+			Bind<IDataSource>().To<MockDataSource>();
 		}
 	}
 }
