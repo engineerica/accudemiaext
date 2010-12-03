@@ -1,0 +1,344 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>uNhAddIns.Adapters</name>
+    </assembly>
+    <members>
+        <member name="T:uNhAddIns.Adapters.PersistenceConversationAttribute">
+            <summary>
+            Attribute to mark a method as involved in a persistence conversation
+            </summary>
+        </member>
+        <member name="T:uNhAddIns.Adapters.IPersistenceConversationInfo">
+            <summary>
+            Conversation method meta-data.
+            </summary>
+        </member>
+        <member name="P:uNhAddIns.Adapters.IPersistenceConversationInfo.ConversationEndMode">
+            <summary>
+            The action to take after finishing this part of the conversation.
+            </summary>
+            <remarks>
+            Default <see cref="P:uNhAddIns.Adapters.PersistenceConversationalAttribute.DefaultEndMode"/>
+            </remarks>
+        </member>
+        <member name="P:uNhAddIns.Adapters.IPersistenceConversationInfo.Exclude">
+            <summary>
+             <see langword="true"/> if you want to explicitly exclude a method from a persistence-conversation.
+            </summary>
+             <remarks>
+             Default <see langword="false"/>.
+             </remarks>
+        </member>
+        <member name="P:uNhAddIns.Adapters.PersistenceConversationAttribute.ConversationEndMode">
+            <summary>
+            The action to take after finishing this part of the conversation.
+            </summary>
+            <remarks>
+            Default <see cref="P:uNhAddIns.Adapters.PersistenceConversationalAttribute.DefaultEndMode"/>
+            </remarks>
+        </member>
+        <member name="P:uNhAddIns.Adapters.PersistenceConversationAttribute.Exclude">
+            <summary>
+             <see langword="true"/> if you want to explicitly exclude a method from a persistence-conversation.
+            </summary>
+             <remarks>
+             Default <see langword="false"/>.
+             </remarks>
+        </member>
+        <member name="T:uNhAddIns.Adapters.PersistenceConversationalAttribute">
+            <summary>
+            Indicates that a class is involved in a persistentes conversation.
+            </summary>
+        </member>
+        <member name="T:uNhAddIns.Adapters.IPersistenceConversationalInfo">
+            <summary>
+            Conversational class meta-data.
+            </summary>
+            <remarks>
+            Implemented by meta-info holder (in general an attribute).
+            </remarks>
+        </member>
+        <member name="P:uNhAddIns.Adapters.IPersistenceConversationalInfo.ConversationId">
+            <summary>
+            Fixed Conversation's Id for the target class.
+            </summary>
+            <remarks>
+            Optional.
+            <para>
+            Only use it when multiple instances of the target class must work in the same conversation.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:uNhAddIns.Adapters.IPersistenceConversationalInfo.IdPrefix">
+            <summary>
+            Conversation's Id prefix.
+            </summary>
+            <remarks>
+            Optional.
+            <para>
+            The result conversation's Id will be composed by IdPrefix + UniqueId
+            </para>
+            </remarks>
+        </member>
+        <member name="P:uNhAddIns.Adapters.IPersistenceConversationalInfo.MethodsIncludeMode">
+            <summary>
+            Define the way each method, of the target class, will be included in a persistent conversation.
+            </summary>
+            <remarks>
+            Optional, default <see cref="F:uNhAddIns.Adapters.MethodsIncludeMode.Implicit"/>
+            </remarks>
+        </member>
+        <member name="P:uNhAddIns.Adapters.IPersistenceConversationalInfo.DefaultEndMode">
+            <summary>
+            Define the <see cref="T:uNhAddIns.Adapters.EndMode"/> of each method where not explicity declared.
+            </summary>
+            <remarks>
+            Optional, default <see cref="F:uNhAddIns.Adapters.EndMode.Continue"/>
+            </remarks>
+        </member>
+        <member name="P:uNhAddIns.Adapters.IPersistenceConversationalInfo.ConversationCreationInterceptor">
+            <summary>
+             Define the class where conversation's events handlers are implemented.
+            </summary>
+             <remarks>
+             The class must implements IConversationCreationInterceptor.
+             </remarks>
+        </member>
+        <member name="P:uNhAddIns.Adapters.IPersistenceConversationalInfo.UseConversationCreationInterceptorConvention">
+            <summary>
+            Use the IoC container to discover the implementor of IConversationCreationInterceptorConvention{T}
+            where T is the class indicated by <seealso cref="T:uNhAddIns.Adapters.IPersistenceConversationalInfo"/>.
+            </summary>
+        </member>
+        <member name="P:uNhAddIns.Adapters.IPersistenceConversationalInfo.AllowOutsidePersistentCall">
+            <summary>
+            Allow persistent call outside of the service scope.	Usefull in combination with linq queries.
+            </summary>
+        </member>
+        <member name="M:uNhAddIns.Adapters.PersistenceConversationalAttribute.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:uNhAddIns.Adapters.PersistenceConversationalAttribute"/> class.
+            </summary>
+        </member>
+        <member name="P:uNhAddIns.Adapters.PersistenceConversationalAttribute.ConversationId">
+            <summary>
+            Fixed Conversation's Id for the target class.
+            </summary>
+            <remarks>
+            Optional.
+            <para>
+            Only use it when multiple instances of the target class must work in the same conversation.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:uNhAddIns.Adapters.PersistenceConversationalAttribute.IdPrefix">
+            <summary>
+            Conversation's Id prefix.
+            </summary>
+            <remarks>
+            Optional.
+            <para>
+            The result conversation's Id will be composed by IdPrefix + UniqueId
+            </para>
+            </remarks>
+        </member>
+        <member name="P:uNhAddIns.Adapters.PersistenceConversationalAttribute.MethodsIncludeMode">
+            <summary>
+            Define the way each method, of the target class, will be included in a persistent conversation.
+            </summary>
+            <remarks>
+            Optional, default <see cref="F:uNhAddIns.Adapters.MethodsIncludeMode.Implicit"/>
+            </remarks>
+        </member>
+        <member name="P:uNhAddIns.Adapters.PersistenceConversationalAttribute.DefaultEndMode">
+            <summary>
+            Define the <see cref="T:uNhAddIns.Adapters.EndMode"/> of each method where not explicity declared.
+            </summary>
+            <remarks>
+            Optional, default <see cref="F:uNhAddIns.Adapters.EndMode.Continue"/>
+            </remarks>
+        </member>
+        <member name="P:uNhAddIns.Adapters.PersistenceConversationalAttribute.ConversationCreationInterceptor">
+            <summary>
+             Define the class where conversation's events handlers are implemented.
+            </summary>
+             <remarks>
+             The class must implements IConversationCreationInterceptor.
+             </remarks>
+        </member>
+        <member name="P:uNhAddIns.Adapters.PersistenceConversationalAttribute.UseConversationCreationInterceptorConvention">
+            <summary>
+            Use the IoC container to discover the implementor of IConversationCreationInterceptorConvention{T}
+            where T is the class indicated by <seealso cref="T:uNhAddIns.Adapters.PersistenceConversationalAttribute"/>.
+            </summary>
+        </member>
+        <member name="P:uNhAddIns.Adapters.PersistenceConversationalAttribute.AllowOutsidePersistentCall">
+            <summary>
+            Allow persistent call outside of the service scope.	Usefull in combination with linq queries.
+            </summary>
+            <remarks>
+            Optional, default false
+            </remarks>
+        </member>
+        <member name="T:uNhAddIns.Adapters.MethodsIncludeMode">
+            <summary>
+             Define the way each method will be included in a persistent conversation.
+            </summary>
+        </member>
+        <member name="F:uNhAddIns.Adapters.MethodsIncludeMode.Explicit">
+            <summary>
+             Methods involved must be explicitly declared.
+            </summary>
+        </member>
+        <member name="F:uNhAddIns.Adapters.MethodsIncludeMode.Implicit">
+            <summary>
+             Each method is involved in a persistence-conversation if not explicitly excluded.
+            </summary>
+        </member>
+        <member name="T:uNhAddIns.Adapters.IGuyWire">
+            <summary>
+            Contract for applicationi initializer.
+            </summary>
+            <remarks>
+            http://en.wikipedia.org/wiki/Guy-wire
+            A guy-wire or guy-rope is a tensioned cable designed to add stability to structures.
+            One end of the cable is attached to the structure, and the other is anchored to the ground at a distance from the structure's base.
+            </remarks>
+        </member>
+        <member name="M:uNhAddIns.Adapters.IGuyWire.Wire">
+            <summary>
+            Application wire.
+            </summary>
+            <remarks>
+            IoC container configuration (more probably conf. by code).
+            </remarks>
+        </member>
+        <member name="M:uNhAddIns.Adapters.IGuyWire.Dewire">
+            <summary>
+            Application dewire
+            </summary>
+            <remarks>
+            IoC container dispose.
+            </remarks>
+        </member>
+        <member name="T:uNhAddIns.Adapters.EndMode">
+            <summary>
+             Enum types to decide what to do with the conversation after executing the current action
+            </summary>
+        </member>
+        <member name="F:uNhAddIns.Adapters.EndMode.Unspecified">
+            <summary>
+            Use <see cref="P:uNhAddIns.Adapters.PersistenceConversationalAttribute.DefaultEndMode"/>.
+            </summary>
+        </member>
+        <member name="F:uNhAddIns.Adapters.EndMode.Continue">
+            <summary>
+             Continue the conversation
+            </summary>
+        </member>
+        <member name="F:uNhAddIns.Adapters.EndMode.CommitAndContinue">
+            <summary>
+             Flushes the results and continues the conversation
+            </summary>
+        </member>
+        <member name="F:uNhAddIns.Adapters.EndMode.End">
+            <summary>
+             end and accept the changes
+            </summary>
+        </member>
+        <member name="F:uNhAddIns.Adapters.EndMode.Abort">
+            <summary>
+             end and abort the changes
+            </summary>
+        </member>
+        <member name="T:uNhAddIns.Adapters.IInvalidValueInfo">
+            <summary>
+             Contract for the invalid values resulting from a validation.
+            </summary>
+        </member>
+        <member name="P:uNhAddIns.Adapters.IInvalidValueInfo.EntityType">
+            <summary>
+            This is the class type that the validation result is applicable to. For instance,
+            if the validation result concerns a duplicate record found for an employee, then
+            this property would hold the typeof(Employee). It should be expected that this
+            property will never be null.
+            </summary>
+        </member>
+        <member name="P:uNhAddIns.Adapters.IInvalidValueInfo.PropertyName">
+            <summary>
+            If the validation result is applicable to a specific property, then this
+            <see cref="T:System.Reflection.PropertyInfo"/> would be set to a property name.
+            </summary>
+        </member>
+        <member name="P:uNhAddIns.Adapters.IInvalidValueInfo.Message">
+            <summary>
+            Holds the message describing the validation result 
+            for the EntityType and/or PropertyContext
+            </summary>
+        </member>
+        <member name="T:uNhAddIns.Adapters.ApplicationConfiguration">
+            <summary>
+            Helper class to get the <see cref="T:uNhAddIns.Adapters.IGuyWire"/> concrete implementation
+            from application config.
+            </summary>
+            <remarks>
+            The appSetting section should have a key named "GuyWire" (case insensitive)
+            <example>
+            <![CDATA[
+            <appSettings>
+            <add key='GuyWire' value='YourCompany.Product.Wiring.IoC_Fx.GuyWire, YourCompany.Product.Wiring.IoC_Fx'/>
+            </appSettings>"
+            ]]>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:uNhAddIns.Adapters.ApplicationConfiguration.GetGuyWire">
+            <summary>
+            Read the configuration to instantiate the <see cref="T:uNhAddIns.Adapters.IGuyWire"/>.
+            </summary>
+            <returns>The instance of <see cref="T:uNhAddIns.Adapters.IGuyWire"/>.</returns>
+            <exception cref="T:System.ApplicationException">
+            If the key='GuyWire' was not found or if the <see cref="T:uNhAddIns.Adapters.IGuyWire"/> can't be instancied.
+            </exception>
+        </member>
+        <member name="T:uNhAddIns.Adapters.IEntityValidator">
+            <summary>
+             Contract for the common entity validator.
+            </summary>
+        </member>
+        <member name="M:uNhAddIns.Adapters.IEntityValidator.IsValid(System.Object)">
+            <summary>Returns true if the entity is valid.</summary>
+            <param name="entityInstance">The entity instance.</param>
+            <returns>
+             true if the <paramref name="entityInstance"/> 
+             has, at least, one invalid value 
+             </returns>
+        </member>
+        <member name="M:uNhAddIns.Adapters.IEntityValidator.Validate(System.Object)">
+            <summary>
+             Validates an entity and returns the information about invalid values.
+             </summary>
+            <param name="entityInstance">The entity instance.</param>
+            <returns>The list of invalid values for the entity.</returns>
+        </member>
+        <member name="M:uNhAddIns.Adapters.IEntityValidator.Validate``2(``0,System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+             Validates a property of the entity and returns the information about invalid values.
+            </summary>
+            <param name="entityInstance">The entity instance.</param>
+            <param name="property">The property. (getter)</param>
+            <typeparam name="T">Type of the entity.</typeparam>
+            <typeparam name="TP">Type of the property</typeparam>
+            <returns>The list of invalid values for the given property.</returns>
+        </member>
+        <member name="M:uNhAddIns.Adapters.IEntityValidator.Validate(System.Object,System.String)">
+            <summary>
+             Validates a property of the entity and returns the information about invalid values.
+            </summary>
+            <param name="entityInstance">The entity instance.</param>
+            <param name="propertyName">The name of one property of the <paramref name="entityInstance"/> </param>
+            <returns>The list of invalid values for the given property.</returns>
+        </member>
+    </members>
+</doc>
