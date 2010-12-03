@@ -90,7 +90,28 @@ namespace ExamplePlugin
 
 		public IEnumerable<EntityMap> GetMappedEntities()
 		{
-			return new List<EntityMap>();
+			// IMPORTANT!
+			// You must specify which fields are you uploading. These are used to match and update
+			// the records in the server. It's required because you might want to upload only some
+			// fields and keep others unchanged. 
+			// As this information is used to match the records on the server, writing it wrong
+			// can lead into duplicated information.
+			// If the record is not found in the server and must be created, all the fields
+			// will be used because otherwise they would default to null.
+
+			var student = new EntityMap(typeof (Student).Name, typeof (Student).FullName);
+			student.Properties.Add("PersonNumber");
+			student.Properties.Add("FirstName");
+			student.Properties.Add("LastName");
+			student.Properties.Add("MiddleName");
+			student.Properties.Add("Active");
+
+			yield return student;
+
+			var personGroup = new EntityMap(typeof (PersonsGroup).Name, typeof (PersonsGroup).FullName);
+			personGroup.Properties.Add("Name");
+
+			yield return personGroup;
 		}
 
 		public string Name
