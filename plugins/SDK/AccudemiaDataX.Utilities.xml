@@ -1,0 +1,823 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AccudemiaDataX.Utilities</name>
+    </assembly>
+    <members>
+        <member name="T:AccudemiaDataX.Utilities.RedBlackTree.ITree`1">
+            <summary>
+            Interface to the tree
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.ITree`1.Add(`0)">
+            <summary>
+            Add item
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.ITree`1.AddOrGet(`0)">
+            <summary>
+            Add or get item
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.ITree`1.Find(`0)">
+            <summary>
+            Find item
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.ITree`1.Remove(`0)">
+            <summary>
+            Delete item by key
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.ITree`1.Remove(AccudemiaDataX.Utilities.RedBlackTree.ITreeNode{`0})">
+            <summary>
+            Delete specific item 
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.ITree`1.Clear">
+            <summary>
+            Clear the tree
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Utilities.RedBlackTree.ITree`1.SyncRoot">
+            <summary>
+            Get synchornization root
+            </summary>
+        </member>
+        <member name="T:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeColor">
+            <summary>
+            Colour of the node
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeColor.Red">
+            <summary>
+            Red
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeColor.Black">
+            <summary>
+            Black
+            </summary>
+        </member>
+        <member name="T:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBOrderedTree`1">
+            <summary>
+            Unique ordered RBTree
+            </summary>
+        </member>
+        <member name="T:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBOrderedTreeBase`1">
+            <summary>
+            Basic RBTree with ordering
+            
+            Operation like Add and Remove are an O(2logN) operations.
+            Operation Find is O(logN) operation.
+            </summary>
+        </member>
+        <member name="T:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3">
+            <summary>
+            Base class for the tree.
+            
+            Based on the Damian Ivereigh implementation
+            Support for the multi-trees has been added.
+            
+            Do not use this class directly. Use RBTree, RBMultiTree, RBOrderedTree and RBOrderedMultiTree classes
+            </summary>
+            <param name="T">Key type</param>
+            <param name="N">Node type</param>
+            <param name="P">Node parameter type</param>
+        </member>
+        <member name="T:AccudemiaDataX.Utilities.RedBlackTree.ISortedTree`1">
+            <summary>
+            Interface to the tree
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.ISortedTree`1.First">
+            <summary>
+            Get first node
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.ISortedTree`1.Last">
+            <summary>
+            Get last node
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.ISortedTree`1.Previous(AccudemiaDataX.Utilities.RedBlackTree.ITreeNode{`0})">
+            <summary>
+            Get next node
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.ISortedTree`1.Next(AccudemiaDataX.Utilities.RedBlackTree.ITreeNode{`0})">
+            <summary>
+            Get prior node
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Utilities.RedBlackTree.ISortedTree`1.Count">
+            <summary>
+            Get number of nodes in the tree
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.AccudemiaDataX#Utilities#RedBlackTree#ITree{T}#Add(`0)">
+            <summary>
+            Add item
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.AccudemiaDataX#Utilities#RedBlackTree#ITree{T}#AddOrGet(`0)">
+            <summary>
+            Add or get item
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.AccudemiaDataX#Utilities#RedBlackTree#ITree{T}#Find(`0)">
+            <summary>
+            Find item
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.AccudemiaDataX#Utilities#RedBlackTree#ITree{T}#Remove(`0)">
+            <summary>
+            Delete item by key
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.AccudemiaDataX#Utilities#RedBlackTree#ITree{T}#Clear">
+            <summary>
+            Clear
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.AccudemiaDataX#Utilities#RedBlackTree#ITree{T}#Remove(AccudemiaDataX.Utilities.RedBlackTree.ITreeNode{`0})">
+            <summary>
+            Delete item by key
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.AccudemiaDataX#Utilities#RedBlackTree#ISortedTree{T}#First">
+            <summary>
+            Get first node
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.AccudemiaDataX#Utilities#RedBlackTree#ISortedTree{T}#Last">
+            <summary>
+            Get last node
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.AccudemiaDataX#Utilities#RedBlackTree#ISortedTree{T}#Previous(AccudemiaDataX.Utilities.RedBlackTree.ITreeNode{`0})">
+            <summary>
+            Get next node
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.AccudemiaDataX#Utilities#RedBlackTree#ISortedTree{T}#Next(AccudemiaDataX.Utilities.RedBlackTree.ITreeNode{`0})">
+            <summary>
+            Get prior node
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.mComparer">
+            <summary>
+            Comparator
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.#ctor(System.Boolean)">
+            <summary>
+            Tree constructor
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.#ctor(System.Collections.Generic.IComparer{`0},System.Boolean)">
+            <summary>
+            Tree constructor with comparer
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.Add(`0)">
+            <summary>
+            Add new key into the tree
+            
+            This operation is O(logN) operation
+            </summary>
+            <exception cref="T:System.ArgumentException">In case the key is already in the tree</exception>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.AddOrGet(`0)">
+            <summary>
+            Add new key into the tree or get existing node
+            This operation is O(logN) operation
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.Remove(`0)">
+            <summary>
+            Remove key from the dictionary
+            This operation is O(logN) operation
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.Clear">
+            <summary>
+            Remove all items
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.Remove(`1)">
+            <summary>
+            Remove node from the dictionary
+            This operation is O(1) operation
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.Find(`0)">
+            <summary>
+            Find key in the dictionary
+            This operation is O(logN) operation
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.First">
+            <summary>
+            Get first node
+            This operation is O(logN) operation
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.Last">
+            <summary>
+            Get last node
+            This operation is O(logN) operation
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.Next(`1)">
+            <summary>
+            Get next node
+            This operation is O(logN) operation
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.Previous(`1)">
+            <summary>
+            Get previous node
+            This operation is O(logN) operation
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.System#Collections#Generic#IEnumerable{N}#GetEnumerator">
+            <summary>
+            Get enumerator
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Get enumerator
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.Balance(AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeNodeBase{`0,`2})">
+            <summary>
+            Balance tree past inserting
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.NewNode">
+            <summary>
+            Create new node
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.Traverse(System.Boolean@,`0)">
+            <summary>
+            Go trough tree and find the node by the key.
+            Might add new node if node doesn't exist.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.LeftRotate(AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeNodeBase{`0,`2})" -->
+        <!-- Badly formed XML comment ignored for member "M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.RightRotate(AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeNodeBase{`0,`2})" -->
+        <!-- Badly formed XML comment ignored for member "M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.Successor(AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeNodeBase{`0,`2})" -->
+        <!-- Badly formed XML comment ignored for member "M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.Predecessor(AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeNodeBase{`0,`2})" -->
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.Delete(AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeNodeBase{`0,`2})">
+            <summary>
+            Delete the node z, and free up the space
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.DeleteFix(AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeNodeBase{`0,`2})">
+            <summary>
+            Restore the reb-black properties after a delete
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="P:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.Unique">
+            <summary>
+            Is tree unique
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.SyncRoot">
+            <summary>
+            Object can be used for synchronization
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.Root">
+            <summary>
+            Root of the tree
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.Count">
+            <summary>
+            Number of nodes in the tree
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.Collection">
+            <summary>
+            Get collection object for this
+            </summary>
+        </member>
+        <member name="T:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.CollectionAdapter`3">
+            <summary>
+            Adapter implementing collection interface
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.CollectionAdapter`3.mTree">
+            <summary>
+            Referenced tree
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase`3.CollectionAdapter`3.#ctor(AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase{`3,`4,`5})">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="T:AccudemiaDataX.Utilities.RedBlackTree.IOrderedTree`1">
+            <summary>
+            Interface to the tree which supports direct access to the items
+            </summary>
+            <summary>
+            Interface to the tree
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.IOrderedTree`1.GetByOrder(System.Int32)">
+            <summary>
+            Get item by order index
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.IOrderedTree`1.GetOrder(AccudemiaDataX.Utilities.RedBlackTree.ITreeNode{`0})">
+            <summary>
+            Get index by item
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBOrderedTreeBase`1.#ctor(System.Boolean)">
+            <summary>
+            Tree constructor
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBOrderedTreeBase`1.#ctor(System.Collections.Generic.IComparer{`0},System.Boolean)">
+            <summary>
+            Tree constructor with comparer
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBOrderedTreeBase`1.NewNode">
+            <summary>
+            Create new node
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBOrderedTreeBase`1.GetByOrder(System.Int32)">
+            <summary>
+            Get item by order index
+            This operation is O(logN) operation
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBOrderedTreeBase`1.GetOrder(AccudemiaDataX.Utilities.RedBlackTree.Impl.RBOrderedTreeNode{`0})">
+            <summary>
+            Get order index of item
+            This operation is O(logN) operation
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBOrderedTreeBase`1.AccudemiaDataX#Utilities#RedBlackTree#IOrderedTree{T}#GetByOrder(System.Int32)">
+            <summary>
+            Get item by order index
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBOrderedTreeBase`1.AccudemiaDataX#Utilities#RedBlackTree#IOrderedTree{T}#GetOrder(AccudemiaDataX.Utilities.RedBlackTree.ITreeNode{`0})">
+            <summary>
+            Get index by item
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBOrderedTree`1.#ctor">
+            <summary>
+            Tree constructor
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBOrderedTree`1.#ctor(System.Collections.Generic.IComparer{`0})">
+            <summary>
+            Tree constructor with comparer
+            </summary>
+        </member>
+        <member name="T:AccudemiaDataX.Utilities.MaskTransform">
+            <summary>
+            Performs mask processing
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.MaskTransform.ApplyMask(System.String,System.String,System.Boolean)">
+            <summary>
+            Applies a mask to a text
+            
+            9: Allow digit only
+            L: Allow letter only
+            !: Convert to uppercase
+            N: Allow Digit or Letter
+            U: Allow letter only and convert to uppercase
+            W: Allow letter only and convert to lowercase
+            ?: Allow any character
+            Any other character is copied as is for display
+            </summary>
+            <param name="clearText">The clear text, without the mask.</param>
+            <param name="mask">Only the mask.</param>
+            <param name="backwards">if set to <c>true</c> it applies the mask backwards.</param>
+            <returns>The text with the mask applied.</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:AccudemiaDataX.Utilities.MaskTransform.MatchesMaskChar(System.Char,System.Char)" -->
+        <member name="M:AccudemiaDataX.Utilities.MaskTransform.ExpandMask(System.String)">
+            <summary>
+            Expands the mask. i.e.: 9{2} => 99 , 9{2}/9{2}/9{2} = 99/99/99
+            </summary>
+            <param name="mask">The mask.</param>
+            <returns></returns>
+        </member>
+        <member name="T:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeNode`1">
+            <summary>
+            Tree node
+            </summary>
+        </member>
+        <member name="T:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeNodeBase`2">
+            <summary>
+            Node of the red-black tree
+            </summary>
+            <param name="T">Key type</param>
+            <param name="P">Node's parameter</param>
+        </member>
+        <member name="T:AccudemiaDataX.Utilities.RedBlackTree.ITreeNode`1">
+            <summary>
+            Interface to the node
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeNodeBase`2.SetParent(AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeNodeBase{`0,`1})">
+            <summary>
+            Set parent node
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeNodeBase`2.SetLeft(AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeNodeBase{`0,`1})">
+            <summary>
+            Set left node
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeNodeBase`2.SetRight(AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeNodeBase{`0,`1})">
+            <summary>
+            Set right node
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeNodeBase`2.OnUpdateCount">
+            <summary>
+            Update reference count
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeNodeBase`2.mParam">
+            <summary>
+            Node parameters
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeNodeBase`2.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeNodeBase`2.CopyFrom(AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeNodeBase{`0,`1})">
+            <summary>
+            Copy from other node
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeNodeBase`2.Parent">
+            <summary>
+            Parent node
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeNodeBase`2.Left">
+            <summary>
+            Left node
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeNodeBase`2.Right">
+            <summary>
+            Right node
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeNodeBase`2.Key">
+            <summary>
+            Key value of the node
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeNodeBase`2.Color">
+            <summary>
+            Colour of the node
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeNode`1.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="T:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBOrderedTreeNode`1">
+            <summary>
+            Ordered node
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBOrderedTreeNode`1.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBOrderedTreeNode`1.SetParent(AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeNodeBase{`0,AccudemiaDataX.Utilities.RedBlackTree.Impl.RBOrderedNodeParam})">
+            <summary>
+            Set parent node
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBOrderedTreeNode`1.SetLeft(AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeNodeBase{`0,AccudemiaDataX.Utilities.RedBlackTree.Impl.RBOrderedNodeParam})">
+            <summary>
+            Set left node
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBOrderedTreeNode`1.SetRight(AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeNodeBase{`0,AccudemiaDataX.Utilities.RedBlackTree.Impl.RBOrderedNodeParam})">
+            <summary>
+            Set right node
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBOrderedTreeNode`1.OnUpdateCount">
+            <summary>
+            Update reference count
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBOrderedTreeNode`1.CopyFrom(AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeNodeBase{`0,AccudemiaDataX.Utilities.RedBlackTree.Impl.RBOrderedNodeParam})">
+            <summary>
+            Copy from other node
+            </summary>
+        </member>
+        <member name="T:AccudemiaDataX.Utilities.PathUtil">
+            <summary>
+            Contains helper methods to work with file system paths
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.PathUtil.GetDataDirectory">
+            <summary>
+            Gets the path to the application data directory.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.PathUtil.GetExecutableDirectory">
+            <summary>
+            Gets the directorty where the .exe is located.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.PathUtil.GetCommandLineExePath">
+            <summary>
+            Gets the path to the command line application (ADX-Console.exe).
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.PathUtil.ConvertToShortPath(System.String)">
+            <summary>
+            Converts the given path to the short form (ie c:\progra~1\...).
+            </summary>
+            <param name="longPath">The long path.</param>
+            <returns></returns>
+        </member>
+        <member name="T:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBMultiTree`1">
+            <summary>
+            Non-unique RBMultiTree
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBMultiTree`1.#ctor">
+            <summary>
+            Tree constructor
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBMultiTree`1.#ctor(System.Collections.Generic.IComparer{`0})">
+            <summary>
+            Tree constructor with comparer
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBMultiTree`1.NewNode">
+            <summary>
+            Create new node
+            </summary>
+        </member>
+        <member name="T:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBOrderedNodeParam">
+            <summary>
+            Parameters of ordered node
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBOrderedNodeParam.mRank">
+            <summary>
+            Node's rank
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBOrderedNodeParam.mCount">
+            <summary>
+            Number of sub nodes
+            </summary>
+        </member>
+        <member name="T:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBOrderedMultiTree`1">
+            <summary>
+            Non-unique RBMultiTree
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBOrderedMultiTree`1.#ctor">
+            <summary>
+            Tree constructor
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBOrderedMultiTree`1.#ctor(System.Collections.Generic.IComparer{`0})">
+            <summary>
+            Tree constructor with comparer
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.ObjectHelper.StrictEquals(System.Object,System.Object)">
+            <summary>
+            If both objects are null, they are considered as not set and thus they are not equal.
+            Otherwise they are compared using Object.Equals
+            </summary>
+            <param name="o1">An object.</param>
+            <param name="o2">An object.</param>
+            <returns></returns>
+        </member>
+        <member name="T:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeValueEnumerator`3">
+            <summary>
+            Generic tree value's enumerator
+            </summary>
+            <param name="N">Node type</param>
+            <param name="K">Key type</param>
+            <param name="P">Node parameter</param>
+        </member>
+        <member name="F:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeValueEnumerator`3.mTree">
+            <summary>
+            Tree
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeValueEnumerator`3.mCurrent">
+            <summary>
+            Current item
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeValueEnumerator`3.#ctor(AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase{`1,`0,`2})">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeValueEnumerator`3.MoveNext">
+            <summary>
+            Move to next element
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeValueEnumerator`3.Reset">
+            <summary>
+            Reset enumeration
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeValueEnumerator`3.Dispose">
+            <summary>
+            Dispose object
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeValueEnumerator`3.System#Collections#Generic#IEnumerator{K}#Current">
+            <summary>
+            Get current element
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeValueEnumerator`3.System#Collections#IEnumerator#Current">
+            <summary>
+            Get current element
+            </summary>
+        </member>
+        <member name="T:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTree`1">
+            <summary>
+            Unique RBTree
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTree`1.#ctor">
+            <summary>
+            Tree constructor
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTree`1.#ctor(System.Collections.Generic.IComparer{`0})">
+            <summary>
+            Tree constructor with comparer
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTree`1.NewNode">
+            <summary>
+            Create new node
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.EncryptionProvider.Hash(System.String)">
+            <summary>
+            Hashes the specified password.
+            </summary>
+            <param name="password">The password.</param>
+            <returns></returns>
+        </member>
+        <member name="T:AccudemiaDataX.Utilities.FastActivator">
+            <summary>
+            Provides the same functionality of Activator.CreateInstance, but as fast as hell!
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.FastActivator.CreateInstance``1(System.String)">
+            <summary>
+            Creates an instance of type <paramref name="implTypeName"/>, that implements the type <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="implTypeName">Name of the impl type.</param>
+            <returns></returns>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.FastActivator.CreateInstance``1(System.Type)">
+            <summary>
+            Creates an instance of type <paramref name="implType"/>, that implements the type <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="implType">The type of the instance that must be created. Must implement T.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Accudemia.Utilities.StringHelper.LimitLength(System.String,System.Int32)">
+            <summary>
+            Limits the length of the given <paramref name="text"/> to the <paramref name="maxLength"/>, adding the "..." if
+            it's too long. Also tries to cut the string at the end of a word
+            </summary>
+            <param name="text">The text.</param>
+            <param name="maxLength">Length of the max.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Accudemia.Utilities.StringHelper.LimitLength(System.String,System.Int32,System.Int32)">
+            <summary>
+            Limits the length of the given <paramref name="text"/> to the <paramref name="maxLength"/>, adding the "..." if
+            it's too long. Also tries to cut the string at the end of a word
+            </summary>
+            <param name="text">The text.</param>
+            <param name="maxLength">Length of the max.</param>
+            <param name="maxCharsToRemove">The max amount of chars that can be removed when trying to find a space.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Accudemia.Utilities.StringHelper.LimitLength(System.String,System.Int32,System.Int32,System.Boolean@)">
+            <summary>
+            Limits the length of the given <paramref name="text"/> to the <paramref name="maxLength"/>, adding the "..." if
+            it's too long. Also tries to cut the string at the end of a word
+            </summary>
+            <param name="text">The text.</param>
+            <param name="maxLength">Length of the max.</param>
+            <param name="maxCharsToRemove">The max amount of chars that can be removed when trying to find a space.</param>
+            <param name="limited">if set to <c>true</c> the text was too long and was limited.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Accudemia.Utilities.StringHelper.To``1(System.String,``0)">
+            <summary>
+            This method will parse a value from a string.
+            If the string is null or not the right format to parse a valid value,
+            it will return the default value provided.
+            </summary>
+        </member>
+        <member name="M:Accudemia.Utilities.StringHelper.To``1(System.String)">
+            <summary>
+            This method will parse a value from a string.
+            If the string is null or not the right format to parse a valid value,
+            it will return the default value for the type.
+            </summary>
+        </member>
+        <member name="M:Accudemia.Utilities.StringHelper.HtmlEncode(System.String)">
+            <summary>
+            HTML-encodes a string and returns the encoded string.
+            </summary>
+            <param name="text">The text string to encode. </param>
+            <returns>The HTML-encoded text.</returns>
+        </member>
+        <member name="T:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeEnumerator`3">
+            <summary>
+            Generic tree enumerator
+            </summary>
+            <param name="N">Node type</param>
+            <param name="K">Key type</param>
+            <param name="P">Node parameter</param>
+        </member>
+        <member name="F:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeEnumerator`3.mTree">
+            <summary>
+            Tree
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeEnumerator`3.mCurrent">
+            <summary>
+            Current item
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeEnumerator`3.#ctor(AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeBase{`1,`0,`2})">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeEnumerator`3.MoveNext">
+            <summary>
+            Move to next element
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeEnumerator`3.Reset">
+            <summary>
+            Reset enumeration
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeEnumerator`3.Dispose">
+            <summary>
+            Dispose object
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeEnumerator`3.System#Collections#Generic#IEnumerator{N}#Current">
+            <summary>
+            Get current element
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Utilities.RedBlackTree.Impl.RBTreeEnumerator`3.System#Collections#IEnumerator#Current">
+            <summary>
+            Get current element
+            </summary>
+        </member>
+    </members>
+</doc>

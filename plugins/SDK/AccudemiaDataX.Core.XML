@@ -1,0 +1,3027 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AccudemiaDataX.Core</name>
+    </assembly>
+    <members>
+        <member name="T:AccudemiaDataX.Core.DataSources.CSVParser.Resources.ExceptionMessage">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.Resources.ExceptionMessage.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.Resources.ExceptionMessage.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.Resources.ExceptionMessage.BufferSizeTooSmall">
+            <summary>
+              Looks up a localized string similar to Buffer size must be 1 or more..
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.Resources.ExceptionMessage.CannotMovePreviousRecordInForwardOnly">
+            <summary>
+              Looks up a localized string similar to Cannot move to a previous record in forward-only mode..
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.Resources.ExceptionMessage.CannotReadRecordAtIndex">
+            <summary>
+              Looks up a localized string similar to Cannot read record at index &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.Resources.ExceptionMessage.EnumerationFinishedOrNotStarted">
+            <summary>
+              Looks up a localized string similar to Enumeration has either not started or has already finished..
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.Resources.ExceptionMessage.EnumerationVersionCheckFailed">
+            <summary>
+              Looks up a localized string similar to Collection was modified; enumeration operation may not execute..
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.Resources.ExceptionMessage.FieldHeaderNotFound">
+            <summary>
+              Looks up a localized string similar to &apos;{0}&apos; field header not found..
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.Resources.ExceptionMessage.FieldIndexOutOfRange">
+            <summary>
+              Looks up a localized string similar to Field index must be included in [0, FieldCount[. Specified field index was : &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.Resources.ExceptionMessage.MalformedCsvException">
+            <summary>
+              Looks up a localized string similar to The CSV appears to be corrupt near record &apos;{0}&apos; field &apos;{1} at position &apos;{2}&apos;. Current raw data : &apos;{3}&apos;..
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.Resources.ExceptionMessage.MissingFieldActionNotSupported">
+            <summary>
+              Looks up a localized string similar to &apos;{0}&apos; is not a supported missing field action..
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.Resources.ExceptionMessage.NoCurrentRecord">
+            <summary>
+              Looks up a localized string similar to No current record..
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.Resources.ExceptionMessage.NoHeaders">
+            <summary>
+              Looks up a localized string similar to The CSV does not have headers (CsvReader.HasHeaders property is false)..
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.Resources.ExceptionMessage.NotEnoughSpaceInArray">
+            <summary>
+              Looks up a localized string similar to The number of fields in the record is greater than the available space from index to the end of the destination array..
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.Resources.ExceptionMessage.ParseErrorActionInvalidInsideParseErrorEvent">
+            <summary>
+              Looks up a localized string similar to &apos;{0}&apos; is not a valid ParseErrorAction while inside a ParseError event..
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.Resources.ExceptionMessage.ParseErrorActionNotSupported">
+            <summary>
+              Looks up a localized string similar to &apos;{0}&apos; is not a supported ParseErrorAction..
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.Resources.ExceptionMessage.ReaderClosed">
+            <summary>
+              Looks up a localized string similar to This operation is invalid when the reader is closed..
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.Resources.ExceptionMessage.RecordIndexLessThanZero">
+            <summary>
+              Looks up a localized string similar to Record index must be 0 or more..
+            </summary>
+        </member>
+        <member name="T:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader">
+            <summary>
+            Represents a reader that provides fast, cached, dynamic access to CSV data.
+            </summary>
+            <remarks>The number of records is limited to <see cref="F:System.Int32.MaxValue"/> - 1.</remarks>
+        </member>
+        <member name="T:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader">
+            <summary>
+            Represents a reader that provides fast, non-cached, forward-only access to CSV data.  
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.DefaultBufferSize">
+            <summary>
+            Defines the default buffer size.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.DefaultDelimiter">
+            <summary>
+            Defines the default delimiter character separating each field.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.DefaultQuote">
+            <summary>
+            Defines the default quote character wrapping every field.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.DefaultEscape">
+            <summary>
+            Defines the default escape character letting insert quotation characters inside a quoted field.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.DefaultComment">
+            <summary>
+            Defines the default comment character indicating that a line is commented out.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader._fieldHeaderComparer">
+            <summary>
+            Contains the field header comparer.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader._reader">
+            <summary>
+            Contains the <see cref="T:TextReader"/> pointing to the CSV file.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader._bufferSize">
+            <summary>
+            Contains the buffer size.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader._comment">
+            <summary>
+            Contains the comment character indicating that a line is commented out.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader._escape">
+            <summary>
+            Contains the escape character letting insert quotation characters inside a quoted field.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader._delimiter">
+            <summary>
+            Contains the delimiter character separating each field.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader._quote">
+            <summary>
+            Contains the quotation character wrapping every field.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader._trimSpaces">
+            <summary>
+            Indicates if spaces at the start and end of a field are trimmed.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader._hasHeaders">
+            <summary>
+            Indicates if field names are located on the first non commented line.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader._defaultParseErrorAction">
+            <summary>
+            Contains the default action to take when a parsing error has occured.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader._missingFieldAction">
+            <summary>
+            Contains the action to take when a field is missing.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader._supportsMultiline">
+            <summary>
+            Indicates if the reader supports multiline.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader._skipEmptyLines">
+            <summary>
+            Indicates if the reader will skip empty lines.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader._initialized">
+            <summary>
+            Indicates if the class is initialized.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader._fieldHeaders">
+            <summary>
+            Contains the field headers.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader._fieldHeaderIndexes">
+            <summary>
+            Contains the dictionary of field indexes by header. The key is the field name and the value is its index.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader._currentRecordIndex">
+            <summary>
+            Contains the current record index in the CSV file.
+            A value of <see cref="M:Int32.MinValue"/> means that the reader has not been initialized yet.
+            Otherwise, a negative value means that no record has been read yet.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader._nextFieldStart">
+            <summary>
+            Contains the starting position of the next unread field.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader._nextFieldIndex">
+            <summary>
+            Contains the index of the next unread field.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader._fields">
+            <summary>
+            Contains the array of the field values for the current record.
+            A null value indicates that the field have not been parsed.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader._fieldCount">
+            <summary>
+            Contains the maximum number of fields to retrieve for each record.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader._buffer">
+            <summary>
+            Contains the read buffer.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader._bufferLength">
+            <summary>
+            Contains the current read buffer length.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader._eof">
+            <summary>
+            Indicates if the end of the reader has been reached.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader._firstRecordInCache">
+            <summary>
+            Indicates if the first record is in cache.
+            This can happen when initializing a reader with no headers
+            because one record must be read to get the field count automatically
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader._missingFieldsFlag">
+            <summary>
+            Indicates if fields are missing for the current record.
+            Resets after each successful record read.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.#ctor(System.IO.TextReader,System.Boolean)">
+            <summary>
+            Initializes a new instance of the CsvReader class.
+            </summary>
+            <param name="reader">A <see cref="T:TextReader"/> pointing to the CSV file.</param>
+            <param name="hasHeaders"><see langword="true"/> if field names are located on the first non commented line, otherwise, <see langword="false"/>.</param>
+            <exception cref="T:ArgumentNullException">
+            	<paramref name="reader"/> is a <see langword="null"/>.
+            </exception>
+            <exception cref="T:ArgumentException">
+            	Cannot read from <paramref name="reader"/>.
+            </exception>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.#ctor(System.IO.TextReader,System.Boolean,System.Int32)">
+            <summary>
+            Initializes a new instance of the CsvReader class.
+            </summary>
+            <param name="reader">A <see cref="T:TextReader"/> pointing to the CSV file.</param>
+            <param name="hasHeaders"><see langword="true"/> if field names are located on the first non commented line, otherwise, <see langword="false"/>.</param>
+            <param name="bufferSize">The buffer size in bytes.</param>
+            <exception cref="T:ArgumentNullException">
+            	<paramref name="reader"/> is a <see langword="null"/>.
+            </exception>
+            <exception cref="T:ArgumentException">
+            	Cannot read from <paramref name="reader"/>.
+            </exception>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.#ctor(System.IO.TextReader,System.Boolean,System.Char)">
+            <summary>
+            Initializes a new instance of the CsvReader class.
+            </summary>
+            <param name="reader">A <see cref="T:TextReader"/> pointing to the CSV file.</param>
+            <param name="hasHeaders"><see langword="true"/> if field names are located on the first non commented line, otherwise, <see langword="false"/>.</param>
+            <param name="delimiter">The delimiter character separating each field (default is ',').</param>
+            <exception cref="T:ArgumentNullException">
+            	<paramref name="reader"/> is a <see langword="null"/>.
+            </exception>
+            <exception cref="T:ArgumentException">
+            	Cannot read from <paramref name="reader"/>.
+            </exception>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.#ctor(System.IO.TextReader,System.Boolean,System.Char,System.Int32)">
+            <summary>
+            Initializes a new instance of the CsvReader class.
+            </summary>
+            <param name="reader">A <see cref="T:TextReader"/> pointing to the CSV file.</param>
+            <param name="hasHeaders"><see langword="true"/> if field names are located on the first non commented line, otherwise, <see langword="false"/>.</param>
+            <param name="delimiter">The delimiter character separating each field (default is ',').</param>
+            <param name="bufferSize">The buffer size in bytes.</param>
+            <exception cref="T:ArgumentNullException">
+            	<paramref name="reader"/> is a <see langword="null"/>.
+            </exception>
+            <exception cref="T:ArgumentException">
+            	Cannot read from <paramref name="reader"/>.
+            </exception>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.#ctor(System.IO.TextReader,System.Boolean,System.Char,System.Char,System.Char,System.Char,System.Boolean)">
+            <summary>
+            Initializes a new instance of the CsvReader class.
+            </summary>
+            <param name="reader">A <see cref="T:TextReader"/> pointing to the CSV file.</param>
+            <param name="hasHeaders"><see langword="true"/> if field names are located on the first non commented line, otherwise, <see langword="false"/>.</param>
+            <param name="delimiter">The delimiter character separating each field (default is ',').</param>
+            <param name="quote">The quotation character wrapping every field (default is ''').</param>
+            <param name="escape">
+            The escape character letting insert quotation characters inside a quoted field (default is '\').
+            If no escape character, set to '\0' to gain some performance.
+            </param>
+            <param name="comment">The comment character indicating that a line is commented out (default is '#').</param>
+            <param name="trimSpaces"><see langword="true"/> if spaces at the start and end of a field are trimmed, otherwise, <see langword="false"/>. Default is <see langword="true"/>.</param>
+            <exception cref="T:ArgumentNullException">
+            	<paramref name="reader"/> is a <see langword="null"/>.
+            </exception>
+            <exception cref="T:ArgumentException">
+            	Cannot read from <paramref name="reader"/>.
+            </exception>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.#ctor(System.IO.TextReader,System.Boolean,System.Char,System.Char,System.Char,System.Char,System.Boolean,System.Int32)">
+            <summary>
+            Initializes a new instance of the CsvReader class.
+            </summary>
+            <param name="reader">A <see cref="T:TextReader"/> pointing to the CSV file.</param>
+            <param name="hasHeaders"><see langword="true"/> if field names are located on the first non commented line, otherwise, <see langword="false"/>.</param>
+            <param name="delimiter">The delimiter character separating each field (default is ',').</param>
+            <param name="quote">The quotation character wrapping every field (default is ''').</param>
+            <param name="escape">
+            The escape character letting insert quotation characters inside a quoted field (default is '\').
+            If no escape character, set to '\0' to gain some performance.
+            </param>
+            <param name="comment">The comment character indicating that a line is commented out (default is '#').</param>
+            <param name="trimSpaces"><see langword="true"/> if spaces at the start and end of a field are trimmed, otherwise, <see langword="false"/>. Default is <see langword="true"/>.</param>
+            <param name="bufferSize">The buffer size in bytes.</param>
+            <exception cref="T:ArgumentNullException">
+            	<paramref name="reader"/> is a <see langword="null"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            	<paramref name="bufferSize"/> must be 1 or more.
+            </exception>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.OnParseError(AccudemiaDataX.Core.DataSources.CSVParser.Events.ParseErrorEventArgs)">
+            <summary>
+            Raises the <see cref="M:ParseError"/> event.
+            </summary>
+            <param name="e">The <see cref="T:AccudemiaDataX.Core.DataSources.CSVParser.Events.ParseErrorEventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.GetFieldHeaders">
+            <summary>
+            Gets the field headers.
+            </summary>
+            <returns>The field headers or an empty array if headers are not supported.</returns>
+            <exception cref="T:System.ComponentModel.ObjectDisposedException">
+            The instance has been disposed of.
+            </exception>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.EnsureInitialize">
+            <summary>
+            Ensures that the reader is initialized.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.GetFieldIndex(System.String)">
+            <summary>
+            Gets the field index for the provided header.
+            </summary>
+            <param name="header">The header to look for.</param>
+            <returns>The field index for the provided header. -1 if not found.</returns>
+            <exception cref="T:System.ComponentModel.ObjectDisposedException">
+            The instance has been disposed of.
+            </exception>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.CopyCurrentRecordTo(System.String[])">
+            <summary>
+            Copies the field array of the current record to a one-dimensional array, starting at the beginning of the target array.
+            </summary>
+            <param name="array"> The one-dimensional <see cref="T:Array"/> that is the destination of the fields of the current record.</param>
+            <exception cref="T:ArgumentNullException">
+            	<paramref name="array"/> is <see langword="null"/>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            	The number of fields in the record is greater than the available space from <paramref name="index"/> to the end of <paramref name="array"/>.
+            </exception>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.CopyCurrentRecordTo(System.String[],System.Int32)">
+            <summary>
+            Copies the field array of the current record to a one-dimensional array, starting at the beginning of the target array.
+            </summary>
+            <param name="array"> The one-dimensional <see cref="T:Array"/> that is the destination of the fields of the current record.</param>
+            <param name="index">The zero-based index in <paramref name="array"/> at which copying begins.</param>
+            <exception cref="T:ArgumentNullException">
+            	<paramref name="array"/> is <see langword="null"/>.
+            </exception>
+            <exception cref="T:ArgumentOutOfRangeException">
+            	<paramref name="index"/> is les than zero or is equal to or greater than the length <paramref name="array"/>. 
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            No current record.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            	The number of fields in the record is greater than the available space from <paramref name="index"/> to the end of <paramref name="array"/>.
+            </exception>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.GetCurrentRawData">
+            <summary>
+            Gets the current raw CSV data.
+            </summary>
+            <remarks>Used for exception handling purpose.</remarks>
+            <returns>The current raw CSV data.</returns>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.IsWhiteSpace(System.Char)">
+            <summary>
+            Indicates whether the specified Unicode character is categorized as white space.
+            </summary>
+            <param name="c">A Unicode character.</param>
+            <returns><see langword="true"/> if <paramref name="c"/> is white space; otherwise, <see langword="false"/>.</returns>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.MoveTo(System.Int64)">
+            <summary>
+            Moves to the specified record index.
+            </summary>
+            <param name="record">The record index.</param>
+            <exception cref="T:ArgumentOutOfRangeException">
+            	Record index must be > 0.
+            </exception>
+            <exception cref="T:InvalidOperationException">
+            	Cannot move to a previous record in forward-only mode.
+            </exception>
+            <exception cref="T:System.ComponentModel.ObjectDisposedException">
+            The instance has been disposed of.
+            </exception>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.ParseNewLine(System.Int32@)">
+            <summary>
+            Parses a new line delimiter.
+            </summary>
+            <param name="pos">The starting position of the parsing. Will contain the resulting end position.</param>
+            <returns><see langword="true"/> if a new line delimiter was found; otherwise, <see langword="false"/>.</returns>
+            <exception cref="T:System.ComponentModel.ObjectDisposedException">
+            The instance has been disposed of.
+            </exception>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.ReadBuffer">
+            <summary>
+            Fills the buffer with data from the reader.
+            </summary>
+            <returns><see langword="true"/> if data was successfully read; otherwise, <see langword="false"/>.</returns>
+            <exception cref="T:System.ComponentModel.ObjectDisposedException">
+            The instance has been disposed of.
+            </exception>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.ReadField(System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Reads the field at the specified index.
+            Any unread fields with an inferior index will also be read as part of the required parsing.
+            </summary>
+            <param name="field">The field index.</param>
+            <param name="initializing">Indicates if the reader is currently initializing.</param>
+            <param name="discardValue">Indicates if the value(s) are discarded.</param>
+            <returns>
+            The field at the specified index. 
+            A <see langword="null"/> indicates that an error occured or that the last field has been reached during initialization.
+            </returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            	<paramref name="field"/> is out of range.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            	There is no current record.
+            </exception>
+            <exception cref="T:AccudemiaDataX.Core.DataSources.CSVParser.Exceptions.MissingFieldCsvException">
+            	The CSV data appears to be missing a field.
+            </exception>
+            <exception cref="T:AccudemiaDataX.Core.DataSources.CSVParser.Exceptions.MalformedCsvException">
+            	The CSV data appears to be malformed.
+            </exception>
+            <exception cref="T:System.ComponentModel.ObjectDisposedException">
+            The instance has been disposed of.
+            </exception>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.ReadNextRecord">
+            <summary>
+            Reads the next record.
+            </summary>
+            <returns><see langword="true"/> if a record has been successfully reads; otherwise, <see langword="false"/>.</returns>
+            <exception cref="T:System.ComponentModel.ObjectDisposedException">
+            The instance has been disposed of.
+            </exception>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.ReadNextRecord(System.Boolean,System.Boolean)">
+            <summary>
+            Reads the next record.
+            </summary>
+            <param name="onlyReadHeaders">
+            Indicates if the reader will proceed to the next record after having read headers.
+            <see langword="true"/> if it stops after having read headers; otherwise, <see langword="false"/>.
+            </param>
+            <param name="skipToNextLine">
+            Indicates if the reader will skip directly to the next line without parsing the current one. 
+            To be used when an error occurs.
+            </param>
+            <returns><see langword="true"/> if a record has been successfully reads; otherwise, <see langword="false"/>.</returns>
+            <exception cref="T:System.ComponentModel.ObjectDisposedException">
+            The instance has been disposed of.
+            </exception>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.SkipEmptyAndCommentedLines(System.Int32@)">
+            <summary>
+            Skips empty and commented lines.
+            If the end of the buffer is reached, its content be discarded and filled again from the reader.
+            </summary>
+            <param name="pos">
+            The position in the buffer where to start parsing. 
+            Will contains the resulting position after the operation.
+            </param>
+            <returns><see langword="true"/> if the end of the reader has not been reached; otherwise, <see langword="false"/>.</returns>
+            <exception cref="T:System.ComponentModel.ObjectDisposedException">
+            The instance has been disposed of.
+            </exception>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.DoSkipEmptyAndCommentedLines(System.Int32@)">
+            <summary>
+            <para>Worker method.</para>
+            <para>Skips empty and commented lines.</para>
+            </summary>
+            <param name="pos">
+            The position in the buffer where to start parsing. 
+            Will contains the resulting position after the operation.
+            </param>
+            <exception cref="T:System.ComponentModel.ObjectDisposedException">
+            The instance has been disposed of.
+            </exception>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.SkipWhiteSpaces(System.Int32@)">
+            <summary>
+            Skips whitespace characters.
+            </summary>
+            <param name="pos">The starting position of the parsing. Will contain the resulting end position.</param>
+            <returns><see langword="true"/> if the end of the reader has not been reached; otherwise, <see langword="false"/>.</returns>
+            <exception cref="T:System.ComponentModel.ObjectDisposedException">
+            The instance has been disposed of.
+            </exception>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.SkipToNextLine(System.Int32@)">
+            <summary>
+            Skips ahead to the next NewLine character.
+            If the end of the buffer is reached, its content be discarded and filled again from the reader.
+            </summary>
+            <param name="pos">
+            The position in the buffer where to start parsing. 
+            Will contains the resulting position after the operation.
+            </param>
+            <returns><see langword="true"/> if the end of the reader has not been reached; otherwise, <see langword="false"/>.</returns>
+            <exception cref="T:System.ComponentModel.ObjectDisposedException">
+            The instance has been disposed of.
+            </exception>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.HandleParseError(AccudemiaDataX.Core.DataSources.CSVParser.Exceptions.MalformedCsvException,System.Int32@)">
+            <summary>
+            Handles a parsing error.
+            </summary>
+            <param name="error">The parsing error that occured.</param>
+            <param name="pos">The current position in the buffer.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="error"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.HandleMissingField(System.String,System.Int32,System.Int32@)">
+            <summary>
+            Handles a missing field error.
+            </summary>
+            <param name="value">The partially parsed value, if available.</param>
+            <param name="fieldIndex">The missing field index.</param>
+            <param name="currentPosition">The current position in the raw data.</param>
+            <returns>
+            The resulting value according to <see cref="M:MissingFieldAction"/>.
+            If the action is set to <see cref="T:MissingFieldAction.TreatAsParseError"/>,
+            then the parse error will be handled according to <see cref="P:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.DefaultParseErrorAction"/>.
+            </returns>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.ValidateDataReader(AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.DataReaderValidations)">
+            <summary>
+            Validates the state of the data reader.
+            </summary>
+            <param name="validations">The validations to accomplish.</param>
+            <exception cref="T:System.InvalidOperationException">
+            No current record.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            This operation is invalid when the reader is closed.
+            </exception>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.CopyFieldToArray(System.Int32,System.Int64,System.Array,System.Int32,System.Int32)">
+            <summary>
+            Copy the value of the specified field to an array.
+            </summary>
+            <param name="field">The index of the field.</param>
+            <param name="fieldOffset">The offset in the field value.</param>
+            <param name="destinationArray">The destination array where the field value will be copied.</param>
+            <param name="destinationOffset">The destination array offset.</param>
+            <param name="length">The number of characters to copy from the field value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.GetEnumerator">
+            <summary>
+            Returns an <see cref="T:RecordEnumerator"/>  that can iterate through CSV records.
+            </summary>
+            <returns>An <see cref="T:RecordEnumerator"/>  that can iterate through CSV records.</returns>
+            <exception cref="T:System.ComponentModel.ObjectDisposedException">
+            The instance has been disposed of.
+            </exception>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.System#Collections#Generic#IEnumerable{System#String[]}#GetEnumerator">
+            <summary>
+            Returns an <see cref="T:System.Collections.Generics.IEnumerator"/>  that can iterate through CSV records.
+            </summary>
+            <returns>An <see cref="T:System.Collections.Generics.IEnumerator"/>  that can iterate through CSV records.</returns>
+            <exception cref="T:System.ComponentModel.ObjectDisposedException">
+            The instance has been disposed of.
+            </exception>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Returns an <see cref="T:System.Collections.IEnumerator"/>  that can iterate through CSV records.
+            </summary>
+            <returns>An <see cref="T:System.Collections.IEnumerator"/>  that can iterate through CSV records.</returns>
+            <exception cref="T:System.ComponentModel.ObjectDisposedException">
+            The instance has been disposed of.
+            </exception>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader._isDisposed">
+            <summary>
+            Contains the disposed status flag.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader._lock">
+            <summary>
+            Contains the locking object for multi-threading purpose.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.OnDisposed(System.EventArgs)">
+            <summary>
+            Raises the <see cref="M:Disposed"/> event.
+            </summary>
+            <param name="e">A <see cref="T:System.EventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.CheckDisposed">
+            <summary>
+            Checks if the instance has been disposed of, and if it has, throws an <see cref="T:System.ComponentModel.ObjectDisposedException"/>; otherwise, does nothing.
+            </summary>
+            <exception cref="T:System.ComponentModel.ObjectDisposedException">
+            	The instance has been disposed of.
+            </exception>
+            <remarks>
+            	Derived classes should call this method at the start of all methods and properties that should not be accessed after a call to <see cref="M:Dispose()"/>.
+            </remarks>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.Dispose">
+            <summary>
+            Releases all resources used by the instance.
+            </summary>
+            <remarks>
+            	Calls <see cref="M:Dispose(Boolean)"/> with the disposing parameter set to <see langword="true"/> to free unmanaged and managed resources.
+            </remarks>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources used by this instance and optionally releases the managed resources.
+            </summary>
+            <param name="disposing">
+            	<see langword="true"/> to release both managed and unmanaged resources; <see langword="false"/> to release only unmanaged resources.
+            </param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.Finalize">
+            <summary>
+            Releases unmanaged resources and performs other cleanup operations before the instance is reclaimed by garbage collection.
+            </summary>
+        </member>
+        <member name="E:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.ParseError">
+            <summary>
+            Occurs when there is an error while parsing the CSV stream.
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.Comment">
+            <summary>
+            Gets the comment character indicating that a line is commented out.
+            </summary>
+            <value>The comment character indicating that a line is commented out.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.Escape">
+            <summary>
+            Gets the escape character letting insert quotation characters inside a quoted field.
+            </summary>
+            <value>The escape character letting insert quotation characters inside a quoted field.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.Delimiter">
+            <summary>
+            Gets the delimiter character separating each field.
+            </summary>
+            <value>The delimiter character separating each field.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.Quote">
+            <summary>
+            Gets the quotation character wrapping every field.
+            </summary>
+            <value>The quotation character wrapping every field.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.HasHeaders">
+            <summary>
+            Indicates if field names are located on the first non commented line.
+            </summary>
+            <value><see langword="true"/> if field names are located on the first non commented line, otherwise, <see langword="false"/>.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.TrimSpaces">
+            <summary>
+            Indicates if spaces at the start and end of a field are trimmed.
+            </summary>
+            <value><see langword="true"/> if spaces at the start and end of a field are trimmed, otherwise, <see langword="false"/>.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.BufferSize">
+            <summary>
+            Gets the buffer size.
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.DefaultParseErrorAction">
+            <summary>
+            Gets or sets the default action to take when a parsing error has occured.
+            </summary>
+            <value>The default action to take when a parsing error has occured.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.MissingFieldAction">
+            <summary>
+            Gets or sets the action to take when a field is missing.
+            </summary>
+            <value>The action to take when a field is missing.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.SupportsMultiline">
+            <summary>
+            Gets or sets a value indicating if the reader supports multiline fields.
+            </summary>
+            <value>A value indicating if the reader supports multiline field.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.SkipEmptyLines">
+            <summary>
+            Gets or sets a value indicating if the reader will skip empty lines.
+            </summary>
+            <value>A value indicating if the reader will skip empty lines.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.FieldCount">
+            <summary>
+            Gets the maximum number of fields to retrieve for each record.
+            </summary>
+            <value>The maximum number of fields to retrieve for each record.</value>
+            <exception cref="T:System.ComponentModel.ObjectDisposedException">
+            The instance has been disposed of.
+            </exception>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.EndOfStream">
+            <summary>
+            Gets a value that indicates whether the current stream position is at the end of the stream.
+            </summary>
+            <value><see langword="true"/> if the current stream position is at the end of the stream; otherwise <see langword="false"/>.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.CurrentRecordIndex">
+            <summary>
+            Gets the current record index in the CSV file.
+            </summary>
+            <value>The current record index in the CSV file.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.Item(System.Int32,System.String)">
+            <summary>
+            Gets the field with the specified name and record position. <see cref="M:hasHeaders"/> must be <see langword="true"/>.
+            </summary>
+            <value>
+            The field with the specified name and record position.
+            </value>
+            <exception cref="T:ArgumentNullException">
+            	<paramref name="field"/> is <see langword="null"/> or an empty string.
+            </exception>
+            <exception cref="T:InvalidOperationException">
+            The CSV does not have headers (<see cref="M:HasHeaders"/> property is <see langword="false"/>).
+            </exception>
+            <exception cref="T:ArgumentException">
+            	<paramref name="field"/> not found.
+            </exception>
+            <exception cref="T:ArgumentOutOfRangeException">
+            	Record index must be > 0.
+            </exception>
+            <exception cref="T:InvalidOperationException">
+            	Cannot move to a previous record in forward-only mode.
+            </exception>
+            <exception cref="T:EndOfStreamException">
+            	Cannot read record at <paramref name="record"/>.
+            </exception>
+            <exception cref="T:MalformedCsvException">
+            	The CSV appears to be corrupt at the current position.
+            </exception>
+            <exception cref="T:System.ComponentModel.ObjectDisposedException">
+            The instance has been disposed of.
+            </exception>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.Item(System.Int32,System.Int32)">
+            <summary>
+            Gets the field at the specified index and record position.
+            </summary>
+            <value>
+            The field at the specified index and record position.
+            A <see langword="null"/> is returned if the field cannot be found for the record.
+            </value>
+            <exception cref="T:ArgumentOutOfRangeException">
+            	<paramref name="field"/> must be included in [0, <see cref="M:FieldCount"/>[.
+            </exception>
+            <exception cref="T:ArgumentOutOfRangeException">
+            	Record index must be > 0.
+            </exception>
+            <exception cref="T:InvalidOperationException">
+            	Cannot move to a previous record in forward-only mode.
+            </exception>
+            <exception cref="T:EndOfStreamException">
+            	Cannot read record at <paramref name="record"/>.
+            </exception>
+            <exception cref="T:MalformedCsvException">
+            	The CSV appears to be corrupt at the current position.
+            </exception>
+            <exception cref="T:System.ComponentModel.ObjectDisposedException">
+            The instance has been disposed of.
+            </exception>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.Item(System.String)">
+            <summary>
+            Gets the field with the specified name. <see cref="M:hasHeaders"/> must be <see langword="true"/>.
+            </summary>
+            <value>
+            The field with the specified name.
+            </value>
+            <exception cref="T:ArgumentNullException">
+            	<paramref name="field"/> is <see langword="null"/> or an empty string.
+            </exception>
+            <exception cref="T:InvalidOperationException">
+            The CSV does not have headers (<see cref="M:HasHeaders"/> property is <see langword="false"/>).
+            </exception>
+            <exception cref="T:ArgumentException">
+            	<paramref name="field"/> not found.
+            </exception>
+            <exception cref="T:MalformedCsvException">
+            	The CSV appears to be corrupt at the current position.
+            </exception>
+            <exception cref="T:System.ComponentModel.ObjectDisposedException">
+            The instance has been disposed of.
+            </exception>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.Item(System.Int32)">
+            <summary>
+            Gets the field at the specified index.
+            </summary>
+            <value>The field at the specified index.</value>
+            <exception cref="T:ArgumentOutOfRangeException">
+            	<paramref name="field"/> must be included in [0, <see cref="M:FieldCount"/>[.
+            </exception>
+            <exception cref="T:InvalidOperationException">
+            	No record read yet. Call ReadLine() first.
+            </exception>
+            <exception cref="T:MalformedCsvException">
+            	The CSV appears to be corrupt at the current position.
+            </exception>
+            <exception cref="T:System.ComponentModel.ObjectDisposedException">
+            The instance has been disposed of.
+            </exception>
+        </member>
+        <member name="E:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.Disposed">
+            <summary>
+            Occurs when the instance is disposed of.
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.IsDisposed">
+            <summary>
+            Gets a value indicating whether the instance has been disposed of.
+            </summary>
+            <value>
+            	<see langword="true"/> if the instance has been disposed of; otherwise, <see langword="false"/>.
+            </value>
+        </member>
+        <member name="T:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.RecordEnumerator">
+            <summary>
+            Supports a simple iteration over the records of a <see cref="T:CsvReader"/>.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.RecordEnumerator._reader">
+            <summary>
+            Contains the enumerated <see cref="T:CsvReader"/>.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.RecordEnumerator._current">
+            <summary>
+            Contains the current record.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.RecordEnumerator._currentRecordIndex">
+            <summary>
+            Contains the current record index.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.RecordEnumerator.#ctor(AccudemiaDataX.Core.DataSources.CSVParser.CsvReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RecordEnumerator"/> class.
+            </summary>
+            <param name="reader">The <see cref="T:CsvReader"/> to iterate over.</param>
+            <exception cref="T:ArgumentNullException">
+            	<paramref name="reader"/> is a <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.RecordEnumerator.MoveNext">
+            <summary>
+            Advances the enumerator to the next record of the CSV.
+            </summary>
+            <returns><see langword="true"/> if the enumerator was successfully advanced to the next record, <see langword="false"/> if the enumerator has passed the end of the CSV.</returns>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.RecordEnumerator.Reset">
+            <summary>
+            Sets the enumerator to its initial position, which is before the first record in the CSV.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.RecordEnumerator.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.RecordEnumerator.Current">
+            <summary>
+            Gets the current record.
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.RecordEnumerator.System#Collections#IEnumerator#Current">
+            <summary>
+            Gets the current record.
+            </summary>
+        </member>
+        <member name="T:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.DataReaderValidations">
+            <summary>
+            Defines the data reader validations.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.DataReaderValidations.None">
+            <summary>
+            No validation.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.DataReaderValidations.IsInitialized">
+            <summary>
+            Validate that the data reader is initialized.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CsvReader.DataReaderValidations.IsNotClosed">
+            <summary>
+            Validate that the data reader is not closed.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader._records">
+            <summary>
+            Contains the cached records.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader._currentRecordIndex">
+            <summary>
+            Contains the current record index (inside the cached records array).
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader._readingStream">
+            <summary>
+            Indicates if a new record is being read from the CSV stream.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader._bindingList">
+            <summary>
+            Contains the binding list linked to this reader.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader.#ctor(System.IO.TextReader,System.Boolean)">
+            <summary>
+            Initializes a new instance of the CsvReader class.
+            </summary>
+            <param name="reader">A <see cref="T:TextReader"/> pointing to the CSV file.</param>
+            <param name="hasHeaders"><see langword="true"/> if field names are located on the first non commented line, otherwise, <see langword="false"/>.</param>
+            <exception cref="T:ArgumentNullException">
+            	<paramref name="reader"/> is a <see langword="null"/>.
+            </exception>
+            <exception cref="T:ArgumentException">
+            	Cannot read from <paramref name="reader"/>.
+            </exception>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader.#ctor(System.IO.TextReader,System.Boolean,System.Int32)">
+            <summary>
+            Initializes a new instance of the CsvReader class.
+            </summary>
+            <param name="reader">A <see cref="T:TextReader"/> pointing to the CSV file.</param>
+            <param name="hasHeaders"><see langword="true"/> if field names are located on the first non commented line, otherwise, <see langword="false"/>.</param>
+            <param name="bufferSize">The buffer size in bytes.</param>
+            <exception cref="T:ArgumentNullException">
+            	<paramref name="reader"/> is a <see langword="null"/>.
+            </exception>
+            <exception cref="T:ArgumentException">
+            	Cannot read from <paramref name="reader"/>.
+            </exception>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader.#ctor(System.IO.TextReader,System.Boolean,System.Char)">
+            <summary>
+            Initializes a new instance of the CsvReader class.
+            </summary>
+            <param name="reader">A <see cref="T:TextReader"/> pointing to the CSV file.</param>
+            <param name="hasHeaders"><see langword="true"/> if field names are located on the first non commented line, otherwise, <see langword="false"/>.</param>
+            <param name="delimiter">The delimiter character separating each field (default is ',').</param>
+            <exception cref="T:ArgumentNullException">
+            	<paramref name="reader"/> is a <see langword="null"/>.
+            </exception>
+            <exception cref="T:ArgumentException">
+            	Cannot read from <paramref name="reader"/>.
+            </exception>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader.#ctor(System.IO.TextReader,System.Boolean,System.Char,System.Int32)">
+            <summary>
+            Initializes a new instance of the CsvReader class.
+            </summary>
+            <param name="reader">A <see cref="T:TextReader"/> pointing to the CSV file.</param>
+            <param name="hasHeaders"><see langword="true"/> if field names are located on the first non commented line, otherwise, <see langword="false"/>.</param>
+            <param name="delimiter">The delimiter character separating each field (default is ',').</param>
+            <param name="bufferSize">The buffer size in bytes.</param>
+            <exception cref="T:ArgumentNullException">
+            	<paramref name="reader"/> is a <see langword="null"/>.
+            </exception>
+            <exception cref="T:ArgumentException">
+            	Cannot read from <paramref name="reader"/>.
+            </exception>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader.#ctor(System.IO.TextReader,System.Boolean,System.Char,System.Char,System.Char,System.Char,System.Boolean)">
+            <summary>
+            Initializes a new instance of the CsvReader class.
+            </summary>
+            <param name="reader">A <see cref="T:TextReader"/> pointing to the CSV file.</param>
+            <param name="hasHeaders"><see langword="true"/> if field names are located on the first non commented line, otherwise, <see langword="false"/>.</param>
+            <param name="delimiter">The delimiter character separating each field (default is ',').</param>
+            <param name="quote">The quotation character wrapping every field (default is ''').</param>
+            <param name="escape">
+            The escape character letting insert quotation characters inside a quoted field (default is '\').
+            If no escape character, set to '\0' to gain some performance.
+            </param>
+            <param name="comment">The comment character indicating that a line is commented out (default is '#').</param>
+            <param name="trimSpaces"><see langword="true"/> if spaces at the start and end of a field are trimmed, otherwise, <see langword="false"/>. Default is <see langword="true"/>.</param>
+            <exception cref="T:ArgumentNullException">
+            	<paramref name="reader"/> is a <see langword="null"/>.
+            </exception>
+            <exception cref="T:ArgumentException">
+            	Cannot read from <paramref name="reader"/>.
+            </exception>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader.#ctor(System.IO.TextReader,System.Boolean,System.Char,System.Char,System.Char,System.Char,System.Boolean,System.Int32)">
+            <summary>
+            Initializes a new instance of the CsvReader class.
+            </summary>
+            <param name="reader">A <see cref="T:TextReader"/> pointing to the CSV file.</param>
+            <param name="hasHeaders"><see langword="true"/> if field names are located on the first non commented line, otherwise, <see langword="false"/>.</param>
+            <param name="delimiter">The delimiter character separating each field (default is ',').</param>
+            <param name="quote">The quotation character wrapping every field (default is ''').</param>
+            <param name="escape">
+            The escape character letting insert quotation characters inside a quoted field (default is '\').
+            If no escape character, set to '\0' to gain some performance.
+            </param>
+            <param name="comment">The comment character indicating that a line is commented out (default is '#').</param>
+            <param name="trimSpaces"><see langword="true"/> if spaces at the start and end of a field are trimmed, otherwise, <see langword="false"/>. Default is <see langword="true"/>.</param>
+            <param name="bufferSize">The buffer size in bytes.</param>
+            <exception cref="T:ArgumentNullException">
+            	<paramref name="reader"/> is a <see langword="null"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            	<paramref name="bufferSize"/> must be 1 or more.
+            </exception>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader.ReadToEnd">
+            <summary>
+            Reads the CSV stream from the current position to the end of the stream.
+            </summary>
+            <exception cref="T:System.ComponentModel.ObjectDisposedException">
+            The instance has been disposed of.
+            </exception>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader.ReadNextRecord(System.Boolean,System.Boolean)">
+            <summary>
+            Reads the next record.
+            </summary>
+            <param name="onlyReadHeaders">
+            Indicates if the reader will proceed to the next record after having read headers.
+            <see langword="true"/> if it stops after having read headers; otherwise, <see langword="false"/>.
+            </param>
+            <param name="skipToNextLine">
+            Indicates if the reader will skip directly to the next line without parsing the current one. 
+            To be used when an error occurs.
+            </param>
+            <returns><see langword="true"/> if a record has been successfully reads; otherwise, <see langword="false"/>.</returns>
+            <exception cref="T:System.ComponentModel.ObjectDisposedException">
+            The instance has been disposed of.
+            </exception>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader.MoveToStart">
+            <summary>
+            Moves before the first record.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader.MoveToLastCachedRecord">
+            <summary>
+            Moves to the last record read so far.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader.MoveTo(System.Int64)">
+            <summary>
+            Moves to the specified record index.
+            </summary>
+            <param name="record">The record index.</param>
+            <exception cref="T:ArgumentOutOfRangeException">
+            	Record index must be > 0.
+            </exception>
+            <exception cref="T:System.ComponentModel.ObjectDisposedException">
+            	The instance has been disposed of.
+            </exception>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader.CurrentRecordIndex">
+            <summary>
+            Gets the current record index in the CSV file.
+            </summary>
+            <value>The current record index in the CSV file.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader.EndOfStream">
+            <summary>
+            Gets a value that indicates whether the current stream position is at the end of the stream.
+            </summary>
+            <value><see langword="true"/> if the current stream position is at the end of the stream; otherwise <see langword="false"/>.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader.Item(System.Int32)">
+            <summary>
+            Gets the field at the specified index.
+            </summary>
+            <value>The field at the specified index.</value>
+            <exception cref="T:ArgumentOutOfRangeException">
+            	<paramref name="field"/> must be included in [0, <see cref="M:FieldCount"/>[.
+            </exception>
+            <exception cref="T:InvalidOperationException">
+            	No record read yet. Call ReadLine() first.
+            </exception>
+            <exception cref="T:AccudemiaDataX.Core.DataSources.CSVParser.Exceptions.MissingFieldCsvException">
+            	The CSV data appears to be missing a field.
+            </exception>
+            <exception cref="T:MalformedCsvException">
+            	The CSV appears to be corrupt at the current position.
+            </exception>
+            <exception cref="T:System.ComponentModel.ObjectDisposedException">
+            	The instance has been disposed of.
+            </exception>
+        </member>
+        <member name="T:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader.CsvBindingList">
+            <summary>
+            Represents a binding list wrapper for a CSV reader.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader.CsvBindingList._csv">
+            <summary>
+            Contains the linked CSV reader.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader.CsvBindingList._count">
+            <summary>
+            Contains the cached record count.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader.CsvBindingList._properties">
+            <summary>
+            Contains the cached property descriptors.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader.CsvBindingList._sort">
+            <summary>
+            Contains the current sort property.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader.CsvBindingList._direction">
+            <summary>
+            Contains the current sort direction.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader.CsvBindingList.#ctor(AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader)">
+            <summary>
+            Initializes a new instance of the CsvBindingList class.
+            </summary>
+            <param name="csv"></param>
+        </member>
+        <member name="T:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader.CsvPropertyDescriptor">
+            <summary>
+            Represents a CSV field property descriptor.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader.CsvPropertyDescriptor._index">
+            <summary>
+            Contains the field index.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader.CsvPropertyDescriptor.#ctor(System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the CsvPropertyDescriptor class.
+            </summary>
+            <param name="fieldName">The field name.</param>
+            <param name="index">The field index.</param>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader.CsvPropertyDescriptor.Index">
+            <summary>
+            Gets the field index.
+            </summary>
+            <value>The field index.</value>
+        </member>
+        <member name="T:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader.CsvRecordComparer">
+            <summary>
+            Represents a CSV record comparer.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader.CsvRecordComparer._field">
+            <summary>
+            Contains the field index of the values to compare.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader.CsvRecordComparer._direction">
+            <summary>
+            Contains the sort direction.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.CachedCsvReader.CsvRecordComparer.#ctor(System.Int32,System.ComponentModel.ListSortDirection)">
+            <summary>
+            Initializes a new instance of the CsvRecordComparer class.
+            </summary>
+            <param name="field">The field index of the values to compare.</param>
+            <param name="direction">The sort direction.</param>
+        </member>
+        <member name="T:AccudemiaDataX.Core.Model.CourseCenterAssignment">
+            <summary>
+            Contains a <see cref="P:AccudemiaDataX.Core.Model.CourseCenterAssignment.Course"/> assignment to a specific <see cref="P:AccudemiaDataX.Core.Model.CourseCenterAssignment.Center"/>
+            </summary>
+        </member>
+        <member name="T:AccudemiaDataX.Core.Model.Base.IAccudemiaEntity">
+            <summary>
+            Interface for entities that belongs to the Accudemia model, and needs
+            to be synchronized among different systems.
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Base.IAccudemiaEntity.Id">
+            <summary>
+            Gets or sets the persistent object ID (POID) of the object.
+            </summary>
+            <value>The POID of this entity.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Base.IAccudemiaEntity.Metadata">
+            <summary>
+            Gets or sets the metadata associated with this entity, which might contains additional properties
+            of the object.
+            </summary>
+            <value>The metadata associated with this entity.</value>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.CourseCenterAssignment.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AccudemiaDataX.Core.Model.CourseCenterAssignment"/> class.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.CourseCenterAssignment.#ctor(AccudemiaDataX.Core.Model.Course,AccudemiaDataX.Core.Model.Center)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AccudemiaDataX.Core.Model.CourseCenterAssignment"/> class.
+            </summary>
+            <param name="course">The course.</param>
+            <param name="center">The center.</param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.CourseCenterAssignment.Equals(AccudemiaDataX.Core.Model.CourseCenterAssignment)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+            <param name="other">An object to compare with this object.
+                            </param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.CourseCenterAssignment.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+            </returns>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>. 
+                            </param><exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.
+                            </exception><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.CourseCenterAssignment.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. 
+            </summary>
+            <returns>
+            A hash code for the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.CourseCenterAssignment.Id">
+            <summary>
+            Gets or sets the POID.
+            </summary>
+            <value>The id.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.CourseCenterAssignment.Course">
+            <summary>
+            Gets or sets the course/subject area assigned.
+            </summary>
+            <value>The subject area.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.CourseCenterAssignment.Center">
+            <summary>
+            Gets or sets the center which has the <see cref="P:AccudemiaDataX.Core.Model.CourseCenterAssignment.Course"/> assigned.
+            </summary>
+            <value>The center.</value>
+        </member>
+        <member name="T:AccudemiaDataX.Core.DataSources.CSVParser.Exceptions.MalformedCsvException">
+            <summary>
+            Represents the exception that is thrown when a CSV file is malformed.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.Exceptions.MalformedCsvException._message">
+            <summary>
+            Contains the message that describes the error.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.Exceptions.MalformedCsvException._rawData">
+            <summary>
+            Contains the raw data when the error occured.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.Exceptions.MalformedCsvException._currentFieldIndex">
+            <summary>
+            Contains the current field index.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.Exceptions.MalformedCsvException._currentRecordIndex">
+            <summary>
+            Contains the current record index.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.Exceptions.MalformedCsvException._currentPosition">
+            <summary>
+            Contains the current position in the raw data.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.Exceptions.MalformedCsvException.#ctor">
+            <summary>
+            Initializes a new instance of the MalformedCsvException class.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.Exceptions.MalformedCsvException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the MalformedCsvException class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.Exceptions.MalformedCsvException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the MalformedCsvException class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.Exceptions.MalformedCsvException.#ctor(System.String,System.Int32,System.Int64,System.Int32)">
+            <summary>
+            Initializes a new instance of the MalformedCsvException class.
+            </summary>
+            <param name="rawData">The raw data when the error occured.</param>
+            <param name="currentPosition">The current position in the raw data.</param>
+            <param name="currentRecordIndex">The current record index.</param>
+            <param name="currentFieldIndex">The current field index.</param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.Exceptions.MalformedCsvException.#ctor(System.String,System.Int32,System.Int64,System.Int32,System.Exception)">
+            <summary>
+            Initializes a new instance of the MalformedCsvException class.
+            </summary>
+            <param name="rawData">The raw data when the error occured.</param>
+            <param name="currentPosition">The current position in the raw data.</param>
+            <param name="currentRecordIndex">The current record index.</param>
+            <param name="currentFieldIndex">The current field index.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.Exceptions.MalformedCsvException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the MalformedCsvException class with serialized data.
+            </summary>
+            <param name="info">The <see cref="T:SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The <see cref="T:StreamingContext"/> that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.Exceptions.MalformedCsvException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            When overridden in a derived class, sets the <see cref="T:SerializationInfo"/> with information about the exception.
+            </summary>
+            <param name="info">The <see cref="T:SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The <see cref="T:StreamingContext"/> that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.Exceptions.MalformedCsvException.RawData">
+            <summary>
+            Gets the raw data when the error occured.
+            </summary>
+            <value>The raw data when the error occured.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.Exceptions.MalformedCsvException.CurrentPosition">
+            <summary>
+            Gets the current position in the raw data.
+            </summary>
+            <value>The current position in the raw data.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.Exceptions.MalformedCsvException.CurrentRecordIndex">
+            <summary>
+            Gets the current record index.
+            </summary>
+            <value>The current record index.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.Exceptions.MalformedCsvException.CurrentFieldIndex">
+            <summary>
+            Gets the current field index.
+            </summary>
+            <value>The current record index.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.Exceptions.MalformedCsvException.Message">
+            <summary>
+            Gets a message that describes the current exception.
+            </summary>
+            <value>A message that describes the current exception.</value>
+        </member>
+        <member name="T:AccudemiaDataX.Core.IEventListener">
+            <summary>
+            Handler to intercept and manipulate entities as they are processed
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.IEventListener.BeforeRecordLookup(AccudemiaDataX.Core.Model.Base.IAccudemiaEntity)">
+            <summary>
+            It's called before the entity is looked up in the database.
+            </summary>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.IEventListener.BeforeRecordInsert(AccudemiaDataX.Core.Model.Base.IAccudemiaEntity)">
+            <summary>
+            It's called before the entity is inserted into the database.
+            </summary>
+            <param name="entity">The entity to be inserted.</param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.IEventListener.BeforeEngineRuns(AccudemiaDataX.Core.JobExecution)">
+            <summary>
+            It's called before the import engine is run. At this point there's no active database
+            transaction.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.IEventListener.AfterEngineRuns(AccudemiaDataX.Core.JobExecution)">
+            <summary>
+            Called after the engine run, it might be used to change the generated content database.
+            </summary>
+            <param name="execution">The execution.</param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.IEventListener.UpdateJobStats(AccudemiaDataX.Core.JobExecution)">
+            <summary>
+            After the engine executed, the stats are generated.
+            </summary>
+        </member>
+        <member name="T:AccudemiaDataX.Core.IConfigView">
+            <summary>
+            Represents a data source configuration view.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.IConfigView.OnLoad">
+            <summary>
+            Called when the view is loaded.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.ViewsImpl.PlainTextConnection.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.ViewsImpl.PlainTextConnection.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.ViewsImpl.PlainTextConnection.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:AccudemiaDataX.Core.IDataFormatter">
+            <summary>
+            Formats the data while exchanging the information. Given any raw data, it's transformed to the 
+            required format and type.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.IDataFormatter.Format(System.Object)">
+            <summary>
+            Formats the specified raw data into a valid value, of the specified <see cref="P:AccudemiaDataX.Core.IDataFormatter.TargetType"/>.
+            </summary>
+            <param name="rawData">The raw data to be formatted.</param>
+            <returns>The data in the valid format.</returns>
+        </member>
+        <member name="P:AccudemiaDataX.Core.IDataFormatter.TargetType">
+            <summary>
+            Gets the type of the target field. The output will be of this type.
+            </summary>
+            <value>The type of the target field.</value>
+        </member>
+        <member name="T:AccudemiaDataX.Core.DataFormatters.DateTimeDataFormatter">
+            <summary>
+            Converts a raw date and time, into a valid <see cref="T:System.DateTime"/> value.
+            </summary>
+        </member>
+        <member name="T:AccudemiaDataX.Core.UserJob">
+            <summary>
+            Defines an synchronization job
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.UserJob.RegisterEventListener(System.Type)">
+            <summary>
+            Registers the specified event listener.
+            </summary>
+            <param name="eventListenerType">Type of the event listener.</param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.UserJob.UnregisterEventListener(System.Type)">
+            <summary>
+            Unregisters the specified event listener.
+            </summary>
+            <param name="eventListenerType">Type of the event listener.</param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.UserJob.IsEventListenerRegistered(System.Type)">
+            <summary>
+            Determines whether the specified event listener is registered.
+            </summary>
+            <param name="eventListenerType">Type of the event listener.</param>
+            <returns>
+            	<c>true</c> if the event listener is registered; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="P:AccudemiaDataX.Core.UserJob.Id">
+            <summary>
+            Gets or sets the POID of this job.
+            </summary>
+            <value>The id.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.UserJob.Name">
+            <summary>
+            Gets or sets the name of this job.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.UserJob.Description">
+            <summary>
+            Gets or sets an auto generated description.
+            </summary>
+            <value>The auto generated description.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.UserJob.CreationDate">
+            <summary>
+            Gets or sets the creation date.
+            </summary>
+            <value>The creation date.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.UserJob.LastRunTime">
+            <summary>
+            Gets or sets the last time it ran.
+            </summary>
+            <value>The last run time.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.UserJob.LastRunSucceed">
+            <summary>
+            Gets or sets whether the this job succeed the last time it ran.
+            </summary>
+            <value>The last run succeed.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.UserJob.CreatedBy">
+            <summary>
+            Gets or sets the Windows user that created this job.
+            </summary>
+            <value>The created by.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.UserJob.DataSource">
+            <summary>
+            Gets or sets the data source where the information is retrieved from.
+            </summary>
+            <value>The data source.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.UserJob.EventListenerTypes">
+            <summary>
+            Gets the list of the registered event listeners.
+            </summary>
+            <value>The event listener types.</value>
+        </member>
+        <member name="T:AccudemiaDataX.Core.Repositories.IRepositoryManager">
+            <summary>
+            Provides general operations in the repositories
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Repositories.IRepositoryManager.Start">
+            <summary>
+            Ensures the repositories are started, built and ready to use.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Repositories.IRepositoryManager.DropAll">
+            <summary>
+            Drops all the databases.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Repositories.IRepositoryManager.GetSchemaScript(System.IO.TextWriter,System.String,System.String,System.String)">
+            <summary>
+            Gets the database schema script.
+            </summary>
+            <param name="writer">The writer where the output is written.</param>
+            <param name="driver">The driver.</param>
+            <param name="dialect">The dialect.</param>
+            <param name="tablesSchema">The tables schema.</param>
+        </member>
+        <member name="T:AccudemiaDataX.Core.Model.Instructor">
+            <summary>
+            Represents an user with the Instructor role in Accudemia.
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.IPerson.FirstName">
+            <summary>
+            Gets or sets the first name of the student.
+            </summary>
+            <value>The first name.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.IPerson.MiddleName">
+            <summary>
+            Gets or sets the middle name of the student.
+            </summary>
+            <value>The first name.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.IPerson.LastName">
+            <summary>
+            Gets or sets the last name of the student.
+            </summary>
+            <value>The last name.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.IPerson.PersonNumber">
+            <summary>
+            Gets or sets the person number.
+            </summary>
+            <value>The person number.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.IPerson.Password">
+            <summary>
+            Gets or sets the password encrypted.
+            </summary>
+            <value>The person number.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.IPerson.Email">
+            <summary>
+            Gets or sets the user's email.
+            </summary>
+            <value>The email.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.IPerson.Comments">
+            <summary>
+            Gets or sets the user's comments.
+            </summary>
+            <value>The email.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.IPerson.Active">
+            <summary>
+            Gets or sets whether the user is active.
+            </summary>
+            <value>The email.</value>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.Instructor.AddEnrollment(AccudemiaDataX.Core.Model.Clazz)">
+            <summary>
+            Enrolls the current <see cref="T:AccudemiaDataX.Core.Model.Instructor"/> to the specified <paramref name="clazz"/>.
+            </summary>
+            <param name="clazz">The clazz.</param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.Instructor.Equals(AccudemiaDataX.Core.Model.Instructor)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+            <param name="other">An object to compare with this object.
+                            </param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.Instructor.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+            </returns>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>. 
+                            </param><exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.
+                            </exception><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.Instructor.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. 
+            </summary>
+            <returns>
+            A hash code for the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Instructor.Id">
+            <summary>
+            Gets or sets the POID.
+            </summary>
+            <value>The id.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Instructor.FirstName">
+            <summary>
+            Gets or sets the first name of the instructor.
+            </summary>
+            <value>The first name.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Instructor.MiddleName">
+            <summary>
+            Gets or sets the middle name of the instructor.
+            </summary>
+            <value>The first name.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Instructor.LastName">
+            <summary>
+            Gets or sets the last name of the instructor.
+            </summary>
+            <value>The last name.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Instructor.PersonNumber">
+            <summary>
+            Gets or sets the person number.
+            </summary>
+            <value>The person number.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Instructor.Password">
+            <summary>
+            Gets or sets the password encrypted.
+            </summary>
+            <value>The person number.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Instructor.Email">
+            <summary>
+            Gets or sets the user's email.
+            </summary>
+            <value>The email.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Instructor.PhoneNumber">
+            <summary>
+            Gets or sets the user's phone number.
+            </summary>
+            <value>The email.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Instructor.Address">
+            <summary>
+            Gets or sets the user's address.
+            </summary>
+            <value>The address.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Instructor.City">
+            <summary>
+            Gets or sets the user's city.
+            </summary>
+            <value>The city.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Instructor.State">
+            <summary>
+            Gets or sets the user's state.
+            </summary>
+            <value>The state.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Instructor.ZipCode">
+            <summary>
+            Gets or sets the user's zip code.
+            </summary>
+            <value>The zip code.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Instructor.Comments">
+            <summary>
+            Gets or sets the user's comments.
+            </summary>
+            <value>The email.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Instructor.Active">
+            <summary>
+            Gets or sets whether the user is active.
+            </summary>
+            <value>The email.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Instructor.ClassesEnrolled">
+            <summary>
+            Gets the classes where this instructor is assigned to.
+            </summary>
+            <value>The classes enrolled.</value>
+        </member>
+        <member name="T:AccudemiaDataX.Core.IDataSource">
+            <summary>
+            Provides the entities in the model from the underline source (database, file, web service, ...)
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.IDataSource.GetEntities">
+            <summary>
+            Gets the entities from the source, ordered as they should be inserted.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AccudemiaDataX.Core.IDataSource.GetConfigViews">
+            <summary>
+            Gets the view that contains the connection settings.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AccudemiaDataX.Core.IDataSource.IsConfigViewValid(AccudemiaDataX.Core.IConfigView)">
+            <summary>
+            Determines whether the connection settings in the view are valid.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.IDataSource.AcceptConfigViewChanges(AccudemiaDataX.Core.IConfigView)">
+            <summary>
+            Accepts the connection view changes, that means that the information entered in the view 
+            are put on the data source.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.IDataSource.ToString">
+            <summary>
+            Gets a friendly name of the data source. Usually the <see cref="P:AccudemiaDataX.Core.IDataSource.Name"/>.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AccudemiaDataX.Core.IDataSource.Describe">
+            <summary>
+            Describes this instance, including the main configurations.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AccudemiaDataX.Core.IDataSource.DescribeResultContents">
+            <summary>
+            Describes the result contents, that means the entities that will be returned and the fields
+            of each entity. No specific format is ensured.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AccudemiaDataX.Core.IDataSource.GetMappedEntities">
+            <summary>
+            Gets the mapped entities and properties, it might not be able to handle or use all the
+            available properties in the model.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:AccudemiaDataX.Core.IDataSource.Name">
+            <summary>
+            Gets the name of the source where it can connect to.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.IDataSource.Description">
+            <summary>
+            Gets a brief description of the data source.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.PlainTextDataSource.Delimiter">
+            <summary>
+            Gets or sets the delimiter character separating each field (default is ',').
+            </summary>
+            <value>The delimiter.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.PlainTextDataSource.TextQualifier">
+            <summary>
+            Gets or sets the quotation character wrapping every field (default is ").
+            </summary>
+            <value>The text qualifier.</value>
+        </member>
+        <member name="T:AccudemiaDataX.Core.Model.Center">
+            <summary>
+            Represents a center in the college
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.Center.AddCourse(AccudemiaDataX.Core.Model.Course)">
+            <summary>
+            Adds the specified <paramref name="course"/> to this center.
+            </summary>
+            <param name="course">The course.</param>
+            <returns></returns>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.Center.Equals(AccudemiaDataX.Core.Model.Center)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+            <param name="other">An object to compare with this object.
+                            </param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.Center.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+            </returns>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>. 
+                            </param><exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.
+                            </exception><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.Center.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. 
+            </summary>
+            <returns>
+            A hash code for the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Center.Id">
+            <summary>
+            Gets or sets the persistent object id of the course.
+            </summary>
+            <value>The id.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Center.Name">
+            <summary>
+            Gets or sets the name of the center.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Center.AssignedCourses">
+            <summary>
+            Gets or sets the assigned subject areas.
+            </summary>
+            <value>The assigned courses.</value>
+        </member>
+        <member name="T:AccudemiaDataX.Core.JobExecution">
+            <summary>
+            Represents an execution of a specific job.
+            </summary>
+        </member>
+        <member name="T:AccudemiaDataX.Core.Model.Student">
+            <summary>
+            Represents a student account in Accudemia, who can sign in, create appts, etc..
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.Student.AddEnrollment(AccudemiaDataX.Core.Model.Clazz)">
+            <summary>
+            Enrolls the current <see cref="T:AccudemiaDataX.Core.Model.Student"/> to the specified <paramref name="clazz"/>.
+            </summary>
+            <param name="clazz">The clazz.</param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.Student.Equals(AccudemiaDataX.Core.Model.Student)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+            <param name="other">An object to compare with this object.
+                            </param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.Student.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+            </returns>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>. 
+                            </param><exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.
+                            </exception><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.Student.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. 
+            </summary>
+            <returns>
+            A hash code for the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Student.Id">
+            <summary>
+            Gets or sets the POID.
+            </summary>
+            <value>The id.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Student.FirstName">
+            <summary>
+            Gets or sets the first name of the student.
+            </summary>
+            <value>The first name.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Student.MiddleName">
+            <summary>
+            Gets or sets the middle name of the student.
+            </summary>
+            <value>The first name.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Student.LastName">
+            <summary>
+            Gets or sets the last name of the student.
+            </summary>
+            <value>The last name.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Student.PersonNumber">
+            <summary>
+            Gets or sets the person number.
+            </summary>
+            <value>The person number.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Student.Password">
+            <summary>
+            Gets or sets the password encrypted.
+            </summary>
+            <value>The person number.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Student.Email">
+            <summary>
+            Gets or sets the user's email.
+            </summary>
+            <value>The email.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Student.PhoneNumber">
+            <summary>
+            Gets or sets the user's phone number.
+            </summary>
+            <value>The email.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Student.Address">
+            <summary>
+            Gets or sets the user's address.
+            </summary>
+            <value>The address.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Student.City">
+            <summary>
+            Gets or sets the user's city.
+            </summary>
+            <value>The city.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Student.State">
+            <summary>
+            Gets or sets the user's state.
+            </summary>
+            <value>The state.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Student.ZipCode">
+            <summary>
+            Gets or sets the user's zip code.
+            </summary>
+            <value>The zip code.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Student.Comments">
+            <summary>
+            Gets or sets the user's comments.
+            </summary>
+            <value>The email.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Student.Active">
+            <summary>
+            Gets or sets whether the user is active.
+            </summary>
+            <value>The active.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Student.ClassesEnrolled">
+            <summary>
+            Gets the classes where this student is enrolled to.
+            </summary>
+            <value>The classes where the student is enrolled.</value>
+        </member>
+        <member name="T:AccudemiaDataX.Core.DataSources.CSVParser.ParseErrorAction">
+            <summary>
+            Specifies the action to take when a parsing error has occured.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.ParseErrorAction.RaiseEvent">
+            <summary>
+            Raises the <see cref="M:CsvReader.ParseError"/> event.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.ParseErrorAction.AdvanceToNextLine">
+            <summary>
+            Tries to advance to next line.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.ParseErrorAction.ThrowException">
+            <summary>
+            Throws an exception.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.ViewsImpl.PlainTextMappings.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.ViewsImpl.PlainTextMappings.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.ViewsImpl.PlainTextMappings.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:AccudemiaDataX.Core.Model.Semester">
+            <summary>
+            Represent a semester period, or a term where classes take place.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.Semester.Equals(AccudemiaDataX.Core.Model.Semester)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+            <param name="other">An object to compare with this object.
+                            </param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.Semester.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+            </returns>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>. 
+                            </param><exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.
+                            </exception><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.Semester.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. 
+            </summary>
+            <returns>
+            A hash code for the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Semester.Id">
+            <summary>
+            Gets or sets the persistent object id of the semester.
+            </summary>
+            <value>The id.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Semester.Name">
+            <summary>
+            Gets or sets the friendly name of the semester.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Semester.StartTime">
+            <summary>
+            Gets or sets when it starts.
+            </summary>
+            <value>The start time.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Semester.EndTime">
+            <summary>
+            Gets or sets when it ends.
+            </summary>
+            <value>The end time.</value>
+        </member>
+        <member name="T:AccudemiaDataX.Core.Model.InstructorEnrollment">
+            <summary>
+            Contains a <see cref="P:AccudemiaDataX.Core.Model.InstructorEnrollment.Instructor"/> enrollment to a specific <see cref="P:AccudemiaDataX.Core.Model.InstructorEnrollment.Clazz"/>
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.InstructorEnrollment.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AccudemiaDataX.Core.Model.InstructorEnrollment"/> class.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.InstructorEnrollment.#ctor(AccudemiaDataX.Core.Model.Instructor,AccudemiaDataX.Core.Model.Clazz)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AccudemiaDataX.Core.Model.InstructorEnrollment"/> class.
+            </summary>
+            <param name="instructor">The instructor.</param>
+            <param name="clazz">The clazz.</param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.InstructorEnrollment.Equals(AccudemiaDataX.Core.Model.InstructorEnrollment)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+            <param name="other">An object to compare with this object.
+                            </param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.InstructorEnrollment.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+            </returns>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>. 
+                            </param><exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.
+                            </exception><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.InstructorEnrollment.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. 
+            </summary>
+            <returns>
+            A hash code for the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.InstructorEnrollment.Id">
+            <summary>
+            Gets or sets the POID.
+            </summary>
+            <value>The id.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.InstructorEnrollment.Instructor">
+            <summary>
+            Gets or sets the instructor who's enrolled
+            </summary>
+            <value>The instructor.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.InstructorEnrollment.Clazz">
+            <summary>
+            Gets or sets the clazz where the <see cref="P:AccudemiaDataX.Core.Model.InstructorEnrollment.Instructor"/> is enrolled.
+            </summary>
+            <value>The clazz.</value>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Repositories.IApplicationRepository.Delete(AccudemiaDataX.Core.UserJob)">
+            <summary>
+            Deletes the specified job.
+            </summary>
+            <param name="job">The job.</param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Repositories.IApplicationRepository.Query``1">
+            <summary>
+            Queries <typeparamref name="T"/> using Linq.
+            </summary>
+            <typeparam name="T">The type of the object to query</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Repositories.IApplicationRepository.AcceptChanges">
+            <summary>
+            Commits any change.
+            </summary>
+        </member>
+        <member name="T:AccudemiaDataX.Core.Model.PersonsGroup">
+            <summary>
+            Represents an user group, which can be used for multiple purposes.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.PersonsGroup.AddUser(AccudemiaDataX.Core.Model.Student)">
+            <summary>
+            Adds the specified <paramref name="student"/> to this groups. Currenly tutors and instructors are not supported.
+            </summary>
+            <param name="student">The student to add to the group.</param>
+            <returns>The assigment class which registers the student to the group.</returns>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.PersonsGroup.Equals(AccudemiaDataX.Core.Model.PersonsGroup)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+            <param name="other">An object to compare with this object.
+                            </param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.PersonsGroup.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+            </returns>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>. 
+                            </param><exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.
+                            </exception><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.PersonsGroup.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. 
+            </summary>
+            <returns>
+            A hash code for the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.PersonsGroup.Name">
+            <summary>
+            Gets or sets the name of the group.
+            </summary>
+            <value>The first name.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.PersonsGroup.Students">
+            <summary>
+            Gets or sets the students in this group.
+            </summary>
+            <value>The students in this group.</value>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Repositories.IModelRepository.Query``1">
+            <summary>
+            Queries the repository using Linq.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Repositories.IModelRepository.AcceptChanges">
+            <summary>
+            Commits any change.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Repositories.IModelRepository.Clear">
+            <summary>
+            Clears the database, deleting all the content on it.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Repositories.IModelRepository.ExportRepository(System.String)">
+            <summary>
+            Exports the repository, making a backup of the database.
+            </summary>
+            <param name="outputFile">The output file.</param>
+        </member>
+        <member name="T:AccudemiaDataX.Core.Model.Clazz">
+            <summary>
+            Represents a scheduled class for the specified <see cref="P:AccudemiaDataX.Core.Model.Clazz.Course"/>, which is given in 
+            a specific <see cref="P:AccudemiaDataX.Core.Model.Clazz.Semester"/>.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.Clazz.Equals(AccudemiaDataX.Core.Model.Clazz)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+            <param name="other">An object to compare with this object.
+                            </param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.Clazz.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+            </returns>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>. 
+                            </param><exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.
+                            </exception><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.Clazz.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. 
+            </summary>
+            <returns>
+            A hash code for the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Clazz.Id">
+            <summary>
+            Gets or sets the persistent object id of the class.
+            </summary>
+            <value>The id.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Clazz.Course">
+            <summary>
+            Gets or sets the course this scheduled class is related to.
+            </summary>
+            <value>The course.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Clazz.Semester">
+            <summary>
+            Gets or sets the semester in which this class is given.
+            </summary>
+            <value>The semester.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Clazz.RegistrationNumber">
+            <summary>
+            Gets or sets the registration number, also called CRN.
+            </summary>
+            <value>The registration number.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Clazz.ShortName">
+            <summary>
+            Gets or sets the short name of the class, such as "College Algebra" or "The Visual Arts Today".
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Clazz.Postfix">
+            <summary>
+            Gets or sets the postfix of the class, such as 0001.
+            </summary>
+            <value>The ID.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Clazz.Other">
+            <summary>
+            Gets or sets the custom user information.
+            </summary>
+            <value>The other.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Clazz.Comments">
+            <summary>
+            Gets or sets the comments of the class.
+            </summary>
+            <value>The comments.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Clazz.CutOff">
+            <summary>
+            Gets or sets the cut off time, that is the time after the students are considered absent
+            for class attendance.
+            </summary>
+            <value>The cut off.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Clazz.Tardy">
+            <summary>
+            Gets or sets the tardy time, that is the time after the students are considered tardy
+            for class attendance.
+            </summary>
+            <value>The tardy.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Clazz.Active">
+            <summary>
+            Gets or sets the whether this class is active.
+            </summary>
+            <value>The active.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Clazz.EnrolledStudents">
+            <summary>
+            Gets or sets the code of the course.
+            </summary>
+            <value>The code.</value>
+        </member>
+        <member name="T:AccudemiaDataX.Core.DataSources.CSVParser.MissingFieldAction">
+            <summary>
+            Specifies the action to take when a field is missing.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.MissingFieldAction.ParseError">
+            <summary>
+            Treat as a parsing error.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.MissingFieldAction.ReplaceByEmpty">
+            <summary>
+            Replaces by an empty value.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.MissingFieldAction.ReplaceByNull">
+            <summary>
+            Replaces by a null value (<see langword="null"/>).
+            </summary>
+        </member>
+        <member name="T:AccudemiaDataX.Core.ExecutionStat">
+            <summary>
+            Represents a detail item of an execution
+            </summary>
+        </member>
+        <member name="P:AccudemiaDataX.Core.ExecutionStat.RecordsAffected">
+            <summary>
+            Gets or sets the amount records affected.
+            </summary>
+            <value>The records affected.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.ExecutionStat.ChangeDescription">
+            <summary>
+            Gets or sets the a description of the change made.
+            </summary>
+            <value>The change description.</value>
+        </member>
+        <member name="T:AccudemiaDataX.Core.Model.EntityMap">
+            <summary>
+            Contains the information of a mapped entity. Including the name of the entity and the 
+            properties contained.
+            </summary>
+        </member>
+        <member name="T:AccudemiaDataX.Core.ExecutionLog">
+            <summary>
+            Represents a detail item of an execution
+            </summary>
+        </member>
+        <member name="T:AccudemiaDataX.Core.DataFormatters.BoolDataFormatter">
+            <summary>
+            Converts a raw boolean string, into a valid <see cref="T:System.Boolean"/> value.
+            </summary>
+        </member>
+        <member name="T:AccudemiaDataX.Core.Model.StudentEnrollment">
+            <summary>
+            Contains a <see cref="P:AccudemiaDataX.Core.Model.StudentEnrollment.Student"/> enrollment to a specific <see cref="P:AccudemiaDataX.Core.Model.StudentEnrollment.Clazz"/>
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.StudentEnrollment.Equals(AccudemiaDataX.Core.Model.StudentEnrollment)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+            <param name="other">An object to compare with this object.
+                            </param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.StudentEnrollment.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+            </returns>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>. 
+                            </param><exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.
+                            </exception><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.StudentEnrollment.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. 
+            </summary>
+            <returns>
+            A hash code for the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.StudentEnrollment.Id">
+            <summary>
+            Gets or sets the POID.
+            </summary>
+            <value>The id.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.StudentEnrollment.Student">
+            <summary>
+            Gets or sets the student who's enrolled.
+            </summary>
+            <value>The student.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.StudentEnrollment.Clazz">
+            <summary>
+            Gets or sets the clazz where the <see cref="P:AccudemiaDataX.Core.Model.StudentEnrollment.Student"/> is enrolled.
+            </summary>
+            <value>The clazz.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Base.EntityMetadata.ExecutionId">
+            <summary>
+            Gets or sets the server's execution id, for internal usage.
+            </summary>
+            <value>The execution id.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Base.EntityMetadata.ServerId">
+            <summary>
+            Gets or sets the server's entity id, used for matching on server.
+            Any usage on the client application is removed on server. Don't waste your time setting
+            something here.
+            </summary>
+            <value>The server id.</value>
+        </member>
+        <member name="M:AccudemiaDataX.Core.ImportEngineFactory.Start(System.Guid)">
+            <summary>
+            Starts running the job, with the specified id.
+            </summary>
+            <param name="jobIdToRun">The job id to run.</param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.ImportEngineFactory.StartInternal(System.Guid,AccudemiaDataX.Core.JobExecution@,AccudemiaDataX.Core.UserJob@)">
+            <summary>
+            Starts running the job internally, without taking care of the logging.
+            </summary>
+            <param name="jobIdToRun">The job id to run.</param>
+            <param name="execution">The execution.</param>
+            <param name="userJob">The user job.</param>
+            <returns></returns>
+        </member>
+        <member name="T:AccudemiaDataX.Core.DataSources.CSVParser.Events.ParseErrorEventArgs">
+            <summary>
+            Provides data for the <see cref="M:CsvReader.ParseError"/> event.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.Events.ParseErrorEventArgs._error">
+            <summary>
+            Contains the error that occured.
+            </summary>
+        </member>
+        <member name="F:AccudemiaDataX.Core.DataSources.CSVParser.Events.ParseErrorEventArgs._action">
+            <summary>
+            Contains the action to take.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.Events.ParseErrorEventArgs.#ctor(AccudemiaDataX.Core.DataSources.CSVParser.Exceptions.MalformedCsvException,AccudemiaDataX.Core.DataSources.CSVParser.ParseErrorAction)">
+            <summary>
+            Initializes a new instance of the ParseErrorEventArgs class.
+            </summary>
+            <param name="error">The error that occured.</param>
+            <param name="defaultAction">The default action to take.</param>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.Events.ParseErrorEventArgs.Error">
+            <summary>
+            Gets the error that occured.
+            </summary>
+            <value>The error that occured.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.DataSources.CSVParser.Events.ParseErrorEventArgs.Action">
+            <summary>
+            Gets or sets the action to take.
+            </summary>
+            <value>The action to take.</value>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.Tutor.AddEnrollment(AccudemiaDataX.Core.Model.Course,AccudemiaDataX.Core.Model.Semester)">
+            <summary>
+            Enrolls the current <see cref="T:AccudemiaDataX.Core.Model.Tutor"/> to the specified <paramref name="course"/>.
+            </summary>
+            <param name="course">The course.</param>
+            <param name="semester">The semester.</param>
+            <returns></returns>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.Tutor.Equals(AccudemiaDataX.Core.Model.Tutor)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+            <param name="other">An object to compare with this object.
+                            </param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.Tutor.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+            </returns>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>. 
+                            </param><exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.
+                            </exception><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.Tutor.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. 
+            </summary>
+            <returns>
+            A hash code for the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Tutor.Id">
+            <summary>
+            Gets or sets the POID.
+            </summary>
+            <value>The id.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Tutor.FirstName">
+            <summary>
+            Gets or sets the first name of the tutor.
+            </summary>
+            <value>The first name.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Tutor.MiddleName">
+            <summary>
+            Gets or sets the middle name of the tutor.
+            </summary>
+            <value>The first name.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Tutor.LastName">
+            <summary>
+            Gets or sets the last name of the tutor.
+            </summary>
+            <value>The last name.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Tutor.PersonNumber">
+            <summary>
+            Gets or sets the person number.
+            </summary>
+            <value>The person number.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Tutor.Password">
+            <summary>
+            Gets or sets the password encrypted.
+            </summary>
+            <value>The person number.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Tutor.Email">
+            <summary>
+            Gets or sets the user's email.
+            </summary>
+            <value>The email.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Tutor.PhoneNumber">
+            <summary>
+            Gets or sets the user's phone number.
+            </summary>
+            <value>The email.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Tutor.Address">
+            <summary>
+            Gets or sets the user's address.
+            </summary>
+            <value>The address.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Tutor.City">
+            <summary>
+            Gets or sets the user's city.
+            </summary>
+            <value>The city.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Tutor.State">
+            <summary>
+            Gets or sets the user's state.
+            </summary>
+            <value>The state.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Tutor.ZipCode">
+            <summary>
+            Gets or sets the user's zip code.
+            </summary>
+            <value>The zip code.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Tutor.Comments">
+            <summary>
+            Gets or sets the user's comments.
+            </summary>
+            <value>The email.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Tutor.Active">
+            <summary>
+            Gets or sets whether the user is active.
+            </summary>
+            <value>The email.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Tutor.CoursesEnrolled">
+            <summary>
+            Gets the courses where this tutor is assigned to.
+            </summary>
+            <value>The courses enrolled.</value>
+        </member>
+        <member name="T:AccudemiaDataX.Core.Model.PersonsGroupMember">
+            <summary>
+            Contains a <see cref="P:AccudemiaDataX.Core.Model.PersonsGroupMember.Student"/> assignment to a specific <see cref="P:AccudemiaDataX.Core.Model.PersonsGroupMember.PersonsGroup"/>
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.PersonsGroupMember.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AccudemiaDataX.Core.Model.PersonsGroupMember"/> class.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.PersonsGroupMember.#ctor(AccudemiaDataX.Core.Model.Student,AccudemiaDataX.Core.Model.PersonsGroup)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AccudemiaDataX.Core.Model.PersonsGroupMember"/> class.
+            </summary>
+            <param name="student">The student.</param>
+            <param name="personsGroup">The persons group.</param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.PersonsGroupMember.Equals(AccudemiaDataX.Core.Model.PersonsGroupMember)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+            <param name="other">An object to compare with this object.
+                            </param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.PersonsGroupMember.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+            </returns>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>. 
+                            </param><exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.
+                            </exception><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.PersonsGroupMember.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. 
+            </summary>
+            <returns>
+            A hash code for the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.PersonsGroupMember.Id">
+            <summary>
+            Gets or sets the POID.
+            </summary>
+            <value>The id.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.PersonsGroupMember.PersonsGroup">
+            <summary>
+            Gets or sets the users group.
+            </summary>
+            <value>The users group.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.PersonsGroupMember.Student">
+            <summary>
+            Gets or sets the user whos is assigned to this <see cref="P:AccudemiaDataX.Core.Model.PersonsGroupMember.PersonsGroup"/>.
+            </summary>
+            <value>The user.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Repositories.AbstractEntityIndex.Index.Value">
+            <summary>
+            Gets or sets the value associated with the index, used only by certain index implementations.
+            </summary>
+            <value>The value.</value>
+        </member>
+        <member name="T:AccudemiaDataX.Core.Model.Course">
+            <summary>
+            Represents a course or subject area, for example MAT-123
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.Course.Equals(AccudemiaDataX.Core.Model.Course)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+            <param name="other">An object to compare with this object.
+                            </param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.Course.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+            </returns>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>. 
+                            </param><exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.
+                            </exception><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.Course.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. 
+            </summary>
+            <returns>
+            A hash code for the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Course.Id">
+            <summary>
+            Gets or sets the persistent object id of the course.
+            </summary>
+            <value>The id.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Course.Name">
+            <summary>
+            Gets or sets the friendly name of the course.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Course.CodePrefix">
+            <summary>
+            Gets or sets the prefix of the code.
+            </summary>
+            <value>The code prefix.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Course.Code">
+            <summary>
+            Gets or sets the code of the course.
+            </summary>
+            <value>The code.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Course.Description">
+            <summary>
+            Gets or sets the description of the course.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Course.Classes">
+            <summary>
+            Gets or sets the code of the course.
+            </summary>
+            <value>The code.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Course.EnrolledStudents">
+            <summary>
+            Gets or sets the code of the course.
+            </summary>
+            <value>The code.</value>
+        </member>
+        <member name="T:AccudemiaDataX.Core.DataSources.CSVParser.Exceptions.MissingFieldCsvException">
+            <summary>
+            Represents the exception that is thrown when a there is a missing field in a record of the CSV file.
+            </summary>
+            <remarks>
+            MissingFieldException would have been a better name, but there is already a <see cref="T:System.MissingFieldException"/>.
+            </remarks>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.Exceptions.MissingFieldCsvException.#ctor">
+            <summary>
+            Initializes a new instance of the MissingFieldCsvException class.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.Exceptions.MissingFieldCsvException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the MissingFieldCsvException class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.Exceptions.MissingFieldCsvException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the MissingFieldCsvException class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.Exceptions.MissingFieldCsvException.#ctor(System.String,System.Int32,System.Int64,System.Int32)">
+            <summary>
+            Initializes a new instance of the MissingFieldCsvException class.
+            </summary>
+            <param name="rawData">The raw data when the error occured.</param>
+            <param name="currentPosition">The current position in the raw data.</param>
+            <param name="currentRecordIndex">The current record index.</param>
+            <param name="currentFieldIndex">The current field index.</param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.Exceptions.MissingFieldCsvException.#ctor(System.String,System.Int32,System.Int64,System.Int32,System.Exception)">
+            <summary>
+            Initializes a new instance of the MissingFieldCsvException class.
+            </summary>
+            <param name="rawData">The raw data when the error occured.</param>
+            <param name="currentPosition">The current position in the raw data.</param>
+            <param name="currentRecordIndex">The current record index.</param>
+            <param name="currentFieldIndex">The current field index.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.DataSources.CSVParser.Exceptions.MissingFieldCsvException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the MissingFieldCsvException class with serialized data.
+            </summary>
+            <param name="info">The <see cref="T:SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The <see cref="T:StreamingContext"/> that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="T:AccudemiaDataX.Core.Model.TutorEnrollment">
+            <summary>
+            Contains a <see cref="T:AccudemiaDataX.Core.Model.Instructor"/> enrollment to a specific <see cref="T:AccudemiaDataX.Core.Model.Clazz"/>
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.TutorEnrollment.Equals(AccudemiaDataX.Core.Model.TutorEnrollment)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+            <param name="other">An object to compare with this object.</param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.TutorEnrollment.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+            </returns>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>. 
+                            </param><exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.
+                            </exception><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.TutorEnrollment.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. 
+            </summary>
+            <returns>
+            A hash code for the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.TutorEnrollment.Id">
+            <summary>
+            Gets or sets the POID.
+            </summary>
+            <value>The id.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.TutorEnrollment.Tutor">
+            <summary>
+            Gets or sets the tutor who's enrolled
+            </summary>
+            <value>The instructor.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.TutorEnrollment.Course">
+            <summary>
+            Gets or sets the course where the <see cref="P:AccudemiaDataX.Core.Model.TutorEnrollment.Tutor"/> is enrolled.
+            </summary>
+            <value>The course.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.TutorEnrollment.Semester">
+            <summary>
+            Gets or sets the term when the <see cref="P:AccudemiaDataX.Core.Model.TutorEnrollment.Tutor"/> is registerd to the <see cref="P:AccudemiaDataX.Core.Model.TutorEnrollment.Course"/>.
+            </summary>
+            <value>The term.</value>
+        </member>
+    </members>
+</doc>
