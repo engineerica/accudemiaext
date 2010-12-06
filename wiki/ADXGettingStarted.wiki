@@ -29,3 +29,61 @@ Now, you need to add at least 2 classes to your project:
 1. The data source class, which provides grabs the data from your own database and,
 
 2. The plug-in loader, who tells ADX which plug-ins should load from the assembly. It's explained in depth later.
+
+
+Let's begin with the data source class itself, it has to implement the interface AccudemiaDataX.Core.IDataSource. The methods and properties included there must be implemented in order to work. 
+
+The IDataSource interface is well documented and you should have no major problems on implementing it. Make sure to follow the example *SimpleCustomDataSource* to learn how to do it correctly.
+
+There're 2 major methods you have to take care of:
+
+{{{
+/// <summary>
+/// Gets the entities from the source, ordered as they should be inserted.
+/// </summary>
+IEnumerable<IAccudemiaEntity> GetEntities();
+
+/// <summary>
+/// Gets the mapped entities and properties, it might not be able to handle or use all the
+/// available properties in the model.
+/// </summary>
+IEnumerable<EntityMap> GetMappedEntities();
+}}}
+
+The first method (GetEntities) must return all the objects stored in your database that you want to import. It's important to return then in a logical order, so they can be inserted in the internal database without any constraint violation.
+
+For example, to return 2 students, and add them to a Users Group, you have to return the students and the group first, and then the students assignment to the group.
+
+{{{
+var group = new PersonsGroup {Name = "At risk students"};
+var s1 = new Student
+	{
+		FirstName = "John",
+		MiddleName = "",
+		LastName = "Williams",
+		PersonNumber = "123123123",
+		Active = true
+	};
+var s2 = new Student
+	{
+		FirstName = "Albert",
+		MiddleName = "",
+		LastName = "Johansen",
+		PersonNumber = "456456456",
+		Active = true
+	};
+
+var member1 = new PersonsGroupMember(s1, group);
+var member2 = new PersonsGroupMember(s2, group);
+
+// Entities MUST be returned in a logical order to avoid foreign-key constrains errors.
+// The same entity can be returned multiple times because the engine will remove duplicates.
+yield return s1;
+yield return s2;
+yield return group;
+yield return member1;
+yield return member2;
+}}}
+
+You can take a look to the other entities in the AccudemiaDataX.Core.Model namespace to import Centers, Tutors, Subject Areas, and much more. Take a look to the classes in [ADXFieldsInformation] to view what can be imported.
+
