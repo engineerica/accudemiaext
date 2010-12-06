@@ -1,6 +1,7 @@
 #summary Quick getting started guide to ADX development.
 #labels Phase-Implementation
 
+Table of Contents:
 <wiki:toc max_depth="1" />
 
 = Introduction =
@@ -88,3 +89,20 @@ yield return member2;
 }}}
 
 You can take a look to the other entities in the AccudemiaDataX.Core.Model namespace to import Centers, Tutors, Subject Areas, and much more. Take a look to the classes in [ADXFieldsInformation] to view what can be imported.
+
+The second and last file you will need is the plugin loader. Create a class and make it derive from AccudemiaDataX.Core.Plugin, you only have to override one method called Load, where you can choose which plugins load at start.
+
+The implementation is trivial, as you only have to bind the IDataSource interface to the class you have built.
+
+{{{
+public class PluginLoader : Plugin
+{
+	public override void Load()
+	{
+		// Add here all the data sources you want.
+		Bind<IDataSource>().To<MockDataSource>();
+	}
+}
+}}}
+
+That's all. The only thing you have to do is install the plugin. Once installed, ADX will scan the assembly at start and search for Plugins, then is when the data source will be registered.
