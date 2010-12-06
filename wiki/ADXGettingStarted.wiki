@@ -3,19 +3,29 @@
 
 = Introduction =
 
-This short article will guide you through the process of developing add-ons for Accudemia Data Exchange.
+This article will guide you through the process of developing add-ons for Accudemia Data Exchange (ADX).
 
 = Details =
 
 == Prerequisites ==
 
-1) You need to have installed a copy of ADX on your computer for testing, or in any other computer where you usually run the software. You can download your copy by logging in Accudemia and selecting Advanced -> Import in the menu. Once you're there, click on the 
-_Download Latest ADX Version_ link in order to download ADX. Follow the steps described in the installation wizard to install it.
+1. You need to have installed a copy of ADX on your computer for testing, or in any other computer where you usually run the software. You can download your copy by logging in Accudemia and selecting Advanced -> Import in the menu. Once you're there, click on the _Download Latest ADX Version_ link in order to download ADX. Follow the steps described in the installation wizard to install it.
 
-2) The ADX development libraries (SDK) published in this site. Click on the Downloads tab above and download SDK.zip, extract the files.
+2. The ADX development libraries (the SDK) published in this site. Click on the Downloads tab above and download SDK.zip, extract the files.
 
-3) Microsoft Visual Studio 2008 or newer, or the Express version of it. You can also use any other .NET compiler, such as the Mono project compiler.
+3. Microsoft Visual Studio 2008 or newer, or the Express version of it. You can also use any other .NET compiler, such as the Mono project compiler.
 
-4) If you want to grab the latest version of the examples, you will also need a Subversion client, such as http://tortoisesvn.net/
+4. If you want to grab the latest version of the examples, you will also need a Subversion client, such as http://tortoisesvn.net/
 
 == Building your first Data Source ==
+
+The first thing you have to do, is create a new solution in Visual Studio. Click on _File -> New -> Project_ and create a new Class Library project. That's the only one project you are going to need for your custom plug-ins.
+
+Add the required assembly references by right clicking on the project (inside the Solution Explorer), and selecting Add Reference. Browse and select the _AccudemiaDataX.Core.dll_ and _Ninject.dll_ libraries, both included inside the SDK you have downloaded.
+
+
+Now, you need to add at least 2 classes to your project:
+
+1. The data source class, which provides grabs the data from your own database and,
+
+2. The plug-in loader, who tells ADX which plug-ins should load from the assembly. It's explained in depth later.
