@@ -2,15 +2,13 @@
 #labels Phase-Implementation
 
 Table of Contents:
-<wiki:toc max_depth="1" />
+<wiki:toc max_depth="3" />
 
 = Introduction =
 
 This article will guide you through the process of developing add-ons for Accudemia Data Exchange (ADX).
 
-= Details =
-
-== Prerequisites ==
+= Prerequisites =
 
 1. You need to have installed a copy of ADX on your computer for testing, or in any other computer where you usually run the software. You can download your copy by logging in Accudemia and selecting Advanced -> Import in the menu. Once you're there, click on the _Download Latest ADX Version_ link in order to download ADX. Follow the steps described in the installation wizard to install it.
 
@@ -20,7 +18,7 @@ This article will guide you through the process of developing add-ons for Accude
 
 4. If you want to grab the latest version of the examples, you will also need a Subversion client, such as http://tortoisesvn.net/
 
-== Building your first Data Source ==
+= Building Your First Data Source =
 
 The first thing you have to do, is create a new solution in Visual Studio. Click on _File -> New -> Project_ and create a new Class Library project. That's the only one project you are going to need for your custom plug-ins.
 
@@ -33,6 +31,7 @@ Now, you need to add at least 2 classes to your project:
 
 2. The plug-in loader, who tells ADX which plug-ins should load from the assembly. It's explained in depth later.
 
+== The IDataSource Implmentation ==
 
 Let's begin with the data source class itself, it has to implement the interface AccudemiaDataX.Core.IDataSource. The methods and properties included there must be implemented in order to work. 
 
@@ -89,6 +88,8 @@ yield return member2;
 }}}
 
 You can take a look to the other entities in the AccudemiaDataX.Core.Model namespace to import Centers, Tutors, Subject Areas, and much more. Take a look to the classes in [ADXFieldsInformation] to view what can be imported.
+
+== The Plugin Loader ==
 
 The second and last file you will need is the plugin loader. Create a class and make it derive from AccudemiaDataX.Core.Plugin, you only have to override one method called Load, where you can choose which plugins load at start.
 
