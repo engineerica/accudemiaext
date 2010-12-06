@@ -1,0 +1,21 @@
+#summary Quick getting started guide to ADX development.
+#labels Phase-Implementation
+
+= Introduction =
+
+This short article will guide you through the process of developing add-ons for Accudemia Data Exchange.
+
+= Details =
+
+== Prerequisites ==
+
+1) You need to have installed a copy of ADX on your computer for testing, or in any other computer where you usually run the software. You can download your copy by logging in Accudemia and selecting Advanced -> Import in the menu. Once you're there, click on the 
+_Download Latest ADX Version_ link in order to download ADX. Follow the steps described in the installation wizard to install it.
+
+2) The ADX development libraries (SDK) published in this site. Click on the Downloads tab above and download SDK.zip, extract the files.
+
+3) Microsoft Visual Studio 2008 or newer, or the Express version of it. You can also use any other .NET compiler, such as the Mono project compiler.
+
+4) If you want to grab the latest version of the examples, you will also need a Subversion client, such as http://tortoisesvn.net/
+
+== Building your first Data Source ==
