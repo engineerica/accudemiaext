@@ -1,6 +1,8 @@
 #summary Quick getting started guide to ADX development.
 #labels Phase-Implementation
 
+<wiki:toc max_depth="1" />
+
 = Introduction =
 
 This article will guide you through the process of developing add-ons for Accudemia Data Exchange (ADX).
@@ -86,4 +88,3 @@ yield return member2;
 }}}
 
 You can take a look to the other entities in the AccudemiaDataX.Core.Model namespace to import Centers, Tutors, Subject Areas, and much more. Take a look to the classes in [ADXFieldsInformation] to view what can be imported.
-
