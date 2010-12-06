@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamplePlugin", "ExamplePlugin\ExamplePlugin.csproj", "{6EC3B8C5-324A-4459-8605-BFFCB357595E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCustomDataSource", "SimpleCustomDataSource\SimpleCustomDataSource.csproj", "{6EC3B8C5-324A-4459-8605-BFFCB357595E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

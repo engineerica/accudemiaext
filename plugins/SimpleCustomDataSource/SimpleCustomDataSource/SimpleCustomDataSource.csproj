@@ -8,8 +8,8 @@
     <ProjectGuid>{6EC3B8C5-324A-4459-8605-BFFCB357595E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ExamplePlugin</RootNamespace>
-    <AssemblyName>ExamplePlugin</AssemblyName>
+    <RootNamespace>SimpleCustomDataSource</RootNamespace>
+    <AssemblyName>SimpleCustomDataSource</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SignAssembly>false</SignAssembly>

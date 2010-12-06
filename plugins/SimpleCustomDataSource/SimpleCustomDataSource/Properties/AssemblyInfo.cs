@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ExamplePlugin")]
+[assembly: AssemblyTitle("SimpleCustomDataSource")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("ESI")]
-[assembly: AssemblyProduct("ExamplePlugin")]
-[assembly: AssemblyCopyright("Copyright © ESI 2010")]
+[assembly: AssemblyCompany("Engineerica Systems, Inc.")]
+[assembly: AssemblyProduct("SimpleCustomDataSource")]
+[assembly: AssemblyCopyright("Copyright © Engineerica Systems, Inc. 2010")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
