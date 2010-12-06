@@ -1,5 +1,5 @@
 #summary Quick getting started guide to ADX development.
-#labels Phase-Implementation
+#labels Phase-Implementation,Featured
 
 Table of Contents:
 <wiki:toc max_depth="3" />
