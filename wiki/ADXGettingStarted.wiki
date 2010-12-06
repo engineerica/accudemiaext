@@ -6,7 +6,7 @@ Table of Contents:
 
 = Introduction =
 
-This article will guide you through the process of developing add-ons for Accudemia Data Exchange (ADX).
+This article will guide you through the process of developing add-ons for Accudemia Data Exchange (ADX). For more information, please download the source and explore the examples developed and published there. The SDK can also be a good source of information to understand the methods available.
 
 = Prerequisites =
 
@@ -89,9 +89,48 @@ yield return member2;
 
 You can take a look to the other entities in the AccudemiaDataX.Core.Model namespace to import Centers, Tutors, Subject Areas, and much more. Take a look to the classes in [ADXFieldsInformation] to view what can be imported.
 
-== The Plugin Loader ==
+The other important method you have to implement is GetMappedEntities; it's really important because it tells Accudemia what entities or objects are you importing, and which fields of each one. 
 
-The second and last file you will need is the plugin loader. Create a class and make it derive from AccudemiaDataX.Core.Plugin, you only have to override one method called Load, where you can choose which plugins load at start.
+For example, let's say you upload a student with the First Name and the Last Name set, but the Email is empty. The Accudemia server won't know if you want to update the student's email, or if you just didn't set it because you don't have such information on your database.
+
+Implementing the method GetMappedEntities, you decide which properties are taken into account when the updates and the matches are made. It's crucial to specify the key properties here, otherwise they will not be considered when matching against the existent records and you might end with duplicates.
+
+A simple static implementation of this method might look like this:
+
+{{{
+public IEnumerable<EntityMap> GetMappedEntities()
+{
+	// IMPORTANT!
+	// You must specify which fields are you uploading. These are used to match and update
+	// the records in the server. It's required because you might want to upload only some
+	// fields and keep others unchanged. 
+	// As this information is used to match the records on the server, writing it wrong
+	// can lead into duplicated information.
+	// If the record is not found in the server and must be created, all the fields
+	// will be used because otherwise they would default to null.
+
+	var student = new EntityMap(typeof (Student).Name, typeof (Student).FullName);
+	student.Properties.Add("PersonNumber");
+	student.Properties.Add("FirstName");
+	student.Properties.Add("LastName");
+	student.Properties.Add("MiddleName");
+	student.Properties.Add("Active");
+
+	yield return student;
+
+	var personGroup = new EntityMap(typeof (PersonsGroup).Name, typeof (PersonsGroup).FullName);
+	personGroup.Properties.Add("Name");
+
+	yield return personGroup;
+}
+}}}
+
+As you can see, we are saying we are importing students and groups. The class PersonsGroupMember is not mapped because it does not contain any simple property, it contains only relationships to other objects (Student and PersonsGroup).
+
+
+== The Plug-in Loader ==
+
+The second and last file you will need is the plug-in loader. Create a class and make it derive from AccudemiaDataX.Core.Plugin, you only have to override one method called Load, where you can choose which plug-ins load at start.
 
 The implementation is trivial, as you only have to bind the IDataSource interface to the class you have built.
 
@@ -106,4 +145,4 @@ public class PluginLoader : Plugin
 }
 }}}
 
-That's all. The only thing you have to do is install the plugin. Once installed, ADX will scan the assembly at start and search for Plugins, then is when the data source will be registered.
+That's all. The only thing you have to do is install the plug-in. Once installed, ADX will scan the assembly at start and search for Plugins, then is when the data source will be registered.
