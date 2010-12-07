@@ -31,7 +31,7 @@ Now, you need to add at least 2 classes to your project:
 
 2. The plug-in loader, who tells ADX which plug-ins should load from the assembly. It's explained in depth later.
 
-== The IDataSource Implmentation ==
+== The IDataSource Implementation ==
 
 Let's begin with the data source class itself, it has to implement the interface AccudemiaDataX.Core.IDataSource. The methods and properties included there must be implemented in order to work. 
 
