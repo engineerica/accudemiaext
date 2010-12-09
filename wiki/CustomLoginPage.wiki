@@ -1,4 +1,5 @@
 #summary Accudemia how to customize the sign-in page.
+#labels Phase-Support
 
 =Changing your Home Page Design= 
 
@@ -25,4 +26,11 @@ There, you have to a few parts in that source:
 || http || secure HTTP (HTTPs) is provided for an additional fee. Please contact your sales representative for more information || http or https ||
 
 
+== Advanced Styles Customization ==
 
+Also, you can specify a custom CSS location to use your own styles. It's intended for developers and advanced users.
+
+To do so, add the `css` parameter in the URL, for example:
+{{{
+http://democollege.accudemia.net/LoginForm.aspx?css=/Styles/LoginForm.css
+}}}
