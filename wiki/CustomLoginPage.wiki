@@ -1,0 +1,28 @@
+#summary Accudemia how to customize the sign-in page.
+
+=Changing your Home Page Design= 
+
+It's actually possible to change the design of your Accudemia Home Page. You just have to sent your new design to http://bit.ly/gdaCCX?a=a.jpg and we will change it.
+
+Also, it’s possible to stop using that page and have a better integration in your own site. You can put the login frame into your page; let’s see how to do that. You might want to contact the administrator of your website in order to do this, it will be a bit complex if you have never dealt with HTML code.
+
+Now, the only thing you have to do is include the following code in your page’s source:
+
+{{{
+<iframe frameborder="0" height="85px" width="190px" scrolling="no"
+src="http://<URL>/LoginForm.aspx?bgColor=%23<COLOR>&Layout=<LAYOUT>&Referer=<REFERER>">
+</iframe>
+}}}
+
+
+There, you have to a few parts in that source:
+
+|| *Part* || *Description* || *Examples* ||
+|| <URL> || Is your Account URL, this is the one you are using right now to access Accudemia. Always will end with accudemia.net. || collegename.accudemia.net ||
+|| <COLOR> || Is the background color of the login form, specified in HTML format. You can use any design software to pick the color you like, or use this: http://html-color-codes.info/ || FFFFFF for white, FF0000 for red, ... ||
+|| <LAYOUT> || Indicates how the login box will look like, can be either Vertical or Horizontal. || Vertical or Horizontal ||
+|| <REFERER> || Is your personal college URL, Accudemia will redirect the users there when they leave the system. || http://www.collegehomepage.com ||
+|| http || secure HTTP (HTTPs) is provided for an additional fee. Please contact your sales representative for more information || http or https ||
+
+
+
