@@ -154,4 +154,6 @@ That's all. The only thing you have to do is install the plug-in. Once installed
 Once you have your assembly compiled, open ADX and sign in using your Accudemia account. 
 Go to Tools -> Options in the menu, and select the Plug-ins tab. Once you're there, click Add and select the compiled dll. Click OK, restart the application and you're done!. 
 
+http://bit.ly/gGTzea?a=a.jpg
+
 After ADX starts, your plugins should be loaded fine. To test a custom data source for example, click on _New Import Job_ and you should be able to select your data provider from the list displayed in the second step.
