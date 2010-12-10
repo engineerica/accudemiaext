@@ -1,0 +1,13 @@
+#summary Documentation of the public HTTP API
+#labels Phase-Implementation
+
+= Introduction =
+
+It explains the options of the public HTTP API exposed by Accudemia. There're also some usage examples so you can get started faster and integrate your applications with Accudemia.
+
+
+= Basic Usage = 
+
+----
+
+* DOCUMENTATION TO BE WRITTEN *
