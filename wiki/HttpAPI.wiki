@@ -11,6 +11,13 @@ It explains the options of the public HTTP API exposed by Accudemia. There're al
 
 = Basic Usage = 
 
+== Your Developer Keys ==
+
+= Examples =
+
+== Single Sign-On == 
+
+
 ----
 
 * DOCUMENTATION TO BE WRITTEN *
