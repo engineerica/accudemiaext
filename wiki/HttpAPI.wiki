@@ -2,7 +2,7 @@
 #labels Phase-Implementation
 
 Table of Contents:
-<wiki:toc max_depth="3" />
+<wiki:toc max_depth="2" />
 
 *DOCUMENTATION STILL UNDER DEVELOPMENT*
 
@@ -47,3 +47,20 @@ Once you have your key, you have to append it to the service URL, for example:
 {{{
 .../PublicHttp.ashx?devkey=f2d99640-0712-4ba5-a82f-d84e368295ac
 }}}
+
+
+== Actions == 
+
+The command you want to execute must be specified using a parameter called _action_ in the URL.
+
+=== `getlogintoken` ===
+
+ This command returns a text (token) which can be used to log-in any user to Accudemia. You just have to specify the user ID using the _user_ parameter.
+For example, in order to get a log-in access token for the user 123-12-1234, issue a HTTP GET request to the address:
+
+
+{{{
+.../PublicHttp.ashx?devkey=f2d99640-0712-4ba5-a82f-d84e368295ac&action=getlogintoken&user=123-12-1234
+}}}
+
+
