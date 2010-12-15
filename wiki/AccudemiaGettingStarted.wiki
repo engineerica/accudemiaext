@@ -23,6 +23,8 @@ http://bit.ly/hyCfmd?a=a.jpg
 
 This alternative access method would allow you to integrate Accudemia into your college services portal, which supports a single log in into into all your online services.  This also simplifies account maintenance as students only need to know a single ID and password to log in to all your services.
 
+For this to work, you need to import your student's data into Accudemia.  When the student signs in to your portal, they can click on a link that will take them to the Accudemia website without having to sign in to Accudemia.  This is possible because your portal link will include a token that identifies your institution and an ID that identifies your student.
+
 = Examples =
 
 == Single Sign-On - .NET ==
