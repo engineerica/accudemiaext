@@ -3,7 +3,7 @@
 
 = Introduction =
 
-There're also some usage examples so you can get started faster and integrate your applications with Accudemia.
+This document contains information about how to integrate your own site, or portal, with Accudemia. It also includes usage examples so you can get started faster.
 
 = Before Start: Get your Developer Keys! =
 
