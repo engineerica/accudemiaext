@@ -19,6 +19,9 @@ http://bit.ly/hyCfmd?a=a.jpg
 
 * WARNING: Copy and keep your developer key secure. If the key is stolen, other users can gain access to your information. *
 
+= Single Sign-On =
+
+This alternative access method would allow you to integrate Accudemia into your college services portal, which supports a single log in into into all your online services.  This also simplifies account maintenance as students only need to know a single ID and password to log in to all your services.
 
 = Examples =
 
