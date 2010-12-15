@@ -4,9 +4,45 @@
 Table of Contents:
 <wiki:toc max_depth="3" />
 
+*DOCUMENTATION STILL UNDER DEVELOPMENT*
+
+
 = Introduction =
 
-It explains the options of the public HTTP API exposed by Accudemia. 
+It explains the options of the public HTTP API exposed by Accudemia. This service is still under development and is subject to change at any moment.
+
+The service exposed can be called using simple HTTP requests, which enables all kind of applications to access this service.
+
+= Service Specification =
+
+== Protocol and Location ==
+
+You can reach the service issuing a HTTP Secure (HTTPS) request to the Accudemia server.
+HTTPS is a combination of the Hypertext Transfer Protocol with the SSL/TLS protocol to provide encrypted communication and secure identification of a network web server.
+
+In order to access the service, you have to make a request to the following address:
+
+{{{
+https://your-college.accudemia.net/Services/PublicHttp.ashx
+}}}
+
+where `your-college.accudemia.net` must be replace by the address of your college.
+
+== Your Developer Key ==
+
+In order to access the service, you need to get your _Developer Keys_ from Accudemia. To do so, sign in to Accudemia and click on _Advanced -> Developers_ on the menu.
+
+On the bottom of the page, a yellow box is displayed where you can get generate your developer keys:
+
+http://bit.ly/h6E4Gc?a=a.jpg
+
+Clicking on the link, will give you a set of keys:
+
+http://bit.ly/hyCfmd?a=a.jpg
+
+* WARNING: Copy and keep your developer key secure. If the key is stolen, other users can gain access to your information. *
+
+
 
 ----
 
