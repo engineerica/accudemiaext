@@ -44,68 +44,68 @@ Please check out [http://code.google.com/p/accudemiaext/source/browse/#svn/trunk
 </head>
 <body>
 
-        <%
-                // USER CONFIGURATIONS
-                const string domain = "yourcollege.accudemia.net";
-                const string devKey = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
-                string userId = System.Threading.Thread.CurrentPrincipal.Identity.Name;
-                
-                
+	<%
+	// USER CONFIGURATIONS
+	const string domain = "yourcollege.accudemia.net";
+	const string devKey = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
+	string userId = System.Threading.Thread.CurrentPrincipal.Identity.Name;
+	
+	
 
-                // Request the login token to the service
-                string serviceUrl = string.Format("http://{0}/Services/PublicHttp.ashx?devkey={1}&action=getlogintoken&user={2}", domain, devKey, userId);
+	// Request the login token to the service
+	string serviceUrl = string.Format("http://{0}/Services/PublicHttp.ashx?devkey={1}&action=getlogintoken&user={2}", domain, devKey, userId);
 
-                WebRequest req = WebRequest.Create(serviceUrl);
+	WebRequest req = WebRequest.Create(serviceUrl);
 
-                string loginToken;
+	string loginToken;
 
-                try
-                {
-                        WebResponse response = req.GetResponse();
-                        using (Stream stream = response.GetResponseStream())
-                        using (StreamReader reader = new StreamReader(stream))
-                        {
-                                loginToken = reader.ReadToEnd();
-                        }
-                }
-                catch (Exception e)
-                {
-                        // Handle errors, and show a message
-                        Response.Write("<h2>Unable to access Accudemia.</h2>");
-                        Response.Write("Please try again in a few minutes or contact your system administrator.<br><br>");
-                        Response.Write("<b>Error returned by the server:</b><br>");
-                        
-                        WebException we = e as WebException;
-                        using (Stream stream = we.Response.GetResponseStream())
-                        {
-                                byte[] buffer = new byte[stream.Length];
-                                stream.Read(buffer, 0, buffer.Length);
+	try
+	{
+			WebResponse response = req.GetResponse();
+			using (Stream stream = response.GetResponseStream())
+			using (StreamReader reader = new StreamReader(stream))
+			{
+					loginToken = reader.ReadToEnd();
+			}
+	}
+	catch (Exception e)
+	{
+			// Handle errors, and show a message
+			Response.Write("<h2>Unable to access Accudemia.</h2>");
+			Response.Write("Please try again in a few minutes or contact your system administrator.<br><br>");
+			Response.Write("<b>Error returned by the server:</b><br>");
+			
+			WebException we = e as WebException;
+			using (Stream stream = we.Response.GetResponseStream())
+			{
+					byte[] buffer = new byte[stream.Length];
+					stream.Read(buffer, 0, buffer.Length);
 
-                                Response.OutputStream.Write(buffer, 0, buffer.Length);
-                        }
-                        return;
-                }
+					Response.OutputStream.Write(buffer, 0, buffer.Length);
+			}
+			return;
+	}
 
 
-                // If a login token was obtained, redirect to Accudemia
-                const string redirectUrl = "http://{0}/?token={1}&fwd={2}&Referer={3}";
+	// If a login token was obtained, redirect to Accudemia
+	const string redirectUrl = "http://{0}/?token={1}&fwd={2}&Referer={3}";
 
-                string forwardUrl = Request.QueryString["fwd"] ?? "";
-                if (string.IsNullOrEmpty(forwardUrl))
-                {
-                        forwardUrl = "/Private/Main.aspx";
-                }
+	string forwardUrl = Request.QueryString["fwd"] ?? "";
+	if (string.IsNullOrEmpty(forwardUrl))
+	{
+			forwardUrl = "/Private/Main.aspx";
+	}
 
-                string specifiedReferer = Request["Referer"];
-                string httpReferer = Request.UrlReferrer != null ? Request.UrlReferrer.OriginalString : null;
-                string currentDomain = Request.Url.Scheme + "://" + Request.Url.Authority;
-                
-                string referer = specifiedReferer ?? httpReferer ?? currentDomain;
-                referer = Server.UrlEncode(referer);
+	string specifiedReferer = Request["Referer"];
+	string httpReferer = Request.UrlReferrer != null ? Request.UrlReferrer.OriginalString : null;
+	string currentDomain = Request.Url.Scheme + "://" + Request.Url.Authority;
+	
+	string referer = specifiedReferer ?? httpReferer ?? currentDomain;
+	referer = Server.UrlEncode(referer);
 
-                Response.Redirect(string.Format(redirectUrl, domain, loginToken, forwardUrl, referer));
+	Response.Redirect(string.Format(redirectUrl, domain, loginToken, forwardUrl, referer));
 
-                %>
+	%>
 </body>
 </html>
 }}}
