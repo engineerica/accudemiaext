@@ -1,0 +1,11 @@
+﻿
+<asp:Login runat="server" BackColor="#F7F6F3" BorderColor="#E6E2D8" 
+	BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" 
+	Font-Size="10pt" ForeColor="#333333" Height="148px" Width="325px" TitleText="">
+	<TextBoxStyle Font-Size="10pt" Width="200px" BorderStyle="Solid" />
+	<LoginButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" BorderStyle="Solid" 
+		BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284775" />
+	<InstructionTextStyle Font-Italic="True" ForeColor="Black" />
+	<TitleTextStyle BackColor="#5D7B9D" Font-Bold="True" Font-Size="12pt" 
+		ForeColor="White" />
+</asp:Login>
