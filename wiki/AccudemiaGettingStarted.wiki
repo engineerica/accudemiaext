@@ -10,6 +10,19 @@ There're also some usage examples so you can get started faster and integrate yo
 
 == Your Developer Keys ==
 
+In order to access the service, you need to get your _Developer Keys_ from Accudemia. To do so, sign in to Accudemia and click on _Advanced -> Developers_ on the menu.
+
+On the bottom of the page, a yellow box is displayed where you can get generate your developer keys:
+
+http://bit.ly/h6E4Gc?a=a.jpg
+
+Clicking on the link, will give you a set of keys:
+
+http://bit.ly/hyCfmd?a=a.jpg
+
+* WARNING: Copy and keep your developer key secure. If the key is stolen, other users can gain access to your information. *
+
+
 = Examples =
 
 == Single Sign-On == 
