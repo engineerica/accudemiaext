@@ -5,10 +5,7 @@
 
 There're also some usage examples so you can get started faster and integrate your applications with Accudemia.
 
-
-= Basic Usage = 
-
-== Your Developer Keys ==
+= Before Start: Get your Developer Keys! =
 
 In order to access the service, you need to get your _Developer Keys_ from Accudemia. To do so, sign in to Accudemia and click on _Advanced -> Developers_ on the menu.
 
