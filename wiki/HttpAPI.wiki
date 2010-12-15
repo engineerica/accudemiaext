@@ -42,8 +42,8 @@ http://bit.ly/hyCfmd?a=a.jpg
 
 * WARNING: Copy and keep your developer key secure. If the key is stolen, other users can gain access to your information. *
 
+Once you have your key, you have to append it to the service URL, for example:
 
-
-----
-
-* DOCUMENTATION TO BE WRITTEN *
+{{{
+.../PublicHttp.ashx?devkey=f2d99640-0712-4ba5-a82f-d84e368295ac
+}}}
