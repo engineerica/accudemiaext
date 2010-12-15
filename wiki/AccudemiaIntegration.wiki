@@ -148,3 +148,9 @@ Also, you can have other links to access specific pages of Accudemia. If you wan
 For a complete working example, please download the code from:
 
 http://code.google.com/p/accudemiaext/source/browse/#svn/trunk/accudemia/IntegrationExamplesNET
+
+= More Information =
+
+For more information, please check out the [HttpAPI API documentation].
+
+For further information, please contact us at [http://bit.ly/gdaCCX?a=a.jpg]
