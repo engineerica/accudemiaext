@@ -18,7 +18,7 @@
 		
 
 		// Request the login token to the service
-		string serviceUrl = string.Format("http://{0}/Services/PublicHttp.ashx?devkey={1}&action=getlogintoken&user={2}", domain, devKey, userId);
+		string serviceUrl = string.Format("https://{0}/Services/PublicHttp.ashx?devkey={1}&action=getlogintoken&user={2}", domain, devKey, userId);
 
 		WebRequest req = WebRequest.Create(serviceUrl);
 
@@ -54,8 +54,8 @@
 
 		// If a login token was obtained, redirect to Accudemia
 		
-		// Example URL: http://yourcollege.accudemia.net/?token=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&fwd=/Private/Appointments/List.aspx
-		const string redirectUrl = "http://{0}/?token={1}&fwd={2}&Referer={3}";
+		// Example URL: https://yourcollege.accudemia.net/?token=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&fwd=/Private/Appointments/List.aspx
+		const string redirectUrl = "https://{0}/?token={1}&fwd={2}&Referer={3}";
 
 		string forwardUrl = Request.QueryString["fwd"] ?? "";
 		if (string.IsNullOrEmpty(forwardUrl))
