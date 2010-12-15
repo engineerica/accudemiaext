@@ -25,7 +25,7 @@ http://bit.ly/hyCfmd?a=a.jpg
 == Single Sign-On - .NET ==
 
 If you have an ASP.NET application, you can integrate both applications.
-Please check out [http://code.google.com/p/accudemiaext/source/browse/#svn/trunk/accudemia/IntegrationExamples the example] on our public Subversion code repository. In order to install the example in your site, you need to do the following:
+Please check out [http://code.google.com/p/accudemiaext/source/browse/#svn/trunk/accudemia/IntegrationExamplesNET the example] on our public Subversion code repository. In order to install the example in your site, you need to do the following:
 
 1. On the root of your site, create a page called RedirectAccudemia.aspx, and put the following code:
 
@@ -142,4 +142,4 @@ Also, you can have other links to access specific pages of Accudemia. If you wan
 
 For a complete working example, please download the code from:
 
-http://code.google.com/p/accudemiaext/source/browse/#svn/trunk/accudemia/IntegrationExamples
+http://code.google.com/p/accudemiaext/source/browse/#svn/trunk/accudemia/IntegrationExamplesNET
