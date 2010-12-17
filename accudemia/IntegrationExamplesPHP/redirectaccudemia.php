@@ -95,39 +95,6 @@ switch($status_code) {
 					$szContents;
 		break;
 }
-/*
-
-string loginToken;
-
-// If a login token was obtained, redirect to Accudemia
-
-// Example URL: https://yourcollege.accudemia.net/?token=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&fwd=/Private/Appointments/List.aspx
-const string redirectUrl = "https://{0}/?token={1}&fwd={2}&Referer={3}";
-
-string forwardUrl = Request.QueryString["fwd"] ?? "";
-if (string.IsNullOrEmpty(forwardUrl))
-{
-	forwardUrl = "/Private/Main.aspx";
-}
-
-string specifiedReferer = Request["Referer"];
-string httpReferer = Request.UrlReferrer != null ? Request.UrlReferrer.OriginalString : null;
-string currentDomain = Request.Url.Scheme + "://" + Request.Url.Authority;
-
-string referer = specifiedReferer ?? httpReferer ?? currentDomain;
-referer = Server.UrlEncode(referer);
-
-Response.Redirect(string.Format(redirectUrl, domain, loginToken, forwardUrl, referer));
-//Response.Write(string.Format(redirectUrl, domain, loginToken, forwardUrl, referer));
-
-*/
-
-
-
-
-
-
-
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
