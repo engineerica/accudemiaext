@@ -4,25 +4,60 @@
 Table of Contents:
 <wiki:toc max_depth="2" />
 
-= Introduction =
+= Single Sing-On =
 
-This document contains information about how to integrate your own site, or portal, with Accudemia. It also includes usage examples so you can get started faster.
+== Introduction ==
 
-= Before Start: Get your Developer Keys! =
-
-In order to learn how to get your developer key, please read the related article: YourDeveloperKey.
-
-* WARNING: Copy and keep your developer key secure. If the key is stolen, other users can gain access to your information. *
-
-= Single Sign-On =
+The aim of this document is to explain how to integrate your own site or portal with Accudemia. It also includes usage examples so you can get started faster.
 
 This alternative access method would allow you to integrate Accudemia into your college services portal, which supports a single log in into into all your online services.  This also simplifies account maintenance as students only need to know a single ID and password to log in to all your services.
 
 For this to work, you need to import your student's data into Accudemia.  When the student signs in to your portal, they can click on a link that will take them to the Accudemia website without having to sign in to Accudemia.  This is possible because your portal link will include a token that identifies your institution and an ID that identifies your student.
 
-= Examples =
+== How does it work? ==
 
-== Single Sign-On - .NET ==
+To understand how the authentication process works, let's take a look to the following diagram:
+
+http://bit.ly/fe3HVw?a=a.jpg
+
+Now, a user called ABC is using your web site, and is logged in. You might be using browser cookies or a parameter in the URL to know who is logged in across multiple requests.
+
+When the user wants to access Accudemia, the first thing he does is to ask _your application_ about it. Your site is configured and can connect to Accudemia using the public services API, so it sends a request to get a new login token for the logged in user. Also in the request, your developer key and the ID of the user using your site are sent.
+
+Accudemia authentication server gets the request and validates both the developer key and the user ID; if they are correct a new login token is issued. That token expires in 2 minutes and can be used only once. After that, your site simply builds an URL pointing to Accudemia web servers, which includes the login token.
+
+For example, if the authentication token returned was:
+{{{
+DD4FE3F9-6128-43ff-A5B1-F35A467FBB82
+}}}
+
+Then the address where the user has to go will be something like this:
+
+{{{
+https://yourcollege.accudemia.net/?token=DD4FE3F9-6128-43ff-A5B1-F35A467FBB82
+}}}
+
+The final step is to redirect the user (client computer) to that address, and Accudemia will recognize the token sent and let the user access the site.
+
+== Security Considerations ==
+
+All requests between Accudemia and the users and between Accudemia and your servers can use HTTP Secure (HTTPS) to protect the data sent across the internet. The developer key and the user ID are being protected this way. 
+
+The communication between your server and your site users should also use HTTP Secure for additional protection.
+
+Important: Your developer key lets you login as any user in Accudemia without asking for the password. You must keep your developer key protected, otherwise your information might be stolen. Reset your keys periodically to mitigate information risks.
+
+
+= Installation =
+
+== Before Start: Get your Developer Keys! ==
+
+In order to learn how to get your developer key, please read the related article: YourDeveloperKey.
+
+* WARNING: Copy and keep your developer key secure. If the key is stolen, other users can gain access to your information. *
+
+
+== .NET Version ==
 
 If you have an ASP.NET application, you can integrate it with Accudemia.
 Please check out [http://code.google.com/p/accudemiaext/source/browse/#svn/trunk/accudemia/IntegrationExamplesNET the example] on our public Subversion code repository. In order to install the example in your site, you need to do the following:
@@ -144,7 +179,7 @@ For a complete working example, please download the code from:
 
 http://code.google.com/p/accudemiaext/source/browse/#svn/trunk/accudemia/IntegrationExamplesNET
 
-== Single Sign-On - PHP ==
+== PHP Version ==
 
 If you have a PHP application, you can integrate it with Accudemia.
 Please check out [http://code.google.com/p/accudemiaext/source/browse/#svn/trunk/accudemia/IntegrationExamplesPHP the example] on our public Subversion code repository. In order to install the example in your site, you need to do the following:
