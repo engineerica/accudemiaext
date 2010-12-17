@@ -30,17 +30,7 @@ where `your-college.accudemia.net` must be replace by the address of your colleg
 
 == Your Developer Key ==
 
-In order to access the service, you need to get your _Developer Keys_ from Accudemia. To do so, sign in to Accudemia and click on _Advanced -> Developers_ on the menu.
-
-On the bottom of the page, a yellow box is displayed where you can get generate your developer keys:
-
-http://bit.ly/h6E4Gc?a=a.jpg
-
-Clicking on the link, will give you a set of keys:
-
-http://bit.ly/hyCfmd?a=a.jpg
-
-* WARNING: Copy and keep your developer key secure. If the key is stolen, other users can gain access to your information. *
+In order to learn how to get your developer key, please read the related article: YourDeveloperKey.
 
 Once you have your key, you have to append it to the service URL, for example:
 
@@ -62,5 +52,3 @@ For example, in order to get a log-in access token for the user 123-12-1234, iss
 {{{
 .../PublicHttp.ashx?devkey=f2d99640-0712-4ba5-a82f-d84e368295ac&action=getlogintoken&user=123-12-1234
 }}}
-
-
