@@ -1,6 +1,9 @@
 #summary Integrating Accudemia with your College Services Portal
 #labels Phase-Implementation
 
+Table of Contents:
+<wiki:toc max_depth="2" />
+
 = Introduction =
 
 This document contains information about how to integrate your own site, or portal, with Accudemia. It also includes usage examples so you can get started faster.
@@ -122,7 +125,7 @@ string userId = System.Threading.Thread.CurrentPrincipal.Identity.Name;
 
 The `domain` is the address you usually use to access Accudemia.
 
-The `devkey` is the developer key you get from Accudemia, as described in the section above.
+The `devkey` is the developer key you get from Accudemia, as described in the section [WikiSyntax#Before_Start:_Get_your_Developer_Keys! Before Start: Get your Developer Keys!].
 
 The `userId` is a bit harder to set up, because it depends on how your application works. You probably are using the .NET Principal class or the Session to store the current logged in user. If Principals are being used, you can leave it as is; if the user information is stored in the Session, your code might look like this:
 
@@ -133,7 +136,7 @@ string userId = Session["UserId"] as string;
 
 It all depends on how your application works. If you are not sure about it, please ask your application developer for more help.
 
-3. Open your application source code an add a link wherever you want to the page you have just added. For instance, add this on your site's menu:
+3. 3. Open your application source code an add a link to the page you have just added wherever you want. For instance, add this on your site's menu:
 
 {{{
 <a href="/RedirectAccudemia.aspx">Access Accudemia</a>
@@ -148,6 +151,162 @@ Also, you can have other links to access specific pages of Accudemia. If you wan
 For a complete working example, please download the code from:
 
 http://code.google.com/p/accudemiaext/source/browse/#svn/trunk/accudemia/IntegrationExamplesNET
+
+== Single Sign-On - PHP ==
+
+If you have a PHP application, you can integrate it with Accudemia.
+Please check out [http://code.google.com/p/accudemiaext/source/browse/#svn/trunk/accudemia/IntegrationExamplesPHP the example] on our public Subversion code repository. In order to install the example in your site, you need to do the following:
+
+1. On the root of your site, create a page called RedirectAccudemia.php, and put the following code:
+
+{{{
+<?
+
+error_reporting(!E_ALL);
+
+session_start();
+
+
+if (!isset($HTTP_SESSION_VARS['userid'])) {
+	header( 'Location: index.php' );
+	exit();
+}
+
+
+// USER CONFIGURATIONS
+$domain = "yourcollege.accudemia.net";
+$devKey = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
+$userId = $_SESSION["userid"];
+
+
+// Request the login token to the service
+$serviceUrl = "https://$domain/Services/PublicHttp.ashx?devkey=$devKey&action=getlogintoken&user=$userId";
+
+$ch = curl_init();
+
+// Set the URL and other options
+curl_setopt($ch, CURLOPT_URL, $serviceUrl);
+curl_setopt($ch, CURLOPT_HEADER, 0);
+
+// Start output buffering to save the output, and get it without flushing!
+ob_start();
+curl_exec($ch);
+$aInfo = curl_getinfo($ch);
+curl_close ($ch);
+
+$szContents = ob_get_contents();
+
+ob_end_clean();
+
+// Status code
+$status_code = $aInfo['http_code'];
+
+switch($status_code) {
+	case 200:
+
+		if (isset($HTTP_GET_VARS["fwd"])) {
+			$forwardUrl = $_GET["fwd"];
+		}
+		else
+		{
+			$forwardUrl = "/Private/Main.aspx";
+		}
+		
+		
+		$specifiedReferer = "";
+		if (isset($HTTP_GET_VARS["Referer"])) {
+			$specifiedReferer = $_GET["Referer"];
+		}
+
+		$httpReferer = "";
+		if (isset($HTTP_REFERER))
+		{
+			$httpReferer = $HTTP_REFERER;
+		}
+		 
+		// test if it's using HTTPS
+		$protocol = strpos(strtolower($_SERVER['SERVER_PROTOCOL']),'https') === FALSE ? 'http' : 'https';
+		
+		$currentDomain = $protocol . "://" . $_SERVER['HTTP_HOST'];
+		
+		// Select the best referer
+		if ($specifiedReferer != null && $specifiedReferer != "") {
+			$referer = $specifiedReferer;
+		}
+		else if ($httpReferer != null && $httpReferer != "") {
+			$referer = $httpReferer;
+		}
+		else {
+			$referer = $currentDomain;
+		}
+			
+			
+		$referer = urlencode($referer);
+		
+		// Example URL: https://yourcollege.accudemia.net/?token=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&fwd=/Private/Appointments/List.aspx
+		$redirectUrl = "https://$domain/?token=$szContents&fwd=$forwardUrl&Referer=$referer";
+		
+		header( "Location: $redirectUrl" );
+		
+		exit();
+		break;
+	default:
+		$errormsg = "<h2>Unable to access Accudemia.</h2>".
+					"Please try again in a few minutes or contact your system administrator.<br><br>".
+					"<b>Error returned by the server:</b><br>".
+					$szContents;
+		break;
+}
+
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+	<title>Accudemia - Loading...</title>
+</head>
+<body>
+
+	<? echo $errormsg; ?> 
+
+</body>
+</html>
+}}}
+
+
+2. You need to configure the page to use your developer keys, where it says:
+
+{{{
+// USER CONFIGURATIONS
+$domain = "yourcollege.accudemia.net";
+$devKey = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
+$userId = $_SESSION["userid"];
+}}}
+
+The `domain` is the address you usually use to access Accudemia.
+
+The `devkey` is the developer key you get from Accudemia, as described in the section [WikiSyntax#Before_Start:_Get_your_Developer_Keys! Before Start: Get your Developer Keys!].
+
+The `userId` is a bit harder to set up, because it depends on how your application works. You probably are storing the user credentials in a SESSION variable, in such case the code will look pretty similar to the one above; however your application might be using another session variable, or another store (i.e., MySql, memcached, etc..). You have to change it accordingly.
+
+If you are not sure about it, please ask your application developer for more help.
+
+3. Open your application source code an add a link to the page you have just added wherever you want. For instance, add this on your site's menu:
+
+{{{
+<a href="/RedirectAccudemia.php">Access Accudemia</a>
+}}}
+
+Also, you can have other links to access specific pages of Accudemia. If you want your users to see a link pointing to _Create New Appointment_, for example, add the following:
+
+{{{
+<a href="/RedirectAccudemia.php?fwd=/Private/Appointments/OpenSlots.aspx">Create New Appointment in Accudemia</a>
+}}}
+
+For a complete working example, please download the code from:
+
+http://code.google.com/p/accudemiaext/source/browse/#svn/trunk/accudemia/IntegrationExamplesPHP
+
 
 = More Information =
 
