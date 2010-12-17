@@ -61,7 +61,7 @@ In order to learn how to get your developer key, please read the related article
 * WARNING: Copy and keep your developer key secure. If the key is stolen, other users can gain access to your information. *
 
 
-== .NET Version ==
+== ASP.NET Version ==
 
 If you have an ASP.NET application, you can integrate it with Accudemia.
 Please check out [http://code.google.com/p/accudemiaext/source/browse/#svn/trunk/accudemia/IntegrationExamplesNET the example] on our public Subversion code repository. In order to install the example in your site, you need to do the following:
