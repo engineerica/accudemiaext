@@ -17,4 +17,6 @@ Clicking on the link, will give you a set of keys:
 
 http://bit.ly/hyCfmd?a=a.jpg
 
-* WARNING: Copy and keep your developer key secure. If the key is stolen, other users can gain access to your information. *
+= IMPORTANT NOTICE =
+
+*Copy and keep your developer key secure. If the key is stolen, other users can gain access to your information.*
