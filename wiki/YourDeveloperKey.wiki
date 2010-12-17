@@ -5,7 +5,7 @@
 
 The aim of this article is to explain the steps required to generate and get your Accudemia developer key. It's used to access the public services and integrate other applications with Accudemia.
 
-== Get it! ==
+= Get it! =
 
 In order to access the public services, you need to get your _Developer Keys_ from Accudemia. To do so, sign in to Accudemia and click on _Advanced -> Developers_ on the menu.
 
