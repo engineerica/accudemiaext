@@ -39,6 +39,10 @@ https://yourcollege.accudemia.net/?token=DD4FE3F9-6128-43ff-A5B1-F35A467FBB82
 
 The final step is to redirect the user (client computer) to that address, and Accudemia will recognize the token sent and let the user access the site.
 
+Additional parameters might be added into the URL to customize the login. For example, if it includes a Referer parameter, when the user Signs Out he will be taken to the specified page. It is really helpful to keep your users always in your sites. 
+Also, a forward parameter can be specified; it's used to tell Accudemia server which page is being requested. For example, you can tell Accudemia to open the New Appointment page, reducing the need to click it on the menu.
+
+
 == Security Considerations ==
 
 All requests between Accudemia and the users and between Accudemia and your servers can use HTTP Secure (HTTPS) to protect the data sent across the internet. The developer key and the user ID are being protected this way. 
