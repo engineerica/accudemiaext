@@ -1,5 +1,5 @@
 #summary Integrating Accudemia with your College Services Portal
-#labels Phase-Implementation
+#labels Phase-Implementation,Featured
 
 Table of Contents:
 <wiki:toc max_depth="2" />
