@@ -70,3 +70,10 @@ Accudemia Data Exchange (ADX) internal database uses the following columns. This
  * Zip Code - text (length: 255)
  * Comments - text (length: 255)
  * Active - boolean
+
+
+If you are using the CSV Data Source, boolean fields can be specified using any of the following value pairs:
+
+{{{
+1/0, Y/N, T/F, True/False, Yes/No (all case insensitive)
+}}}
