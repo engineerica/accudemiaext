@@ -12,7 +12,7 @@ Accudemia Data Exchange (ADX) internal database uses the following columns. This
  * Name - text (length: 255)
  * Code Prefix - text (length: 15)
  * Code - text (length: 15)
- * Description - text (length: 10000)
+ * Description - text (length: unlimited)
 *User Group*
  * Name - text (length: 255)
 *Student*
@@ -27,7 +27,7 @@ Accudemia Data Exchange (ADX) internal database uses the following columns. This
  * City - text (length: 255)
  * State - text (length: 255)
  * Zip Code - text (length: 255)
- * Comments - text (length: 10000)
+ * Comments - text (length: unlimited)
  * Active - boolean
 *Tutor*
  * First Name - text (length: 255)
