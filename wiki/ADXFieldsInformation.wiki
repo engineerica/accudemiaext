@@ -80,7 +80,7 @@ If you are using the CSV Data Source, boolean fields can be specified using any 
 
 
 
-== How the engine works? ==
+== How does the ADX engine works? ==
 
 The ADX engine finds duplicates in only the key fields of each entity. That way if you have multiple users with the same name but with different IDs, multiple users are imported.
 
