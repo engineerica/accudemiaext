@@ -77,3 +77,46 @@ If you are using the CSV Data Source, boolean fields can be specified using any 
 {{{
 1/0, Y/N, T/F, True/False, Yes/No (all case insensitive)
 }}}
+
+
+
+== How the engine works? ==
+
+The ADX engine finds duplicates in only the key fields of each entity. That way if you have multiple users with the same name but with different IDs, multiple users are imported.
+
+The key fields used for finding duplicates are the following:
+
+
+Semester:
+ * Records with the same _Name_ are considered duplicates, and thus only one is kept.
+Center:
+ * Records with the same _Name_ are considered duplicates, and thus only one is kept.
+Student: 
+ * Records with the same _Person Number_ are considered duplicates, and thus only one  is kept.
+Tutor:
+ * Records with the same _Person Number_ are considered duplicates, and thus only one is kept.
+Instructor:
+ * Records with the same _Person Number_ are considered duplicates, and thus only one is kept.
+Subject Area:
+ * Records with the same _Name_ are considered duplicates, and thus only one is kept.
+ * Records with the same _Code_ and _Code Prefix_ are considered duplicates, and thus only one is kept.
+Class: 
+ * Records with the same _Short Name_ are considered duplicates, and thus only one is kept.
+ * Records with the same _Subject Area_, _Term_ and _Postfix_ are considered duplicates, and thus only one is kept.
+ * Records with the same _Registration Number (CRN)_ are considered duplicates, and thus only one is kept.
+Student Enrollment:
+ * Records with the same _Student_ and _Class_ are considered duplicates, and thus only one is kept.
+Tutor Assignment:
+ * Records with the same _Tutor_, _Subject Area_ and _Semester_ are considered duplicates, and thus only one is kept.
+Instructor Assignment:
+ * Records with the same _Instructor_ and _Class_ are considered duplicates, and thus only one is kept.
+Center:
+ * Records with the same _Name_ are considered duplicates, and thus only one is kept.
+Person Group:
+ * Records with the same _Name_ are considered duplicates, and thus only one is kept.
+Person Group Members:
+ * Records with the same _Person Group_ and _Student_ are considered duplicates, and thus only one is kept.
+Subject Area - Center Assignment
+ * Records with the same _Subject Area_ and _Center_ are considered duplicates, and thus only one is kept.
+ 
+ 
