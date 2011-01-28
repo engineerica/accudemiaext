@@ -10,7 +10,7 @@ Also, it’s possible to stop using that page and have a better integration in y
 Now, the only thing you have to do is include the following code in your page’s source:
 
 {{{
-<iframe frameborder="0" height="85px" width="190px" scrolling="no"
+<iframe frameborder="0" height="80px" width="210px" scrolling="no"
 src="https://<URL>/LoginForm.aspx?bgColor=%23<COLOR>&Layout=<LAYOUT>&Referer=<REFERER>">
 </iframe>
 }}}
