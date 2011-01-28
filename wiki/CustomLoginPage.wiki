@@ -11,7 +11,7 @@ Now, the only thing you have to do is include the following code in your page’
 
 {{{
 <iframe frameborder="0" height="85px" width="190px" scrolling="no"
-src="http://<URL>/LoginForm.aspx?bgColor=%23<COLOR>&Layout=<LAYOUT>&Referer=<REFERER>">
+src="https://<URL>/LoginForm.aspx?bgColor=%23<COLOR>&Layout=<LAYOUT>&Referer=<REFERER>">
 </iframe>
 }}}
 
@@ -23,8 +23,7 @@ There, you have to a few parts in that source:
 || <COLOR> || Is the background color of the login form, specified in HTML format. You can use any design software to pick the color you like, or use this: http://html-color-codes.info/ || FFFFFF for white, FF0000 for red, ... ||
 || <LAYOUT> || Indicates how the login box will look like, can be either Vertical or Horizontal. || Vertical or Horizontal ||
 || <REFERER> || Is your personal college URL, Accudemia will redirect the users there when they leave the system. || http://www.collegehomepage.com ||
-|| http || secure HTTP (HTTPs) is provided for an additional fee. Please contact your sales representative for more information || http or https ||
-
+|| https || secure HTTP (HTTPS) is provided for the full site for an additional fee. Please contact your sales representative for more information || https ||
 
 == Advanced Styles Customization ==
 
@@ -32,5 +31,5 @@ Also, you can specify a custom CSS location to use your own styles. It's intende
 
 To do so, add the `css` parameter in the URL, for example:
 {{{
-http://democollege.accudemia.net/LoginForm.aspx?css=/Styles/LoginForm.css
+https://democollege.accudemia.net/LoginForm.aspx?css=/Styles/LoginForm.css
 }}}
