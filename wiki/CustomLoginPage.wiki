@@ -29,7 +29,7 @@ There, you have to a few parts in that source:
 
 Also, you can specify a custom CSS location to use your own styles. It's intended for developers and advanced users.
 
-To do so, add the `css` parameter in the URL, for example:
+To do so, add the `css` parameter in the URL, for example ([https://democollege.accudemia.net/LoginForm.aspx?css=/Styles/LoginForm.css View Example]):
 {{{
 https://democollege.accudemia.net/LoginForm.aspx?css=/Styles/LoginForm.css
 }}}
