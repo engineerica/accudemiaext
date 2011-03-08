@@ -167,7 +167,7 @@ string userId = Session["UserId"] as string;
 
 It all depends on how your application works. If you are not sure about it, please ask your application developer for more help.
 
-3. 3. Open your application source code an add a link to the page you have just added wherever you want. For instance, add this on your site's menu:
+3. Open your application source code an add a link to the page you have just added wherever you want. For instance, add this on your site's menu:
 
 {{{
 <a href="/RedirectAccudemia.aspx">Access Accudemia</a>
