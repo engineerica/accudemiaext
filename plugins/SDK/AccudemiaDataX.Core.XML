@@ -1276,6 +1276,12 @@
             to be synchronized among different systems.
             </summary>
         </member>
+        <member name="M:AccudemiaDataX.Core.Model.Base.IAccudemiaEntity.ToString">
+            <summary>
+            Returns a String that represents the current Object.
+            </summary>
+            <returns>A String that represents the current Object.</returns>
+        </member>
         <member name="P:AccudemiaDataX.Core.Model.Base.IAccudemiaEntity.Id">
             <summary>
             Gets or sets the persistent object ID (POID) of the object.
@@ -1652,6 +1658,11 @@
         <member name="T:AccudemiaDataX.Core.Model.Instructor">
             <summary>
             Represents an user with the Instructor role in Accudemia.
+            </summary>
+        </member>
+        <member name="T:AccudemiaDataX.Core.Model.IPerson">
+            <summary>
+            Abstract interface for all users.
             </summary>
         </member>
         <member name="P:AccudemiaDataX.Core.Model.IPerson.FirstName">
@@ -3022,6 +3033,274 @@
             Gets or sets the term when the <see cref="P:AccudemiaDataX.Core.Model.TutorEnrollment.Tutor"/> is registerd to the <see cref="P:AccudemiaDataX.Core.Model.TutorEnrollment.Course"/>.
             </summary>
             <value>The term.</value>
+        </member>
+        <member name="T:AccudemiaDataX.Core.Model.Service">
+            <summary>
+            Represents a service given by a center.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.Service.Equals(AccudemiaDataX.Core.Model.Service)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+            <param name="other">An object to compare with this object.
+                            </param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.Service.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+            </returns>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>. 
+                            </param><exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.
+                            </exception><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.Service.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. 
+            </summary>
+            <returns>
+            A hash code for the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Service.Id">
+            <summary>
+            Gets or sets the persistent object id of the service.
+            </summary>
+            <value>The id.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Service.Name">
+            <summary>
+            Gets or sets the name of the service.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.Service.BelongsTo">
+            <summary>
+            Gets or sets the place where this service belongs to.
+            </summary>
+            <value>The belongs to.</value>
+        </member>
+        <member name="T:AccudemiaDataX.Core.Model.SignInLog">
+            <summary>
+            Represents a student or a tutor session log.
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.SignInLog.AddCourse(AccudemiaDataX.Core.Model.Course)">
+            <summary>
+            Adds a <see cref="T:AccudemiaDataX.Core.Model.Course"/> to this session log.
+            </summary>
+            <param name="course">The course.</param>
+            <returns></returns>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.SignInLog.AddService(AccudemiaDataX.Core.Model.Service)">
+            <summary>
+            Adds a <see cref="T:AccudemiaDataX.Core.Model.Service"/> to this session log.
+            </summary>
+            <param name="service">The service.</param>
+            <returns></returns>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.SignInLog.Equals(AccudemiaDataX.Core.Model.SignInLog)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+            <param name="other">An object to compare with this object.
+                            </param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.SignInLog.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+            </returns>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>. 
+                            </param><exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.
+                            </exception><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.SignInLog.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. 
+            </summary>
+            <returns>
+            A hash code for the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.SignInLog.Id">
+            <summary>
+            Gets or sets the persistent object id of the session log.
+            </summary>
+            <value>The id.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.SignInLog.Person">
+            <summary>
+            Gets or sets who signed in.
+            </summary>
+            <value>The person.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.SignInLog.SignInTime">
+            <summary>
+            Gets or sets when the user signed in.
+            </summary>
+            <value>The sign in time.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.SignInLog.SignOutTime">
+            <summary>
+            Gets or sets when the user signed out.
+            </summary>
+            <value>The sign out time.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.SignInLog.Comments">
+            <summary>
+            Gets or sets the session comments.
+            </summary>
+            <value>The comments.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.SignInLog.Center">
+            <summary>
+            Gets or sets where the user has signed in.
+            </summary>
+            <value>The center.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.SignInLog.Instructor">
+            <summary>
+            Gets or sets the instructor select by the student.
+            </summary>
+            <value>The instructor.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.SignInLog.Tutor">
+            <summary>
+            Gets or sets the tutor selected by the student.
+            </summary>
+            <value>The tutor.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.SignInLog.Courses">
+            <summary>
+            Gets or sets the course selected by the student or tutor.
+            </summary>
+            <value>The course.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.SignInLog.Services">
+            <summary>
+            Gets the services selected for this session log.
+            </summary>
+            <value>The services.</value>
+        </member>
+        <member name="T:AccudemiaDataX.Core.Model.SignInLogService">
+            <summary>
+            Contains a <see cref="P:AccudemiaDataX.Core.Model.SignInLogService.Service"/> that was selected on a specific <see cref="P:AccudemiaDataX.Core.Model.SignInLogService.SignInLog"/>
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.SignInLogService.Equals(AccudemiaDataX.Core.Model.SignInLogService)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+            <param name="other">An object to compare with this object.
+                            </param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.SignInLogService.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+            </returns>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>. 
+                            </param><exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.
+                            </exception><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.SignInLogService.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. 
+            </summary>
+            <returns>
+            A hash code for the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.SignInLogService.Id">
+            <summary>
+            Gets or sets the POID.
+            </summary>
+            <value>The id.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.SignInLogService.Service">
+            <summary>
+            Gets or sets the service selected in a specific session log.
+            </summary>
+            <value>The student.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.SignInLogService.SignInLog">
+            <summary>
+            Gets or sets the session log when the <see cref="P:AccudemiaDataX.Core.Model.SignInLogService.Service"/> was selected.
+            </summary>
+            <value>The clazz.</value>
+        </member>
+        <member name="T:AccudemiaDataX.Core.Model.SignInLogCourse">
+            <summary>
+            Contains a <see cref="P:AccudemiaDataX.Core.Model.SignInLogCourse.Course"/> that was selected on a specific <see cref="P:AccudemiaDataX.Core.Model.SignInLogCourse.SignInLog"/>
+            </summary>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.SignInLogCourse.Equals(AccudemiaDataX.Core.Model.SignInLogCourse)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+            <param name="other">An object to compare with this object.
+                            </param>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.SignInLogCourse.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+            </returns>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>. 
+                            </param><exception cref="T:System.NullReferenceException">The <paramref name="obj"/> parameter is null.
+                            </exception><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:AccudemiaDataX.Core.Model.SignInLogCourse.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. 
+            </summary>
+            <returns>
+            A hash code for the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.SignInLogCourse.Id">
+            <summary>
+            Gets or sets the POID.
+            </summary>
+            <value>The id.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.SignInLogCourse.Course">
+            <summary>
+            Gets or sets the course selected in a specific session log.
+            </summary>
+            <value>The student.</value>
+        </member>
+        <member name="P:AccudemiaDataX.Core.Model.SignInLogCourse.SignInLog">
+            <summary>
+            Gets or sets the session log when the <see cref="P:AccudemiaDataX.Core.Model.SignInLogCourse.Course"/> was selected.
+            </summary>
+            <value>The clazz.</value>
         </member>
     </members>
 </doc>
