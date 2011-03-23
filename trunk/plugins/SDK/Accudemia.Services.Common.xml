@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Accudemia.Services.Common</name>
+    </assembly>
+    <members>
+        <member name="T:Accudemia.Services.Common.EncryptionProvider">
+            <summary>
+            This class uses a symmetric key algorithm (Rijndael/AES) to encrypt and 
+            decrypt data. As long as encryption and decryption routines use the same
+            parameters to generate the keys, the keys are guaranteed to be the same.
+            The class uses static functions with duplicate code to make it easier to
+            demonstrate encryption and decryption logic. In a real-life application, 
+            this may not be the most efficient way of handling encryption, so - as
+            soon as you feel comfortable with it - you may want to redesign this class.
+            </summary>
+        </member>
+        <member name="M:Accudemia.Services.Common.EncryptionProvider.Hash(System.String)">
+            <summary>
+            Hashes the specified password.
+            </summary>
+            <param name="password">The password.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Accudemia.Services.Common.EncryptionProvider.Hash(System.String,Accudemia.Services.Common.EncryptionProvider.Provider)">
+            <summary>
+            Hashes the specified password using the specified algorigthm
+            </summary>
+            <param name="password">The password.</param>
+            <param name="provider">The hash algorithm to use.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Accudemia.Services.Common.EncryptionProvider.Provider">
+            <summary>
+            Type of hash; some are security oriented, others are fast and simple 
+            </summary>
+            <remarks>
+            MUST MATCH THE SAME VALUES AS IN: EncryptionClassLibrary.Encryption.Hash.Provider
+            </remarks>
+        </member>
+        <member name="F:Accudemia.Services.Common.ActionType.Insert">
+            <summary>
+            Indicates that the entity must be inserted.
+            </summary>
+        </member>
+        <member name="F:Accudemia.Services.Common.ActionType.Update">
+            <summary>
+            Indicates that the entity must be updated.
+            </summary>
+        </member>
+        <member name="F:Accudemia.Services.Common.ActionType.Delete">
+            <summary>
+            Indicates that the entity must be deletd.
+            </summary>
+        </member>
+        <member name="F:Accudemia.Services.Common.ActionType.ClearAll">
+            <summary>
+            Indicates that the database must be cleared. The type will not be specified.
+            </summary>
+        </member>
+        <member name="M:Server.ClientConnectionOptions.SetPassword(System.String,System.Boolean)">
+            <summary>
+            Gets or sets the password of the user to authenticate into the server.
+            It *must be encrypted* using SHA512 for aditional security! (so it's not stored as plain text on
+            the client)
+            </summary>
+            <param name="newPassword">The user's password.</param>
+            <param name="isHashed">if set to <c>true</c> the password is already hashed.</param>
+        </member>
+        <member name="P:Server.ClientConnectionOptions.UserDomain">
+            <summary>
+            Gets or sets the user domain, or the URL (only the domain of course) where the user belongs to.
+            ie. college.accudemia.net
+            </summary>
+            <value>The user domain.</value>
+        </member>
+        <member name="P:Server.ClientConnectionOptions.UserName">
+            <summary>
+            Gets or sets the name of the user used to authenticate into the server.
+            </summary>
+            <value>The name of the user.</value>
+        </member>
+        <member name="P:Server.ClientConnectionOptions.EncryptedPassword">
+            <summary>
+            Gets the password encrypted.
+            </summary>
+            <value>The encrypted password.</value>
+        </member>
+        <member name="P:Server.ClientConnectionOptions.ServerUrl">
+            <summary>
+            Gets or sets the server URL to connect to.
+            </summary>
+            <value>The server URL.</value>
+        </member>
+        <member name="T:Accudemia.Services.Common.ServerX509Validator">
+            <summary>
+            Implements the validator for X509 certificates.
+            </summary>
+        </member>
+        <member name="M:Accudemia.Services.Common.ServerX509Validator.Validate(System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>
+            Validates a certificate.
+            </summary>
+            <param name="certificate">The certificate the validate.</param>
+        </member>
+        <member name="M:Accudemia.Services.Common.CommunicationFactory.GetClient``1">
+            <summary>
+            Creates a client to connect to the service <typeparamref name="TContract"/> using the shared 
+            configurations specified in <see cref="P:Accudemia.Services.Common.CommunicationFactory.ClientOptions"/>. Take into account that settings 
+            are shared across threads.
+            </summary>
+            <typeparam name="TContract">The type of the contract to create a client.</typeparam>
+            <returns>A new client connector instance</returns>
+        </member>
+        <member name="M:Accudemia.Services.Common.CommunicationFactory.GetClient``1(Server.ClientConnectionOptions,System.String,System.Boolean)">
+            <summary>
+            Creates a client to connect to the service <typeparamref name="TContract"/> using the
+            configurations specified in <paramref name="options"/>. That settings are NOT shared
+            across threads.
+            </summary>
+            <typeparam name="TContract">The type of the contract to create a client.</typeparam>
+            <param name="options">The options to create the service.</param>
+            <param name="serviceIdentityDns">The service identity DNS, or null to use the default value.
+            The default value is read from the application configuration file Server.ServiceIdentityDns,
+            if it does not exist the domain of the ServerUrl specified in the options is used.</param>
+            <param name="ignoreCertificateErrors">if set to <c>true</c> the server certificate errors are ignored.</param>
+            <returns>A new client connector instance</returns>
+        </member>
+    </members>
+</doc>
