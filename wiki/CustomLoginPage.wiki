@@ -24,6 +24,8 @@ There, you have to a few parts in that source:
 || <LAYOUT> || Indicates how the login box will look like, can be either Vertical or Horizontal. || Vertical or Horizontal ||
 || <REFERER> || Is your personal college URL, Accudemia will redirect the users there when they leave the system. || http://www.collegehomepage.com ||
 || https || secure HTTP (HTTPS) is provided for the full site for an additional fee. Please contact your sales representative for more information || https ||
+|| NoMask=1 || Add the NoMask parameter to the URL to disable the mask in the user ID input box || ...&NoMask=1 ||
+
 
 == Advanced Styles Customization ==
 
