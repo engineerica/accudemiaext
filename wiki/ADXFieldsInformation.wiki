@@ -110,7 +110,7 @@ Class:
 Student Enrollment:
  * Records with the same _Student_ and _Class_ are considered duplicates, and thus only one is kept.
 Tutor Assignment:
- * Records with the same _Tutor_, _Subject Area_ and _Semester_ are considered duplicates, and thus only one is kept.
+ * Records with the same _Tutor_, _Subject Area Name_ and _Term Name_ are considered duplicates, and thus only one is kept.
 Instructor Assignment:
  * Records with the same _Instructor_ and _Class_ are considered duplicates, and thus only one is kept.
 Center:
