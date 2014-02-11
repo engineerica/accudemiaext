@@ -7,16 +7,16 @@ Accudemia Data Exchange (ADX) internal database uses the following columns. This
 
 ||**Center Table**||
 ||Name - text (length: 255)||**Required**||Primary Key||
-||----||
+
 ||**Subject Area Table**||
 ||Name - text (length: 255)||**Required**||Primary Key||
 ||Prefix - text (length: 15)||**Required**||||
 ||Code - text (length: 15)||**Required**||||
 ||Description - text (length: unlimited)||Optional||||
-||----||
+
 ||**User Group Table**||
 ||Name - text (length: 255)||**Required**||Primary Key||
-||----||
+
 ||**Student Table**||
 ||User ID - text (length: 30)||**Required**||Primary Key||
 ||First Name - text (length: 255)||**Required**||||
@@ -31,7 +31,7 @@ Accudemia Data Exchange (ADX) internal database uses the following columns. This
 ||Zip Code - text (length: 255)||Optional||||
 ||Comments - text (length: unlimited)||Optional||||
 ||Active - boolean||Optional||||
-||----||
+
 ||**Tutor Table**||
 ||User ID - text (length: 30)||**Required**||Primary Key||
 ||First Name - text (length: 255)||**Required**||||
@@ -46,12 +46,12 @@ Accudemia Data Exchange (ADX) internal database uses the following columns. This
 ||Zip Code - text (length: 255)||Optional||||
 ||Comments - text (length: 255)||Optional||||
 ||Active - boolean||Optional||||
-||----||
+
 ||**Terms Table**||
 ||Name - text (length: 50)||**Required**||Primary Key||
 ||Start Date - date/time||**Required**||||
 ||End Date - date/time||**Required**||||
-||----||
+
 ||**Class Table**||
 ||Registration Number - text (length: 30)||**Required**||Primary Key||
 ||Short Name - text (length: 100)||**Required**||Secondary Key||
@@ -61,7 +61,7 @@ Accudemia Data Exchange (ADX) internal database uses the following columns. This
 ||Cut-off - number||Optional||||
 ||Tardy - number||Optional||||
 ||Active - boolean||Optional||||
-||----||
+
 ||**Instructor Table**||
 ||User ID - text (length: 30)||**Required**||Primary Key||
 ||First Name - text (length: 255)||**Required**||||
@@ -122,5 +122,3 @@ Person Group Members:
  * Records with the same _Person Group_ and _Student_ are considered duplicates, and thus only one is kept.
 Subject Area - Center Assignment
  * Records with the same _Subject Area_ and _Center_ are considered duplicates, and thus only one is kept.
- 
- 
