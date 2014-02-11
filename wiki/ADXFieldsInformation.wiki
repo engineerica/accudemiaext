@@ -70,7 +70,6 @@ Accudemia Data Exchange (ADX) internal database uses the following columns. This
 ||Class's Days of Week||Optional||_Required for Classroom Attendance_||
 ||Class's Start Time||Optional||_Required for Classroom Attendance_||
 ||Class's End Time||Optional||_Required for Classroom Attendance_||
-||Classroom||Optional||_Required for Classroom Attendance_||
 ||Other - text (length: 20)||Optional||||
 ||Comments - text (length: 200)||Optional||||
 ||Cut-off - number||Optional||||
