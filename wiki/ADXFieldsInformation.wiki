@@ -8,8 +8,8 @@ Accudemia Data Exchange (ADX) internal database uses the following columns. This
 ||**Table**||**Imported?**||**Notes**||
 ||**Terms**||
 ||Name - text (length: 50)||**Required**||Primary Key||
-||Start Date - (date/time)||**Required**||||
-||End Date - (date/time)||**Required**||||
+||Start Date - date/time||**Required**||||
+||End Date - date/time||**Required**||||
 ||**Center**||
 ||Name - text (length: 255)||**Required**||Primary Key||
 ||**User Group Table**||
@@ -68,8 +68,8 @@ Accudemia Data Exchange (ADX) internal database uses the following columns. This
 ||Short Name - text (length: 100)||**Required**||Secondary Key||
 ||Postfix - text (length: 15)||**Required**||||
 ||Class's Days of Week - (mo/tu/we/th/fr/sa/su)||Optional||_Required for Classroom Attendance_||
-||Class's Start Time - (date/time)||Optional||_Required for Classroom Attendance_||
-||Class's End Time - (date/time)||Optional||_Required for Classroom Attendance_||
+||Class's Start Time - date/time||Optional||_Required for Classroom Attendance_||
+||Class's End Time - date/time||Optional||_Required for Classroom Attendance_||
 ||Other - text (length: 20)||Optional||||
 ||Comments - text (length: 200)||Optional||||
 ||Cut-off - number||Optional||||
