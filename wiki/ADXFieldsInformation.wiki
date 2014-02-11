@@ -60,8 +60,8 @@ Accudemia Data Exchange (ADX) internal database uses the following columns. This
 ||Active - boolean||Optional||||
 ||**Subject Area**||
 ||Name - text (length: 255)||**Required**||Primary Key||
-||Prefix - text (length: 15)||**Required**||||
-||Code - text (length: 15)||**Required**||||
+||Prefix - text (length: 15)||**Required**||Prefix+Code=Secondary Key||
+||Code - text (length: 15)||**Required**||Prefix+Code=Secondary Key||
 ||Description - text (length: unlimited)||Optional||||
 ||**Class**||
 ||Registration Number - text (length: 30)||**Required**||Primary Key||
