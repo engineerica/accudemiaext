@@ -5,20 +5,16 @@
 
 Accudemia Data Exchange (ADX) internal database uses the following columns. This information should not care users as the fields are long enough for most users, however if you are developing for ADX it might be helpful:
 
-||**Terms Table**||
+||**Terms Table**||**Imported?**||**Notes**||
 ||Name - text (length: 50)||**Required**||Primary Key||
 ||Start Date - date/time||**Required**||||
 ||End Date - date/time||**Required**||||
-
 ||**Center Table**||
 ||Name - text (length: 255)||**Required**||Primary Key||
-
 ||**User Group Table**||
 ||Name - text (length: 255)||**Required**||Primary Key||
-
 ||**Classroom Table**||
 ||Name - text (length: 255)||**Required**||Primary Key||
-
 ||**Student Table**||
 ||User ID - text (length: 30)||**Required**||Primary Key||
 ||First Name - text (length: 255)||**Required**||||
@@ -33,7 +29,6 @@ Accudemia Data Exchange (ADX) internal database uses the following columns. This
 ||Zip Code - text (length: 255)||Optional||||
 ||Comments - text (length: unlimited)||Optional||||
 ||Active - boolean||Optional||||
-
 ||**Tutor Table**||
 ||User ID - text (length: 30)||**Required**||Primary Key||
 ||First Name - text (length: 255)||**Required**||||
@@ -48,7 +43,6 @@ Accudemia Data Exchange (ADX) internal database uses the following columns. This
 ||Zip Code - text (length: 255)||Optional||||
 ||Comments - text (length: 255)||Optional||||
 ||Active - boolean||Optional||||
-
 ||**Instructor Table**||
 ||User ID - text (length: 30)||**Required**||Primary Key||
 ||First Name - text (length: 255)||**Required**||||
@@ -63,13 +57,11 @@ Accudemia Data Exchange (ADX) internal database uses the following columns. This
 ||Zip Code - text (length: 255)||Optional||||
 ||Comments - text (length: 255)||Optional||||
 ||Active - boolean||Optional||||
-
 ||**Subject Area Table**||
 ||Name - text (length: 255)||**Required**||Primary Key||
 ||Prefix - text (length: 15)||**Required**||||
 ||Code - text (length: 15)||**Required**||||
 ||Description - text (length: unlimited)||Optional||||
-
 ||**Class Table**||
 ||Registration Number - text (length: 30)||**Required**||Primary Key||
 ||Short Name - text (length: 100)||**Required**||Secondary Key||
