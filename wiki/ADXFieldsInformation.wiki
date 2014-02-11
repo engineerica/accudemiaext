@@ -90,8 +90,8 @@ The ADX engine finds duplicates in only the key fields of each entity. That way 
 The key fields used for finding duplicates are the following:
 
 
-Semester:
- * Records with the same _Name_ are considered duplicates, and thus only one is kept.
+Term:
+ * Records with the same _Term Name_ are considered duplicates, and thus only one is kept.
 Center:
  * Records with the same _Center Name_ are considered duplicates, and thus only one is kept.
 Student: 
