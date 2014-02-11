@@ -93,31 +93,31 @@ The key fields used for finding duplicates are the following:
 Semester:
  * Records with the same _Name_ are considered duplicates, and thus only one is kept.
 Center:
- * Records with the same _Name_ are considered duplicates, and thus only one is kept.
+ * Records with the same _Center Name_ are considered duplicates, and thus only one is kept.
 Student: 
- * Records with the same _Person Number_ are considered duplicates, and thus only one  is kept.
+ * Records with the same _Student User ID_ are considered duplicates, and thus only one  is kept.
 Tutor:
- * Records with the same _Person Number_ are considered duplicates, and thus only one is kept.
+ * Records with the same _Tutor User ID_ are considered duplicates, and thus only one is kept.
 Instructor:
- * Records with the same _Person Number_ are considered duplicates, and thus only one is kept.
+ * Records with the same _Instructor User ID_ are considered duplicates, and thus only one is kept.
 Subject Area:
- * Records with the same _Name_ are considered duplicates, and thus only one is kept.
- * Records with the same _Code_ and _Code Prefix_ are considered duplicates, and thus only one is kept.
+ * Records with the same _Subject Area Name_ are considered duplicates, and thus only one is kept.
+ * Records with the same _Prefix_ and _Code_ are considered duplicates, and thus only one is kept.
 Class: 
- * Records with the same _Short Name_ are considered duplicates, and thus only one is kept.
- * Records with the same _Subject Area_, _Term_ and _Postfix_ are considered duplicates, and thus only one is kept.
- * Records with the same _Registration Number (CRN)_ are considered duplicates, and thus only one is kept.
+ * Records with the same _Class Registration Number (CRN)_ are considered duplicates, and thus only one is kept.
+ * Records with the same _Class Short Name_ are considered duplicates, and thus only one is kept.
+ * Records with the same _Subject Area Name_, _Term Name_ and _Postfix_ are considered duplicates, and thus only one is kept.
 Student Enrollment:
- * Records with the same _Student_ and _Class_ are considered duplicates, and thus only one is kept.
+ * Records with the same _Student User ID_ and _Class Registration Number (CRN)_ or _Class Short Name_ are considered duplicates, and thus only one is kept.
 Tutor Assignment:
- * Records with the same _Tutor_, _Subject Area Name_ and _Term Name_ are considered duplicates, and thus only one is kept.
+ * Records with the same _Tutor User ID_, _Subject Area Name_ and _Term Name_ are considered duplicates, and thus only one is kept.
 Instructor Assignment:
- * Records with the same _Instructor_ and _Class_ are considered duplicates, and thus only one is kept.
+ * Records with the same _Instructor User ID_ and _Class Registration Number (CRN)_ or _Class Short Name_ are considered duplicates, and thus only one is kept.
 Center:
- * Records with the same _Name_ are considered duplicates, and thus only one is kept.
-Person Group:
- * Records with the same _Name_ are considered duplicates, and thus only one is kept.
-Person Group Members:
- * Records with the same _Person Group_ and _Student_ are considered duplicates, and thus only one is kept.
+ * Records with the same _Center Name_ are considered duplicates, and thus only one is kept.
+User Group:
+ * Records with the same _User Group Name_ are considered duplicates, and thus only one is kept.
+User Group Members:
+ * Records with the same _User Group Name_ and _Student User ID_ are considered duplicates, and thus only one is kept.
 Subject Area - Center Assignment
- * Records with the same _Subject Area_ and _Center_ are considered duplicates, and thus only one is kept.
+ * Records with the same _Subject Area Name_ and _Center Name_ are considered duplicates, and thus only one is kept.
