@@ -5,79 +5,76 @@
 
 Accudemia Data Exchange (ADX) internal database uses the following columns. This information should not care users as the fields are long enough for most users, however if you are developing for ADX it might be helpful:
 
-
-*Center*
- * Name - text (length: 255)
-*Subject Area*
- * Name - text (length: 255)
- * Code Prefix - text (length: 15)
- * Code - text (length: 15)
- * Description - text (length: unlimited)
-*User Group*
- * Name - text (length: 255)
-*Student*
- * First Name - text (length: 255)
- * Middle Name - text (length: 255)
- * Last Name - text (length: 255)
- * User ID - text (length: 30)
- * Password - text (length: 512)
- * Email - text (length: 255)
- * Phone Number - text (length: 255)
- * Address - text (length: 255)
- * City - text (length: 255)
- * State - text (length: 255)
- * Zip Code - text (length: 255)
- * Comments - text (length: unlimited)
- * Active - boolean
-*Tutor*
- * First Name - text (length: 255)
- * Middle Name - text (length: 255)
- * Last Name - text (length: 255)
- * User ID - text (length: 30)
- * Password - text (length: 512)
- * Email - text (length: 255)
- * Phone Number - text (length: 255)
- * Address - text (length: 255)
- * City - text (length: 255)
- * State - text (length: 255)
- * Zip Code - text (length: 255)
- * Comments - text (length: 255)
- * Active - boolean
-*Term*
- * Name - text (length: 50)
- * Start Date - date/time
- * End Date - date/time
-*Class*
- * Reg. Number - text (length: 30)
- * Short Name - text (length: 100)
- * Postfix - text (length: 15)
- * Other - text (length: 20)
- * Comments - text (length: 200)
- * Cut-off - number
- * Tardy - number
- * Active - boolean
-*Instructor*
- * First Name - text (length: 255)
- * Middle Name - text (length: 255)
- * Last Name - text (length: 255)
- * User ID - text (length: 30)
- * Password - text (length: 512)
- * Email - text (length: 255)
- * Phone Number - text (length: 255)
- * Address - text (length: 255)
- * City - text (length: 255)
- * State - text (length: 255)
- * Zip Code - text (length: 255)
- * Comments - text (length: 255)
- * Active - boolean
-
+||**Center Table**||
+||Name - text (length: 255)||**Required**||Primary Key||
+||**Subject Area Table**||
+||Name - text (length: 255)||**Required**||Primary Key||
+||Prefix - text (length: 15)||**Required**||||
+||Code - text (length: 15)||**Required**||||
+||Description - text (length: unlimited)||Optional||||
+||**User Group Table**||
+||Name - text (length: 255)||**Required**||Primary Key||
+||**Student Table**||
+||User ID - text (length: 30)||**Required**||Primary Key||
+||First Name - text (length: 255)||**Required**||||
+||Middle Name - text (length: 255)||Optional||||
+||Last Name - text (length: 255)||**Required**||||
+||Password - text (length: 512)||Optional||||
+||Email - text (length: 255)||Optional||||
+||Phone Number - text (length: 255)||Optional||||
+||Address - text (length: 255)||Optional||||
+||City - text (length: 255)||Optional||||
+||State - text (length: 255)||Optional||||
+||Zip Code - text (length: 255)||Optional||||
+||Comments - text (length: unlimited)||Optional||||
+||Active - boolean||Optional||||
+||**Tutor Table**||
+||User ID - text (length: 30)||**Required**||Primary Key||
+||First Name - text (length: 255)||**Required**||||
+||Middle Name - text (length: 255)||Optional||||
+||Last Name - text (length: 255)||**Required**||||
+||Password - text (length: 512)||Optional||||
+||Email - text (length: 255)||Optional||||
+||Phone Number - text (length: 255)||Optional||||
+||Address - text (length: 255)||Optional||||
+||City - text (length: 255)||Optional||||
+||State - text (length: 255)||Optional||||
+||Zip Code - text (length: 255)||Optional||||
+||Comments - text (length: 255)||Optional||||
+||Active - boolean||Optional||||
+||**Term Table**||
+||Name - text (length: 50)||**Required**||Primary Key||
+||Start Date - date/time||**Required**||||
+||End Date - date/time||**Required**||||
+||**Class Table**||
+||Registration Number - text (length: 30)||**Required**||Primary Key||
+||Short Name - text (length: 100)||**Required**||Secondary Key||
+||Postfix - text (length: 15)||**Required**||||
+||Other - text (length: 20)||Optional||||
+||Comments - text (length: 200)||Optional||||
+||Cut-off - number||Optional||||
+||Tardy - number||Optional||||
+||Active - boolean||Optional||||
+||**Instructor Table**||
+||User ID - text (length: 30)||**Required**||Primary Key||
+||First Name - text (length: 255)||**Required**||||
+||Middle Name - text (length: 255)||Optional||||
+||Last Name - text (length: 255)||**Required**||||
+||Password - text (length: 512)||Optional||||
+||Email - text (length: 255)||Optional||||
+||Phone Number - text (length: 255)||Optional||||
+||Address - text (length: 255)||Optional||||
+||City - text (length: 255)||Optional||||
+||State - text (length: 255)||Optional||||
+||Zip Code - text (length: 255)||Optional||||
+||Comments - text (length: 255)||Optional||||
+||Active - boolean||Optional||||
 
 If you are using the CSV Data Source, boolean fields can be specified using any of the following value pairs:
 
 {{{
 1/0, Y/N, T/F, True/False, Yes/No (all case insensitive)
 }}}
-
 
 
 == How does the ADX engine works? ==
