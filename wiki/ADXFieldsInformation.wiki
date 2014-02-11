@@ -5,10 +5,18 @@
 
 Accudemia Data Exchange (ADX) internal database uses the following columns. This information should not care users as the fields are long enough for most users, however if you are developing for ADX it might be helpful:
 
+||**Terms Table**||
+||Name - text (length: 50)||**Required**||Primary Key||
+||Start Date - date/time||**Required**||||
+||End Date - date/time||**Required**||||
+
 ||**Center Table**||
 ||Name - text (length: 255)||**Required**||Primary Key||
 
 ||**User Group Table**||
+||Name - text (length: 255)||**Required**||Primary Key||
+
+||**Classroom Table**||
 ||Name - text (length: 255)||**Required**||Primary Key||
 
 ||**Student Table**||
@@ -56,11 +64,6 @@ Accudemia Data Exchange (ADX) internal database uses the following columns. This
 ||Comments - text (length: 255)||Optional||||
 ||Active - boolean||Optional||||
 
-||**Terms Table**||
-||Name - text (length: 50)||**Required**||Primary Key||
-||Start Date - date/time||**Required**||||
-||End Date - date/time||**Required**||||
-
 ||**Subject Area Table**||
 ||Name - text (length: 255)||**Required**||Primary Key||
 ||Prefix - text (length: 15)||**Required**||||
@@ -74,6 +77,7 @@ Accudemia Data Exchange (ADX) internal database uses the following columns. This
 ||Class's Days of Week||Optional||_Required for Classroom Attendance_||
 ||Class's Start Time||Optional||_Required for Classroom Attendance_||
 ||Class's End Time||Optional||_Required for Classroom Attendance_||
+||Classroom||Optional||_Required for Classroom Attendance_||
 ||Other - text (length: 20)||Optional||||
 ||Comments - text (length: 200)||Optional||||
 ||Cut-off - number||Optional||||
