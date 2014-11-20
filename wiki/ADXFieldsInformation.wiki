@@ -21,6 +21,7 @@ Accudemia Data Exchange (ADX) internal database uses the following columns. This
 ||First Name - text (length: 255)||**Required**||||
 ||Middle Name - text (length: 255)||Optional||||
 ||Last Name - text (length: 255)||**Required**||||
+||User Alternate ID - text (length: 30)||Optional||||
 ||Password - text (length: 512)||Optional||||
 ||Email - text (length: 255)||Optional||||
 ||Phone Number - text (length: 255)||Optional||||
@@ -35,6 +36,7 @@ Accudemia Data Exchange (ADX) internal database uses the following columns. This
 ||First Name - text (length: 255)||**Required**||||
 ||Middle Name - text (length: 255)||Optional||||
 ||Last Name - text (length: 255)||**Required**||||
+||User Alternate ID - text (length: 30)||Optional||||
 ||Password - text (length: 512)||Optional||||
 ||Email - text (length: 255)||Optional||||
 ||Phone Number - text (length: 255)||Optional||||
@@ -49,6 +51,7 @@ Accudemia Data Exchange (ADX) internal database uses the following columns. This
 ||First Name - text (length: 255)||**Required**||||
 ||Middle Name - text (length: 255)||Optional||||
 ||Last Name - text (length: 255)||**Required**||||
+||User Alternate ID - text (length: 30)||Optional||||
 ||Password - text (length: 512)||Optional||||
 ||Email - text (length: 255)||Optional||||
 ||Phone Number - text (length: 255)||Optional||||
