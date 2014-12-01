@@ -69,7 +69,7 @@ Accudemia Data Exchange (ADX) internal database uses the following columns. This
 ||**Class**||
 ||Registration Number - text (length: 30)||**Required**||Primary Key||
 ||Short Name - text (length: 100)||**Required**||Secondary Key||
-||Postfix - text (length: 15)||**Required**||||
+||Postfix - text (length: 15)||**Required**||Prefix+Code+Postfix=ClassID||
 ||Class's Days of Week - (mo/tu/we/th/fr/sa/su)||Optional||_Required for Classroom Attendance_||
 ||Class's Start Time - date/time||Optional||_Required for Classroom Attendance_||
 ||Class's End Time - date/time||Optional||_Required for Classroom Attendance_||
