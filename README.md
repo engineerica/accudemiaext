@@ -4,7 +4,7 @@ This project contains the SDK, plug-ins, filters and custom data sources you can
 
 Please check out the downloads section for more information.
 
-If you don't know where to start, the best place might be the [ADX Getting Started Guide](ADXGettingStarted.md) or the [Accudemia Integration Guide](AccudemiaIntegration.md), check them out!
+If you don't know where to start, the best place might be the [ADX Getting Started Guide](https://github.com/diegojancic/accudemiaext/wiki/ADXGettingStarted) or the [Accudemia Integration Guide](https://github.com/diegojancic/accudemiaext/wiki/AccudemiaIntegration), check them out!
 
 
 ## New to Accudemia? ##
@@ -20,7 +20,7 @@ Thanks to the Accudemia extensions, now you can integrate your existent applicat
 
 ## I want to develop a plug-in, where do I start? ##
 
-The best place to start is the [Getting Started Guide](ADXGettingStarted.md). Also you can download the examples published here and take a look to the code there.
+The best place to start is the [Getting Started Guide](https://github.com/diegojancic/accudemiaext/wiki/ADXGettingStarted). Also you can download the examples published here and take a look to the code there.
 
 ## Are you an IT expert? ##
 
