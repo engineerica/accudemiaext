@@ -1,0 +1,156 @@
+Table of Contents:
+
+
+# Introduction #
+
+This article will guide you through the process of developing add-ons for Accudemia Data Exchange (ADX). For more information, please download the source and explore the examples developed and published there. The SDK can also be a good source of information to understand the methods available.
+
+# Prerequisites #
+
+1. You need to have installed a copy of ADX on your computer for testing, or in any other computer where you usually run the software. You can download your copy by logging in Accudemia and selecting Advanced -> Import in the menu. Once you're there, click on the _Download Latest ADX Version_ link in order to download ADX. Follow the steps described in the installation wizard to install it.
+
+2. The ADX development libraries (the SDK) published in this site. Click on the Downloads tab above and download SDK.zip, extract the files.
+
+3. Microsoft Visual Studio 2008 or newer, or the Express version of it. You can also use any other .NET compiler, such as the Mono project compiler.
+
+4. If you want to grab the latest version of the examples, you will also need a Subversion client, such as http://tortoisesvn.net/
+
+# Building Your First Data Source #
+
+The first thing you have to do, is create a new solution in Visual Studio. Click on _File -> New -> Project_ and create a new Class Library project. That's the only one project you are going to need for your custom plug-ins.
+
+Add the required assembly references by right clicking on the project (inside the Solution Explorer), and selecting Add Reference. Browse and select the _AccudemiaDataX.Core.dll_ and _Ninject.dll_ libraries, both included inside the SDK you have downloaded.
+
+
+Now, you need to add at least 2 classes to your project:
+
+1. The data source class, which provides grabs the data from your own database and,
+
+2. The plug-in loader, who tells ADX which plug-ins should load from the assembly. It's explained in depth later.
+
+## The IDataSource Implementation ##
+
+Let's begin with the data source class itself, it has to implement the interface AccudemiaDataX.Core.IDataSource. The methods and properties included there must be implemented in order to work.
+
+The IDataSource interface is well documented and you should have no major problems on implementing it. Make sure to follow the example **SimpleCustomDataSource** to learn how to do it correctly.
+
+There're 2 major methods you have to take care of:
+
+```
+/// <summary>
+/// Gets the entities from the source, ordered as they should be inserted.
+/// </summary>
+IEnumerable<IAccudemiaEntity> GetEntities();
+
+/// <summary>
+/// Gets the mapped entities and properties, it might not be able to handle or use all the
+/// available properties in the model.
+/// </summary>
+IEnumerable<EntityMap> GetMappedEntities();
+```
+
+The first method (GetEntities) must return all the objects stored in your database that you want to import. It's important to return then in a logical order, so they can be inserted in the internal database without any constraint violation.
+
+For example, to return 2 students, and add them to a Users Group, you have to return the students and the group first, and then the students assignment to the group.
+
+```
+var group = new PersonsGroup {Name = "At risk students"};
+var s1 = new Student
+	{
+		FirstName = "John",
+		MiddleName = "",
+		LastName = "Williams",
+		PersonNumber = "123123123",
+		Active = true
+	};
+var s2 = new Student
+	{
+		FirstName = "Albert",
+		MiddleName = "",
+		LastName = "Johansen",
+		PersonNumber = "456456456",
+		Active = true
+	};
+
+var member1 = new PersonsGroupMember(s1, group);
+var member2 = new PersonsGroupMember(s2, group);
+
+// Entities MUST be returned in a logical order to avoid foreign-key constrains errors.
+// The same entity can be returned multiple times because the engine will remove duplicates.
+yield return s1;
+yield return s2;
+yield return group;
+yield return member1;
+yield return member2;
+```
+
+You can take a look to the other entities in the AccudemiaDataX.Core.Model namespace to import Centers, Tutors, Subject Areas, and much more. Take a look to the classes in [ADXFieldsInformation](ADXFieldsInformation.md) to view what can be imported.
+
+The other important method you have to implement is GetMappedEntities; it's really important because it tells Accudemia what entities or objects are you importing, and which fields of each one.
+
+For example, let's say you upload a student with the First Name and the Last Name set, but the Email is empty. The Accudemia server won't know if you want to update the student's email, or if you just didn't set it because you don't have such information on your database.
+
+Implementing the method GetMappedEntities, you decide which properties are taken into account when the updates and the matches are made. It's crucial to specify the key properties here, otherwise they will not be considered when matching against the existent records and you might end with duplicates.
+
+A simple static implementation of this method might look like this:
+
+```
+public IEnumerable<EntityMap> GetMappedEntities()
+{
+	// IMPORTANT!
+	// You must specify which fields are you uploading. These are used to match and update
+	// the records in the server. It's required because you might want to upload only some
+	// fields and keep others unchanged. 
+	// As this information is used to match the records on the server, writing it wrong
+	// can lead into duplicated information.
+	// If the record is not found in the server and must be created, all the fields
+	// will be used because otherwise they would default to null.
+
+	var student = new EntityMap(typeof (Student).Name, typeof (Student).FullName);
+	student.Properties.Add("PersonNumber");
+	student.Properties.Add("FirstName");
+	student.Properties.Add("LastName");
+	student.Properties.Add("MiddleName");
+	student.Properties.Add("Active");
+
+	yield return student;
+
+	var personGroup = new EntityMap(typeof (PersonsGroup).Name, typeof (PersonsGroup).FullName);
+	personGroup.Properties.Add("Name");
+
+	yield return personGroup;
+}
+```
+
+As you can see, we are saying we are importing students and groups. The class PersonsGroupMember is not mapped because it does not contain any simple property, it contains only relationships to other objects (Student and PersonsGroup).
+
+
+## The Plug-in Loader ##
+
+The second and last file you will need is the plug-in loader. Create a class and make it derive from AccudemiaDataX.Core.Plugin, you only have to override one method called Load, where you can choose which plug-ins load at start.
+
+The implementation is trivial, as you only have to bind the IDataSource interface to the class you have built.
+
+```
+public class PluginLoader : Plugin
+{
+	public override void Load()
+	{
+		// Add here all the data sources you want.
+		Bind<IDataSource>().To<MockDataSource>();
+	}
+}
+```
+
+That's all. The only thing you have to do is install the plug-in. Once installed, ADX will scan the assembly at start and search for Plugins, then is when the data source will be registered.
+
+
+
+# Installing the Plugins #
+
+Once you have your assembly compiled, open ADX and sign in using your Accudemia account.
+Go to Tools -> Options in the menu, and select the Plug-ins tab. Once you're there, click Add and select the compiled dll. Click OK, restart the application and you're done!.
+
+![http://bit.ly/gGTzea?a=a.jpg](http://bit.ly/gGTzea?a=a.jpg)
+
+After ADX starts, your plugins should be loaded fine. To test a custom data source for example, click on _New Import Job_ and you should be able to select your data provider from the list displayed in the second step.

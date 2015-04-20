@@ -1,0 +1,124 @@
+# Introduction #
+
+Accudemia Data Exchange (ADX) internal database uses the following columns. This information should not care users as the fields are long enough for most users, however if you are developing for ADX it might be helpful:
+
+|Table|Imported?|Notes|
+|:----|:--------|:----|
+|Terms|
+|Name - text (length: 50)|Required|Primary Key|
+|Start Date - date/time|Required|  |
+|End Date - date/time|Required|  |
+|Center|
+|Name - text (length: 255)|Required|Primary Key|
+|User Group Table|
+|Name - text (length: 255)|Required|Primary Key|
+|Classroom|
+|Name - text (length: 255)|Required|Primary Key|
+|Student|
+|User ID - text (length: 30)|Required|Primary Key|
+|First Name - text (length: 255)|Required|  |
+|Middle Name - text (length: 255)|Optional|  |
+|Last Name - text (length: 255)|Required|  |
+|User Alternate ID - text (length: 30)|Optional|  |
+|Password - text (length: 512)|Optional|  |
+|Email - text (length: 255)|Optional|  |
+|Phone Number - text (length: 255)|Optional|  |
+|Address - text (length: 255)|Optional|  |
+|City - text (length: 255)|Optional|  |
+|State - text (length: 255)|Optional|  |
+|Zip Code - text (length: 255)|Optional|  |
+|Comments - text (length: unlimited)|Optional|  |
+|Active - boolean|Optional|  |
+|Tutor|
+|User ID - text (length: 30)|Required|Primary Key|
+|First Name - text (length: 255)|Required|  |
+|Middle Name - text (length: 255)|Optional|  |
+|Last Name - text (length: 255)|Required|  |
+|User Alternate ID - text (length: 30)|Optional|  |
+|Password - text (length: 512)|Optional|  |
+|Email - text (length: 255)|Optional|  |
+|Phone Number - text (length: 255)|Optional|  |
+|Address - text (length: 255)|Optional|  |
+|City - text (length: 255)|Optional|  |
+|State - text (length: 255)|Optional|  |
+|Zip Code - text (length: 255)|Optional|  |
+|Comments - text (length: 255)|Optional|  |
+|Active - boolean|Optional|  |
+|Instructor|
+|User ID - text (length: 30)|Required|Primary Key|
+|First Name - text (length: 255)|Required|  |
+|Middle Name - text (length: 255)|Optional|  |
+|Last Name - text (length: 255)|Required|  |
+|User Alternate ID - text (length: 30)|Optional|  |
+|Password - text (length: 512)|Optional|  |
+|Email - text (length: 255)|Optional|  |
+|Phone Number - text (length: 255)|Optional|  |
+|Address - text (length: 255)|Optional|  |
+|City - text (length: 255)|Optional|  |
+|State - text (length: 255)|Optional|  |
+|Zip Code - text (length: 255)|Optional|  |
+|Comments - text (length: 255)|Optional|  |
+|Active - boolean|Optional|  |
+|Subject Area|
+|Name - text (length: 255)|Required|Primary Key|
+|Prefix - text (length: 15)|Required|Prefix+Code=Secondary Key|
+|Code - text (length: 15)|Required|Prefix+Code=Secondary Key|
+|Description - text (length: unlimited)|Optional|  |
+|Class|
+|Registration Number - text (length: 30)|Required|Primary Key|
+|Short Name - text (length: 100)|Required|Secondary Key|
+|Postfix - text (length: 15)|Required|Prefix+Code+Postfix=ClassID|
+|Class's Days of Week - (mo/tu/we/th/fr/sa/su)|Optional|_Required for Classroom Attendance_|
+|Class's Start Time - date/time|Optional|_Required for Classroom Attendance_|
+|Class's End Time - date/time|Optional|_Required for Classroom Attendance_|
+|Other - text (length: 20)|Optional|  |
+|Comments - text (length: 200)|Optional|  |
+|Cut-off - number|Optional|  |
+|Tardy - number|Optional|  |
+|Active - boolean|Optional|  |
+
+If you are using the CSV Data Source, boolean fields can be specified using any of the following value pairs:
+
+```
+1/0, Y/N, T/F, True/False, Yes/No (all case insensitive)
+```
+
+
+## How does the ADX engine works? ##
+
+The ADX engine finds duplicates in only the key fields of each entity. That way if you have multiple users with the same name but with different IDs, multiple users are imported.
+
+The key fields used for finding duplicates are the following:
+
+
+Term:
+  * Records with the same _Term Name_ are considered duplicates, and thus only one is kept.
+Center:
+  * Records with the same _Center Name_ are considered duplicates, and thus only one is kept.
+Student:
+  * Records with the same _Student User ID_ are considered duplicates, and thus only one  is kept.
+Tutor:
+  * Records with the same _Tutor User ID_ are considered duplicates, and thus only one is kept.
+Instructor:
+  * Records with the same _Instructor User ID_ are considered duplicates, and thus only one is kept.
+Subject Area:
+  * Records with the same _Subject Area Name_ are considered duplicates, and thus only one is kept.
+  * Records with the same _Prefix_ and _Code_ are considered duplicates, and thus only one is kept.
+Class:
+  * Records with the same _Class Registration Number (CRN)_ are considered duplicates, and thus only one is kept.
+  * Records with the same _Class Short Name_ are considered duplicates, and thus only one is kept.
+  * Records with the same _Subject Area Name_, _Term Name_ and _Postfix_ are considered duplicates, and thus only one is kept.
+Student Enrollment:
+  * Records with the same _Student User ID_ and _Class Registration Number (CRN)_ or _Class Short Name_ are considered duplicates, and thus only one is kept.
+Tutor Assignment:
+  * Records with the same _Tutor User ID_, _Subject Area Name_ and _Term Name_ are considered duplicates, and thus only one is kept.
+Instructor Assignment:
+  * Records with the same _Instructor User ID_ and _Class Registration Number (CRN)_ or _Class Short Name_ are considered duplicates, and thus only one is kept.
+Center:
+  * Records with the same _Center Name_ are considered duplicates, and thus only one is kept.
+User Group:
+  * Records with the same _User Group Name_ are considered duplicates, and thus only one is kept.
+User Group Members:
+  * Records with the same _User Group Name_ and _Student User ID_ are considered duplicates, and thus only one is kept.
+Subject Area - Center Assignment
+  * Records with the same _Subject Area Name_ and _Center Name_ are considered duplicates, and thus only one is kept.
